@@ -10,14 +10,14 @@ class Ocorrencia
 {
 private:
 
-	int horaEntrada;
-	int minEntrada;
-	int horaSaida;
-	int minSaida;
-	int dias;  //caso o veiculo tenha passado mais de um dia no estacionamento.
+	int m_horaEntrada;
+	int m_minEntrada;
+	int m_horaSaida;
+	int m_minSaida;
+	int m_dias;  //caso o veiculo tenha passado mais de um dia no estacionamento.
 
-	int custo; 
-	std::string tipoVeiculo; //se é carro, moto ou caminhão.
+	int m_custo; 
+	std::string m_tipoVeiculo; //se é carro, moto ou caminhão.
 
 public:
 	
@@ -33,7 +33,7 @@ public:
 	int getDias ();
 	int getCusto ();
 	
-	Ocorrencia (int, int, int, int, int, Veiculo &automovel); 
+	Ocorrencia (int, int, int, int, int, Veiculo &automovel_); 
 
 };
 
