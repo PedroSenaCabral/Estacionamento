@@ -31,7 +31,7 @@ Ocorrencia::Ocorrencia (int Hentrada_, int Mentrada_, int Hsaida_, int Msaida_, 
     	m_horaSaida = Hsaida_;
     	m_minSaida = Msaida_;
     	m_dias = dias_;
-		m_tipoVeiculo = automovel.getTipo();
+		m_tipoVeiculo = automovel_.getTipo();
 
 		calcularCusto();  //ja chama a função que calcula o custo para evitar 
 						  //que o usuario tente printar a ocorrencia sem ter o valor de custo
