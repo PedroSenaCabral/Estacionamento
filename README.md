@@ -24,10 +24,13 @@ Instruções
 
 #Crie sua branch : git checkout -b "Nome da sua branch"
 
-#Verifique se voce esta na sua branch: *branch
+#Verifique se voce esta na sua branch: git branch
+#Devera aparecer: *branch 
 
-#Se nao estiver digite : git branch "Nome da branch"
+#Se nao estiver digite : git branch "Nome da sua branch"
 
-#Subindo seus documentos : git add . 
-                           git commit -m "comentario"
-                           git push origin "nome da branch"
+#Subindo seus documentos dentro da sua branch : git add . 
+                                                git commit -m "comentario"
+                                                git push origin "Nome da sua branch"
+
+#Apos isso, vá na area de Issues e veja a lista de problemas a serem resolvidos e entre em uma e de "Assign" em uma delas, caso nao consiga entre em contato. Tarefas podem ser divididas desde que trabalhem em conjunto.
