@@ -11,18 +11,19 @@
 #define VEICULO_h
 
 #include <iostream>
+#include <iostream>
 #include <string>
 
 class Veiculo
-{
+{   
 protected:
-    std::string cor;                  /* Cor do veículo */
-    std::string modelo;              /* Modelo do veículo */
-    std::string placa               /* Identificador único do veículo */
-    std::string tipo               /* Idenficador do tipo de veículo */
-    int         rodas;            /* Quantidade de rodas do veículo */
-    int         ano;             /* Ano do modelo do veículo */
-    int         maxPassageiros; /* Capacidade máxima de passageiros no veículo */
+    std::string m_cor;                  /* Cor do veículo */
+    std::string m_modelo;              /* Modelo do veículo */
+    std::string m_placa;               /* Identificador único do veículo */
+    std::string m_tipo;               /* Idenficador do tipo de veículo */
+    int         m_rodas;            /* Quantidade de rodas do veículo */
+    int         m_ano;             /* Ano do modelo do veículo */
+    int         m_maxPassageiros; /* Capacidade máxima de passageiros no veículo */
 
 public:
 /* Construtores */
@@ -54,11 +55,11 @@ public:
     void setMaxPassageiros(int maxPassageiros);
 
 /* Operadores de inserção e de extração */
-    virtual void print(ostream& cout) = 0;
-    virtual void put(istream& cin) = 0;
+    virtual void print(std::ostream& cout) = 0;
+    virtual void put(std::istream& cin) = 0;
 
-    friend std::istream& operator<<(std::istream & os, Veiculo *v);
-    friend istream& operator>>(std::istream& istr, Veiculo* v);
+    friend std::ostream& operator<<(std::ostream & os, Veiculo* v);
+    friend std::istream& operator>>(std::istream& istr, Veiculo* v);
 
 };
 
