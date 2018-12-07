@@ -1,7 +1,21 @@
+/**
+ * @file moto.cpp
+ * @author Igor Bruno Damasceno (igoor.bruuno@gmail.com)
+ * @brief Implementação da classe Moto para o Projeto de LP I
+ * @version 0.1
+ * @date 12-07-2018
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 #include "moto.h"
 
 using namespace std;
 
+/**
+ * @brief Construtor sem parâmetros da classe Moto. Inicia os atributos como "Nao definidos" e -1.
+ * 
+ */
 Moto::Moto(){
     this->m_cor = "Nao definido";
     this->m_modelo = "Nao definido";
@@ -13,6 +27,18 @@ Moto::Moto(){
     this->m_cilindradas = -1;
 }
 
+/**
+ * @brief Construtor parametrizado da classe Moto.
+ * 
+ * @param cor_ Cor do veículo;
+ * @param modelo_ Modelo do veículo;
+ * @param placa_ Placa do veículo;
+ * @param tipo_ Tipo do veículo (Carro, Moto, Caminhão);
+ * @param rodas_ Quantidade de rodas do veículo;
+ * @param ano_ Ano do veículo;
+ * @param maxPassageiros_ Quantidade máxima de passageiros suportada pelo veículo;
+ * @param cilindradas_ Cilindradas da Moto.
+ */
 Moto::Moto(string cor_, string modelo_, string placa_, string tipo_, int rodas_, int ano_, int maxPassageiros_, int cilindradas_):
     m_cor(cor_),
     m_modelo(modelo_),
@@ -23,26 +49,55 @@ Moto::Moto(string cor_, string modelo_, string placa_, string tipo_, int rodas_,
     m_maxPassageiros(maxPassageiros_), 
     m_cilindradas(cilindradas_){}
 
+/**
+ * @brief Destrutor da Classe Moto. Imprime uma zoeria. xD
+ * 
+ */
 Moto::~Moto(){
     cout << "O grau acabou." << endl;
 }
 
+/**
+ * @brief Sobrecarga do método getTipo da classe Veiculo. Retorna o tipo do veículo (Moto).
+ * 
+ * @return string
+ */
 string Moto::getTipo() override{
     return "Moto";
 }
 
+/**
+ * @brief Sobrecarga do método getConsumoPorKm da classe Veiculo. Retorna o consumo de combustível por Km.
+ * 
+ * @return double 
+ */
 double Moto::getConsumoPorKm() override{
     return 2.0;
 }
 
+/**
+ * @brief Retorna as cilindradas.
+ * 
+ * @return int 
+ */
 int Moto::getCilindradas(){
     return m_cilindradas;
 }
 
+/**
+ * @brief Método de ajuste para as cilindradas da Moto.
+ * 
+ * @param cilindradas_ Novo valor para cilindrada da Moto.
+ */
 void Moto::setCilindradas(int cilindradas_){
     this->m_cilindradas = cilindradas_;
 }
 
+/**
+ * @brief Sobrecarga do método print da classe Veiculo.
+ * 
+ * @param os Fluxo de saída.
+ */
 void Moto::print(ostream &os) override{
     os  << "Cor: " << this->m_cor << std::endl
         << "Modelo: " << this->m_modelo << std::endl
@@ -53,6 +108,13 @@ void Moto::print(ostream &os) override{
         << "Cilindradas: " << this->m_cilindradas;
 }
 
+/**
+ * @brief Sobrecarga do operador de inserção (<<) da classe Moto.
+ * 
+ * @param os Fluxo de saída;
+ * @param m Objeto Moto que será inserido no fluxo.
+ * @return ostream& 
+ */
 ostream& operator<<(ostream& os, Moto& m){
     os << "Cor: " << this->m_cor << std::endl
        << "Modelo: " << this->m_modelo << std::endl
