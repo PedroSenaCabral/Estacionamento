@@ -2,6 +2,7 @@
 #define VEICULO_h
 
 #include <iostream>
+#include <string>
 
 class Veiculo
 {
@@ -15,6 +16,8 @@ private:
 public:
     Veiculo();
     Veiculo(std::string cor, std::string modelo, int rodas, int ano, int maxPassageiros);
+
+    ~Veiculo();
     
     std::string getCor();
     std::string getModelo();
@@ -29,6 +32,9 @@ public:
     void setAno(int ano);
     void setRodas(int quantidade);
     void setMaxPassageiros(int maxPassageiros);
+
+    friend std::ostream& operator<<(std::ostream &os, const Veiculo* v);
+    friend std::istream& operator>>(std::istream &is, Veiculo *v);
 
 };
 
