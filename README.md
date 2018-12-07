@@ -22,6 +22,8 @@ Instruções
 
 #Clone de Repositorio : git clone https://github.com/PedroSenaCabral/Estacionamento.git
 
+#Atualização do repositorio dentro da pasta local: git pull
+
 #Crie sua branch : git checkout -b "Nome da sua branch"
 
 #Verifique se voce esta na sua branch: git branch
