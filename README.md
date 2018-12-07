@@ -17,3 +17,17 @@ Projeto
     * Sobrecarga de Operadores << >>
     * Arquivos
 * Objetivo: Implementar um sistema simples para controle de estacionamentos. O sistema deve controlar veículos de diferentes tipos. Além disso, uma tabela de preços deve ser usada para definir o valor cobrado, levando em conta a hora de entrada, a hora de saída e o tipo do veículo.
+
+Instruções
+
+*Clone de Repositorio : git clone https://github.com/PedroSenaCabral/Estacionamento.git
+
+*Crie sua branch : git checkout -b "Nome da sua branch"
+
+*Verifique se voce esta na sua branch: *<font color="#298A08">Branch</font>
+
+*Se nao estiver digite : git branch "Nome da branch"
+
+*Subindo seus documentos : git add . 
+                           git commit -m "comentario"
+                           git push origin "nome da branch"
