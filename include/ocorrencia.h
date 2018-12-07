@@ -19,6 +19,8 @@ private:
 	int m_custo; 
 	std::string m_tipoVeiculo; //se é carro, moto ou caminhão.
 
+	Tabela tabela;
+
 public:
 	
 	void printOcorrencia();

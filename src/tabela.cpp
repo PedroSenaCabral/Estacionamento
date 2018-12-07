@@ -19,3 +19,7 @@ void Tabela::setPcarro(double _pCarro){ m_pCarro = _pCarro; }
 void Tabela::setPmoto(double _pMoto){ m_pMoto = _pMoto; }
 
 void Tabela::setPcaminhao(double _pCaminhao){ m_pCaminhao = _pCaminhao; }
+
+double Tabela::getValor(std::string tipoVeiculo) {
+	return 0;
+}

@@ -2,6 +2,7 @@
 #define TABELA_H
 
 #include <iostream>
+#include <string>
 
 class Tabela
 {
@@ -24,6 +25,8 @@ public:
 	void setPcarro(double);
 	void setPmoto(double);
 	void setPcaminhao(double);
+
+	double getValor(std::string);
 
 	
 };
