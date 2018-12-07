@@ -12,26 +12,23 @@ private:
     int ano;
     int maxPassageiros;
 
+public:
     Veiculo();
-
-    Veiculo(std::string cor, std::string modelo, int rodas, int ano, int maxPassageiros) : cor(cor),
-            modelo(modelo), rodas(rodas), ano(ano), maxPassageiros(maxPassageiros) {}
+    Veiculo(std::string cor, std::string modelo, int rodas, int ano, int maxPassageiros);
     
-    std::string getCor() { return this->cor; };
-    std::string getModelo() { return this->modelo; };
-
-    int getRodas() {return this->rodas; };
-    
-    int getAno() { return this->ano; };
-    int getMaxPassageiros() { return this->maxPassageiros; };
+    std::string getCor();
+    std::string getModelo();
+    int getRodas();
+    int getAno();
+    int getMaxPassageiros();
 
     virtual double getConsumoPorKM() = 0;
 
-    void setCor(std::string cor) { this->cor = cor;}
-    void setModelo(std::string modelo) { this->modelo = modelo;}
-    void setAno(int ano) { this->ano = ano;}
-    void setRodas(int quantidade) { this->rodas = quantidade;}
-    void setMaxPassageiros(int maxPassageiros) { this->maxPassageiros = maxPassageiros;}
+    void setCor(std::string cor);
+    void setModelo(std::string modelo);
+    void setAno(int ano);
+    void setRodas(int quantidade);
+    void setMaxPassageiros(int maxPassageiros);
 
 };
 
