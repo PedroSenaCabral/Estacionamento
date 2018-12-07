@@ -20,14 +20,14 @@ Projeto
 
 Instruções
 
-*Clone de Repositorio : git clone https://github.com/PedroSenaCabral/Estacionamento.git
+#Clone de Repositorio : git clone https://github.com/PedroSenaCabral/Estacionamento.git
 
-*Crie sua branch : git checkout -b "Nome da sua branch"
+#Crie sua branch : git checkout -b "Nome da sua branch"
 
-*Verifique se voce esta na sua branch: *{c:red}branch{/c}
+#Verifique se voce esta na sua branch: * {c:red}branch{/c}
 
-*Se nao estiver digite : git branch "Nome da branch"
+#Se nao estiver digite : git branch "Nome da branch"
 
-*Subindo seus documentos : git add . 
+#Subindo seus documentos : git add . 
                            git commit -m "comentario"
                            git push origin "nome da branch"
