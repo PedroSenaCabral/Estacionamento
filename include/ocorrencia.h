@@ -33,7 +33,7 @@ public:
 	int getDias ();
 	int getCusto ();
 	
-	Ocorrencia (int, int, int, int, int, Veiculo &automovel); 
+	Ocorrencia (int, int, int, int, int, Veiculo &automovel_); 
 
 };
 
