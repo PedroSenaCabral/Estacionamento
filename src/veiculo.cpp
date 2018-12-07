@@ -43,3 +43,9 @@ ostream& operator<< (ostream& ostr, Veiculo* v)
     v->print(ostr);
     return ostr;
 }
+
+istream& operator>> (istream& istr, Veiculo* v)
+{
+	v->put(istr);
+	return istr;
+}

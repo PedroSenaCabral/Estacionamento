@@ -55,7 +55,10 @@ public:
 
 /* Operadores de inserção e de extração */
     virtual void print(ostream& cout) = 0;
-    friend std::istream& operator>>(std::istream &is, Veiculo *v);
+    virtual void put(istream& cin) = 0;
+
+    friend std::istream& operator<<(std::istream & os, Veiculo *v);
+    friend istream& operator>>(std::istream& istr, Veiculo* v);
 
 };
 
