@@ -5,13 +5,14 @@
 
 class Veiculo
 {
-private:
+protected:
     std::string cor;
     std::string modelo;
     int rodas;
     int ano;
     int maxPassageiros;
 
+public:
     Veiculo();
     Veiculo(std::string cor, std::string modelo, int rodas, int ano, int maxPassageiros);
     ~Veiculo();
