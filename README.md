@@ -24,7 +24,7 @@ Instruções
 
 *Crie sua branch : git checkout -b "Nome da sua branch"
 
-*Verifique se voce esta na sua branch: *<font color="#298A08">Branch</font>
+*Verifique se voce esta na sua branch: *<font color="green">Branch</font>
 
 *Se nao estiver digite : git branch "Nome da branch"
 
