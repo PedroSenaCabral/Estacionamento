@@ -17,18 +17,18 @@
 class Veiculo
 {
 protected:
-    std::string cor;                  /* Cor do veículo */
-    std::string modelo;              /* Modelo do veículo */
-    std::string placa;              /* Identificador único do veículo */
-    std::string tipo;              /* Idenficador do tipo de veículo */
-    int         rodas;            /* Quantidade de rodas do veículo */
-    int         ano;             /* Ano do modelo do veículo */
-    int         maxPassageiros; /* Capacidade máxima de passageiros no veículo */
+    std::string m_cor;                  /* cor do veículo */
+    std::string m_modelo;              /* Modelo do veículo */
+    std::string m_placa;              /* Identificador único do veículo */
+    std::string m_tipo;              /* Idenficador do tipo de veículo */
+    int         m_rodas;            /* Quantidade de rodas do veículo */
+    int         m_ano;             /* Ano do modelo do veículo */
+    int         m_maxPassageiros; /* Capacidade máxima de passageiros no veículo */
 
 public:
 /* Construtores */
     Veiculo();
-    Veiculo(std::string cor, std::string modelo, std::string placa, std::string tipo, int rodas, int ano, int maxPassageiros);
+    Veiculo(std::string cor_, std::string modelo_, std::string placa_, std::string tipo_, int rodas_, int ano_, int maxPassageiros_);
 
 /* Destrutor */
     ~Veiculo();
@@ -46,13 +46,13 @@ public:
     virtual double getConsumoPorKM() = 0;
 
 /* Setters */
-    void setCor(std::string cor);
-    void setModelo(std::string modelo);
-    void setAno(int ano);
-    void setPlaca(std::string placa);
-    void setTipo(std::string tipo);
-    void setRodas(int quantidade);
-    void setMaxPassageiros(int maxPassageiros);
+    void setCor(std::string cor_);
+    void setModelo(std::string modelo_);
+    void setAno(int ano_);
+    void setPlaca(std::string placa_);
+    void setTipo(std::string tipo_);
+    void setRodas(int quantidade_);
+    void setMaxPassageiros(int maxPassageiros_);
 
 /* Operadores de inserção e de extração */
     virtual void print(std::ostream& cout) = 0;

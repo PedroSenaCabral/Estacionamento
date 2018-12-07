@@ -6,9 +6,9 @@
 class Tabela
 {
 private:
-	double pCarro;
-	double pMoto;
-	double pCaminhao;
+	double m_pCarro;
+	double m_pMoto;
+	double m_pCaminhao;
 
 public:
 	Tabela();
