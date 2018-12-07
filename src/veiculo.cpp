@@ -13,20 +13,20 @@ using namespace std;
 /* Construtores */
 Veiculo::Veiculo(){}
 
-Veiculo::Veiculo(std::string cor, std::string modelo, int rodas, int ano, int maxPassageiros) : cor(cor),
-            modelo(modelo), rodas(rodas), ano(ano), maxPassageiros(maxPassageiros) {}
+Veiculo::Veiculo(std::string cor, std::string modelo, std::string placa, std::string tipo, int rodas, int ano, int maxPassageiros) : cor(cor),
+            modelo(modelo), placa(placa), tipo(tipo), rodas(rodas), ano(ano), maxPassageiros(maxPassageiros) {}
 
 /* Destrutor */
 Veiculo::~Veiculo(){}
 
 /* Getters */ 
-string Veiculo::getCor()            { return this->cor; };
-string Veiculo::getModelo()         { return this->modelo; };
-string Veiculo::getPlaca()          { return this->placa; } ;
-string Veiculo::getTipo()           { return this->tipo; };
-int    Veiculo::getRodas()          { return this->rodas; };
-int    Veiculo::getAno()            { return this->ano; };
-int    Veiculo::getMaxPassageiros() { return this->maxPassageiros; };
+string Veiculo::getCor()            { return this->cor; }
+string Veiculo::getModelo()         { return this->modelo; }
+string Veiculo::getPlaca()          { return this->placa; } 
+string Veiculo::getTipo()           { return this->tipo; }
+int    Veiculo::getRodas()          { return this->rodas; }
+int    Veiculo::getAno()            { return this->ano; }
+int    Veiculo::getMaxPassageiros() { return this->maxPassageiros; }
 
 /* Setters */
 void Veiculo::setCor(std::string cor)               { this->cor = cor; }

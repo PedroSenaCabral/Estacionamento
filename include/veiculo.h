@@ -12,14 +12,15 @@
 
 #include <iostream>
 #include <string>
+#include <ostream>
 
 class Veiculo
 {
 protected:
     std::string cor;                  /* Cor do veículo */
     std::string modelo;              /* Modelo do veículo */
-    std::string placa               /* Identificador único do veículo */
-    std::string tipo               /* Idenficador do tipo de veículo */
+    std::string placa;              /* Identificador único do veículo */
+    std::string tipo;              /* Idenficador do tipo de veículo */
     int         rodas;            /* Quantidade de rodas do veículo */
     int         ano;             /* Ano do modelo do veículo */
     int         maxPassageiros; /* Capacidade máxima de passageiros no veículo */
@@ -54,7 +55,7 @@ public:
     void setMaxPassageiros(int maxPassageiros);
 
 /* Operadores de inserção e de extração */
-    virtual void print(ostream& cout) = 0;
+    virtual void print(std::ostream& cout) = 0;
     friend std::istream& operator>>(std::istream &is, Veiculo *v);
 
 };
