@@ -31,7 +31,7 @@ Ocorrencia::Ocorrencia (int Hentrada_, int Mentrada_, int Hsaida_, int Msaida_, 
     	m_horaSaida = Hsaida_;
     	m_minSaida = Msaida_;
     	m_dias = dias_;
-		m_tipoVeiculo = automovel.getTipo();
+		m_tipoVeiculo = automovel_.getTipo();
 
 		calcularCusto();  //ja chama a função que calcula o custo para evitar 
 						  //que o usuario tente printar a ocorrencia sem ter o valor de custo
@@ -100,28 +100,28 @@ Exemplo
 void Ocorrencia::calcularCusto ()
 {
 	if(m_horaEntrada==m_horaSaida){
-		m_custo = Tabela.getValor(m_tipoVeiculo) + 24*m_dias;
+		m_custo = tabela.getValor(m_tipoVeiculo) + 24*m_dias;
 		//ex: ficou 16:10 ate 16:40, não passou uma hora, so paga o valor fixo.
 		}
 
 	if(m_horaEntrada<m_horaSaida && m_minEntrada<=m_minSaida){
-		m_custo = Tabela.getValor(m_tipoVeiculo) + (m_horaSaida-m_horaEntrada) + 24*m_dias;
+		m_custo = tabela.getValor(m_tipoVeiculo) + (m_horaSaida-m_horaEntrada) + 24*m_dias;
 		//ex: ficou 16:10 ate 17:30, paga o acréssimo pela hora passada.
 		}
 
 	if(m_horaEntrada<m_horaSaida && m_minEntrada>m_minSaida){
-		m_custo = Tabela.getValor(m_tipoVeiculo) + (m_horaSaida-m_horaEntrada -1) +24*m_dias;
+		m_custo = tabela.getValor(m_tipoVeiculo) + (m_horaSaida-m_horaEntrada -1) +24*m_dias;
 		//ex: 16:30 ate 18:10, não chegou a passar 2h, por isso, subtraimos 1. 
 		}
 
 	if(m_horaEntrada>m_horaSaida && m_minSaida>=m_minEntrada){
-		m_custo = Tabela.getValor(m_tipoVeiculo) + 24-(m_horaEntrada-m_horaSaida) +24*m_dias;
+		m_custo = tabela.getValor(m_tipoVeiculo) + 24-(m_horaEntrada-m_horaSaida) +24*m_dias;
 		//ex: ficou 16:00 ate 15:10, 24-(16-15) = 23h 
 		//ex2:ficou 23:00 ate 00:00, 24-(23-00) = 01h
 		}
 	
 	if(m_horaEntrada>m_horaSaida && m_minSaida<m_minEntrada){
-		m_custo = Tabela.getValor(m_tipoVeiculo) + 24-(m_horaEntrada-m_horaSaida+1) +24*m_dias; 
+		m_custo = tabela.getValor(m_tipoVeiculo) + 24-(m_horaEntrada-m_horaSaida+1) +24*m_dias; 
 		//ex: ficou 23:10 ate 00:00, 24- (23-0+1) = 0h
 		}
 }

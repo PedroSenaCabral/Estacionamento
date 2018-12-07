@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <string>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 27ce42034cfaf111a25a790cc2105e271b98ab1d
 
 class Tabela
 {
@@ -27,6 +30,8 @@ public:
 	void setPcarro(double);
 	void setPmoto(double);
 	void setPcaminhao(double);
+
+	double getValor(std::string);
 
 	
 };

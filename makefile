@@ -19,11 +19,6 @@ all: $(PROG)
 $(PROG): $(OBJS)
 	$(CC) $(CPPFLAGS) -o $(PROG) $(OBJS)
 
-$(OBJ)/tabela.o: $(INC)/tabela.h
-	$(CC) $(CPPFLAGS) -c $(SRC)/tabela.cpp -o $(OBJ)/tabela.o
-
-$(OBJ)/ocorrencia.o: $(INC)/ocorrencia.h
-	$(CC) $(CPPFLAGS) -c $(SRC)/ocorrencia.cpp -o $(OBJ)/ocorrencia.o
 
 
 $(OBJ)/veiculo.o: $(INC)/veiculo.h
@@ -33,6 +28,11 @@ $(OBJ)/veiculo.o: $(INC)/veiculo.h
 $(OBJ)/carro.o: $(INC)/carro.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/carro.cpp -o $(OBJ)/carro.o
 
+$(OBJ)/tabela.o: $(INC)/tabela.h
+	$(CC) $(CPPFLAGS) -c $(SRC)/tabela.cpp -o $(OBJ)/tabela.o
+
+$(OBJ)/ocorrencia.o: $(INC)/ocorrencia.h
+	$(CC) $(CPPFLAGS) -c $(SRC)/ocorrencia.cpp -o $(OBJ)/ocorrencia.o
 
 $(OBJ)/main.o: $(SRC)/main.cpp 
 	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o
