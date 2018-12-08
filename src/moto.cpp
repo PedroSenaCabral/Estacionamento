@@ -16,16 +16,18 @@ using namespace std;
  * @brief Construtor sem parâmetros da classe Moto. Inicia os atributos como "Nao definidos" e -1.
  * 
  */
-Moto::Moto(){
-    this->m_cor = "Nao definido";
-    this->m_modelo = "Nao definido";
-    this->m_placa = "OOOO-0000";
-    this->m_tipo = "Nao definido";
-    this->m_rodas = -1;
-    this->m_ano = -1;
-    this->m_maxPassageiros = -1;
+/*Moto::Moto(){
+    Veiculo("Nao definido", "Nao definido", "OOOO-0000", "Nao definido", -1, -1, -1);
+    //this->m_cor = "Nao definido";
+    //this->m_modelo = "Nao definido";
+    //this->m_placa = "OOOO-0000";
+    //this->m_tipo = "Nao definido";
+    //this->m_rodas = -1;
+    //this->m_ano = -1;
+    //this->m_maxPassageiros = -1;
     this->m_cilindradas = -1;
 }
+*/
 
 /**
  * @brief Construtor parametrizado da classe Moto.
@@ -40,17 +42,11 @@ Moto::Moto(){
  * @param cilindradas_ Cilindradas da Moto.
  */
 Moto::Moto(string cor_, string modelo_, string placa_, string tipo_, int rodas_, int ano_, int maxPassageiros_, int cilindradas_):
-    m_cor(cor_),
-    m_modelo(modelo_),
-    m_placa(placa_),
-    m_tipo(tipo_),
-    m_rodas(rodas_), 
-    m_ano(ano_), 
-    m_maxPassageiros(maxPassageiros_), 
+    Veiculo(cor_, modelo_, placa_, tipo_, rodas_, ano_, maxPassageiros_), 
     m_cilindradas(cilindradas_){}
 
 /**
- * @brief Destrutor da Classe Moto. Imprime uma zoeria. xD
+ * @brief Destrutor da Classe Moto. Imprime uma zoeria.
  * 
  */
 Moto::~Moto(){
@@ -62,7 +58,7 @@ Moto::~Moto(){
  * 
  * @return string
  */
-string Moto::getTipo() override{
+string Moto::getTipo(){
     return "Moto";
 }
 
@@ -71,7 +67,7 @@ string Moto::getTipo() override{
  * 
  * @return double 
  */
-double Moto::getConsumoPorKm() override{
+double Moto::getConsumoPorKm(){
     return 2.0;
 }
 
@@ -98,14 +94,18 @@ void Moto::setCilindradas(int cilindradas_){
  * 
  * @param os Fluxo de saída.
  */
-void Moto::print(ostream &os) override{
-    os  << "Cor: " << this->m_cor << std::endl
+void Moto::print(ostream &cout){
+    cout<< "Cor: " << this->m_cor << std::endl
         << "Modelo: " << this->m_modelo << std::endl
         << "Placa: " << this->m_placa << std::endl
         << "Número de rodas: " << this->m_rodas << std::endl
         << "Ano: " << this->m_ano << std::endl
         << "Máx Passageiros: " << this->m_maxPassageiros << std::endl
         << "Cilindradas: " << this->m_cilindradas;
+}
+
+void Moto::put(std::istream &cin){
+    cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_cilindradas;
 }
 
 /**
@@ -115,13 +115,13 @@ void Moto::print(ostream &os) override{
  * @param m Objeto Moto que será inserido no fluxo.
  * @return ostream& 
  */
-ostream& operator<<(ostream& os, Moto& m){
-    os << "Cor: " << this->m_cor << std::endl
-       << "Modelo: " << this->m_modelo << std::endl
-       << "Placa: " << this->m_placa << std::endl
-       << "Número de rodas: " << this->m_rodas << std::endl
-       << "Ano: " << this->m_ano << std::endl
-       << "Máx Passageiros: " << this->m_maxPassageiros << std::endl
-       << "Cilindradas: " << this->m_cilindradas;
+ostream &operator<<(ostream &os, Moto &m){
+    os << "Cor: " << m.m_cor << std::endl
+       << "Modelo: " << m.m_modelo << std::endl
+       << "Placa: " << m.m_placa << std::endl
+       << "Número de rodas: " << m.m_rodas << std::endl
+       << "Ano: " << m.m_ano << std::endl
+       << "Máx Passageiros: " << m.m_maxPassageiros << std::endl
+       << "Cilindradas: " << m.m_cilindradas;
     return os;
 }
