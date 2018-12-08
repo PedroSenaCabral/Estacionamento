@@ -9,16 +9,7 @@ e inicializamos os valores padrões. :)
 -1 significa NÃO DEFINIDO
 */
 
-/**
- * @file carro.cpp
- * @author Mateus e Franklin
- * @brief Implementação da classe Carro para o Projeto de LP I
- * @version 0.1
- * @date 12-07-2018
- * 
- * @copyright Copyright (c) 2018
- * 
- */
+
 Carro::Carro() {
 	this->m_cor = "preto";
     this->m_modelo = "Não definido";
@@ -66,7 +57,16 @@ void Carro::print(std::ostream& ostr)
 }
 
 
-
+/**
+ * @file carro.cpp
+ * @author Mateus e Franklin
+ * @brief Implementação da classe Carro para o Projeto de LP I
+ * @version 0.1
+ * @date 12-07-2018
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 void Carro::put(std::istream& cin){
     cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_combustível;
 }
