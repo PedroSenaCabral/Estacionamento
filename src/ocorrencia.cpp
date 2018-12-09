@@ -7,6 +7,7 @@ Ocorrencia::Ocorrencia(Veiculo* veiculo_, string tipo_){
 	this->m_tempo = *agora;
 	this->m_veiculo = veiculo_;
 	this->m_tipo = tipo_;
+	this->m_totalPago = 0;
 }
 
 Ocorrencia::Ocorrencia(string linhaCsv, map<string, Veiculo*> veiculos_){
