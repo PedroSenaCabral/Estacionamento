@@ -22,9 +22,10 @@ int main(int argc, char const *argv[])
 		system("clear");
 		switch(opt) {
 
-			
-
 			case '1':
+
+				
+
 				cout << "ADD Veiculo";
 				break;
 
