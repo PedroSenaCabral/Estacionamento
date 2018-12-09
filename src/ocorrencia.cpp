@@ -1,89 +1,79 @@
-#include <string>
 #include <iostream>
-
+#include <cmath>
 #include "ocorrencia.h"
 
-/*construtor parametrizado, recebe uma referencia para veiculo e pega seu tipo*/
-Ocorrencia::Ocorrencia (int Hentrada_, int Mentrada_, int Hsaida_, int Msaida_, int dias_, Veiculo &automovel_){
-	 if(Hentrada_ < 0||Hentrada_ >24){
-        std::cerr<<" ERRO, hora de entrada invalida. "<<std::endl;
-        }
+Ocorrencia::Ocorrencia(Veiculo* veiculo_, string tipo_){
+	DiaHora* agora = new DiaHora();
+	this->m_tempo = *agora;
+	this->m_veiculo = veiculo_;
+	this->m_tipo = tipo_;
+}
 
-    if(Hsaida_ < 0|| Hsaida_ > 24){
-        std::cerr<<" ERRO, hora de saida invalida. "<<std::endl;
-        }
+Ocorrencia::Ocorrencia(string linhaCsv, map<string, Veiculo*> veiculos_){
+	// recontriur a ocorrencia através da linha csv
 
-    if(Mentrada_ < 0 || Mentrada_ > 60){
-        std::cerr<<" ERRO, minuto de entrada invalido. "<<std::endl; 
-        }
-
-    if(Msaida_ < 0 || Msaida_ > 60){
-        std::cerr<< "ERRO, minuto de saida invalido. "<<std::endl;
-        }
-
-    if(dias_ < 0){
-        std::cerr<< "ERRO, valor de dia invalido. "<<std::endl;
-        }
-
+	vector<string> colunas = this->splitString(linhaCsv, ';');
+	if(colunas.size() != 4){
+		this->m_veiculo = nullptr;
+	}
 	else{
-		m_horaEntrada = Hentrada_;
-    	m_minEntrada = Mentrada_;
-    	m_horaSaida = Hsaida_;
-    	m_minSaida = Msaida_;
-    	m_dias = dias_;
-		m_tipoVeiculo = automovel_.getTipo();
-
-		calcularCusto();  //ja chama a função que calcula o custo para evitar 
-						  //que o usuario tente printar a ocorrencia sem ter o valor de custo
+		this->m_tipo = colunas[0];
+		this->m_veiculo = veiculos_[colunas[1]];
+		this->m_totalPago = stod(colunas[2]);
+		string aux = colunas[3];
+		vector<string> hora_dia = this->splitString(aux, ' ');
+		vector<string> horas = this->splitString(hora_dia[0], ':');
+		vector<string> dias = this->splitString(hora_dia[1], '/');
+		int seg = stoi(horas[2]);
+		int min = stoi(horas[1]);
+		int hora_ = stoi(horas[0]);
+		int dia_ = stoi(dias[0]);
+		int mes = stoi(dias[1]);
+		int ano = stoi(dias[2]);
+		this->m_tempo =  *(new DiaHora(seg, min, hora_, dia_, mes, ano));
 	}
 }
 
+Ocorrencia::~Ocorrencia(){
 
-
-std::string Ocorrencia::getTipoVeiculo()
-{
-	return m_tipoVeiculo;
 }
 
-int Ocorrencia::getHoraEntrada ()
-{
-	return m_horaEntrada;
+/**
+ * @brief	Método auxiliar privado para quebra da string em um vetor de string de acordo com um delimitador
+ *
+ * @param	linha        string a ser quebrada
+ * @param	delimitador  caractere que determina a quebra
+ *
+ * @return 
+ */
+vector<string> Ocorrencia::splitString(string& linha, char delimitador){
+	vector<string> colunas;
+	string buffer = "";
+	for(unsigned i = 0; i < linha.size(); i++){
+		char c = linha[i];
+		if(c == delimitador){
+			colunas.push_back(buffer);
+			buffer = "";
+		}else{
+			string letra(1, c);
+			buffer += letra;
+		};
+	};
+	if(buffer != "") colunas.push_back(buffer);
+	return colunas;
 }
 
-int Ocorrencia::getHoraSaida ()
-{
-	return m_horaSaida;
+DiaHora& Ocorrencia::getTempo(){
+	return this->m_tempo;
 }
 
-int Ocorrencia::getMinEntrada ()
-{
-	return m_minEntrada;
+double Ocorrencia::getTotalPago(){
+	return this->m_totalPago;
 }
 
-int Ocorrencia::getMinSaida ()
-{
-	return m_minSaida;
+string Ocorrencia::getTipo(){
+	return this->m_tipo;
 }
-
-int Ocorrencia::getDias ()
-{
-	return m_dias;
-}
-
-int Ocorrencia::getCusto ()
-{
-	return m_custo;
-}
-
-
-void Ocorrencia::printOcorrencia ()
-{
-	std::cout<<"Veiculo : " <<m_tipoVeiculo <<std::endl;
-	std::cout<<"Entrada : " <<m_horaEntrada <<"h " <<m_minEntrada<<"min "<<std::endl;
-	std::cout<<"Saida : " <<m_horaSaida <<"h " <<m_minSaida<<"min "<<std::endl;
-	std::cout<<"Custo : " <<m_custo<< " R$ "<<std::endl;
-}
-
 
 /*Função de calcular o custo, Funcionamento:
    
@@ -97,33 +87,34 @@ Exemplo
      -saiu as 15:00 do terceiro dia.
 */
 
-void Ocorrencia::calcularCusto ()
+double Ocorrencia::calcularCusto(DiaHora &entrada, Tabela &tab)
 {
-	if(m_horaEntrada==m_horaSaida){
-		m_custo = tabela.getValor(m_tipoVeiculo) + 24*m_dias;
-		//ex: ficou 16:10 ate 16:40, não passou uma hora, so paga o valor fixo.
-		}
-
-	if(m_horaEntrada<m_horaSaida && m_minEntrada<=m_minSaida){
-		m_custo = tabela.getValor(m_tipoVeiculo) + (m_horaSaida-m_horaEntrada) + 24*m_dias;
-		//ex: ficou 16:10 ate 17:30, paga o acréssimo pela hora passada.
-		}
-
-	if(m_horaEntrada<m_horaSaida && m_minEntrada>m_minSaida){
-		m_custo = tabela.getValor(m_tipoVeiculo) + (m_horaSaida-m_horaEntrada -1) +24*m_dias;
-		//ex: 16:30 ate 18:10, não chegou a passar 2h, por isso, subtraimos 1. 
-		}
-
-	if(m_horaEntrada>m_horaSaida && m_minSaida>=m_minEntrada){
-		m_custo = tabela.getValor(m_tipoVeiculo) + 24-(m_horaEntrada-m_horaSaida) +24*m_dias;
-		//ex: ficou 16:00 ate 15:10, 24-(16-15) = 23h 
-		//ex2:ficou 23:00 ate 00:00, 24-(23-00) = 01h
-		}
+	double valorPorHora = 1.0; // deveriamos definir isso na tabela
+	double valorPorDia = 30.0; // idem
+	this->m_totalPago = tab.getValor(this->m_veiculo->getTipo());
 	
-	if(m_horaEntrada>m_horaSaida && m_minSaida<m_minEntrada){
-		m_custo = tabela.getValor(m_tipoVeiculo) + 24-(m_horaEntrada-m_horaSaida+1) +24*m_dias; 
-		//ex: ficou 23:10 ate 00:00, 24- (23-0+1) = 0h
-		}
+	double horasDecimal = this->getTempo().horasDecorridas(entrada);
+	if(horasDecimal < 24.0){
+		this->m_totalPago += valorPorHora*floor(horasDecimal);
+	}
+	else{
+		this->m_totalPago += valorPorDia*floor(horasDecimal/24.0);
+	}
+	return this->getTotalPago();
+}
+
+Veiculo* Ocorrencia::getVeiculo(){
+	return this->m_veiculo;
+}
+
+ostream &operator<<(ostream &os, Ocorrencia &oc){
+    os << oc.getTipo() << " de [" << oc.getVeiculo()->getPlaca() << "] as " << oc.getTempo();
+	os << (oc.getTipo() == "Saida" ? to_string(oc.getTotalPago()) : "");
+    return os;
+}
+
+string Ocorrencia::getLinhaCsv(){
+	return this->m_tipo + ";" + this->m_veiculo->getPlaca() + ";" + to_string(this->m_totalPago) + ";" + this->m_tempo.toString() ;
 }
 
 

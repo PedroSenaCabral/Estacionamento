@@ -2,7 +2,10 @@
 #define _OCORRENCIA_H_
 
 #include <string>
+#include <vector>
+#include <map>
 
+#include "diahora.h"
 #include "veiculo.h"
 #include "tabela.h"
 
@@ -10,33 +13,30 @@ class Ocorrencia
 {
 private:
 
-	int m_horaEntrada;
-	int m_minEntrada;
-	int m_horaSaida;
-	int m_minSaida;
-	int m_dias;  //caso o veiculo tenha passado mais de um dia no estacionamento.
+	DiaHora m_tempo;
 
-	int m_custo; 
-	std::string m_tipoVeiculo; //se é carro, moto ou caminhão.
+	int m_totalPago;
 
-	Tabela tabela;
+	string m_tipo; // Entrada ou Saida
+	Veiculo* m_veiculo;
+
+	/** metodo privado auxiliar auxiliar para separar as informações da ocorrencia para o arquivo csv */
+	vector<string> splitString(string& linha, char delimitador);
 
 public:
 	
-	void printOcorrencia();
-	
-	void calcularCusto ();
+	Ocorrencia(Veiculo* veiculo_, string tipo_ = "Entrada");
+	Ocorrencia(string linhaCsv, map<string, Veiculo*> veiculos_);
+	~Ocorrencia();
 
-	std::string getTipoVeiculo();
-	int getHoraEntrada ();
-	int getHoraSaida ();
-	int getMinEntrada ();
-	int getMinSaida ();
-	int getDias ();
-	int getCusto ();
+	DiaHora& getTempo();
+	double getTotalPago();
+	string getTipo();
+	double calcularCusto(DiaHora &entrada, Tabela &tab);
+	Veiculo* getVeiculo();
 	
-	Ocorrencia (int, int, int, int, int, Veiculo &automovel_); 
-
+	friend ostream &operator<<(ostream &os, Ocorrencia &dt);
+	string getLinhaCsv();
 };
 
 #endif
