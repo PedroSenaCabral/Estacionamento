@@ -28,7 +28,7 @@ public:
   * Contrutor padrão. Constrói um objeto com valores default.
 	*
   */
-  Caminhao::Caminhao();
+  Caminhao();
   /**
   * Contrutor parametrizado. Constrói um objeto apartir dos valores passados no construtor.
 	* @param cor_ O atributo cor que será armazenado.

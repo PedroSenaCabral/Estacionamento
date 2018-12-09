@@ -68,7 +68,7 @@ void Carro::print(std::ostream& ostr)
 
 
 void Carro::put(std::istream& cin){
-    cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_combustível;
+    //cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_combustível;
 }
 
 

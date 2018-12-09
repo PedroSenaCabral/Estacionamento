@@ -10,11 +10,8 @@
 #ifndef VEICULO_h
 #define VEICULO_h
 
-#include <iostream>
-#include <iostream>
 #include <string>
-#include <ostream>
-
+#include <iostream>
 class Veiculo
 {   
 protected:

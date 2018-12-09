@@ -26,6 +26,7 @@ public:
 	double getCombustivel();
 
 	void print(std::ostream& cout);
+	void put(std::istream& cin);
 	void setCombustivel(double quantidade);
 
 };

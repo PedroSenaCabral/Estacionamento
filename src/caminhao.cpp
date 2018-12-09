@@ -7,11 +7,9 @@ Caminhao::Caminhao(string cor, string modelo, string placa, string tipo, int rod
   m_quant_eixos(eixos),m_peso_carga(peso){}
 
 
-Caminhao::Caminhao()
-{
-   Veiculo("Nao definido", "Nao definido", "OOOO-0000", "Nao definido", -1, -1, -1);
-   this->m_peso_carga = -1;
-   this->m_quant_eixos = -1;
+Caminhao::Caminhao():Veiculo("Nao definido", "Nao definido", "OOOO-0000", "Nao definido", -1, -1, -1) { 
+  this->m_peso_carga = -1;
+  this->m_quant_eixos = -1;
 }
 
 Caminhao::~Caminhao(){}
