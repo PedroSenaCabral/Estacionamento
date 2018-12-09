@@ -51,6 +51,10 @@ bool Estacionamento::saidaVeiculo(string placa)
 {
     // o veiculo vai continuar no map para fins de histórico
     // a ocorrencia vai sair do map e ser salva como saída com a hora de saída
+
+
+
+
     return false;
 }
 
@@ -125,7 +129,7 @@ void Estacionamento::iniciarOperacao()
 				{
 
 					string placa;
-					cout << "Digite a placa do veiculo (XXX-NNNN): ";
+					cout << "Digite a placa do veiculo: ";
 					cin >> placa;
 					saidaVeiculo(placa);
 					break;
@@ -175,7 +179,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 				cin >> moto;
 
 				m_veiculos.insert(std::pair<string, Veiculo*>(moto->getPlaca(), moto));
-
+				salvarVeiculoEmArquivo(moto);
 				system("clear");
 
 				cout << "Entrada liberada." << endl;
@@ -191,7 +195,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 				system("clear");
 
 				m_veiculos.insert(std::pair<string, Veiculo*>(carro->getPlaca(), carro));
-
+				
 				cout << "Entrada liberada." << endl;
 
 
