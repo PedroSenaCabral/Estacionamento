@@ -68,7 +68,10 @@ void Carro::print(std::ostream& ostr)
 
 
 void Carro::put(std::istream& cin){
-    //cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_combustível;
+	std::cout<< "Entrada de Veículo - Carro" << std::endl 
+		<< "Por favor, inserir as informções na seguinte ordem:" << std::endl 
+        << "Cor, Modelo, Placa, Num Rodas, Ano, Máx Passageiros, Combustivel." << std::endl;
+    cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_combustivel;
 }
 
 

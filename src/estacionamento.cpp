@@ -170,17 +170,47 @@ void Estacionamento::selecionarTipoVeiculo () {
 		switch(opt) {
 
 			case '1':
+			{
+				Veiculo * moto = new Moto();
+				cin >> moto;
+
+				m_veiculos.insert(std::pair<string, Veiculo*>(moto->getPlaca(), moto));
+
+				system("clear");
+
+				cout << "Entrada liberada." << endl;
 
 				break;
-
-			case '2':
-
+			}
 				
+			case '2':
+			{
+				Veiculo * carro = new Carro();
+				cin >> carro;
+				
+				system("clear");
+
+				m_veiculos.insert(std::pair<string, Veiculo*>(carro->getPlaca(), carro));
+
+				cout << "Entrada liberada." << endl;
+
+
+
+
 				break;
+			}
 
 			case '3':
+			{
+				Veiculo * caminhao = new Caminhao();
+				cin >> caminhao;
 				
+				system("clear");
+
+				cout << "Entrada liberada." << endl;
+
 				break;
+			}
 
 			case '4':
 				sair = true;

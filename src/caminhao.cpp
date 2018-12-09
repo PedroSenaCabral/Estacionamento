@@ -53,6 +53,9 @@ void Caminhao::print(ostream& cout)
 
 void Caminhao::put(istream& cin)
 {
+  std::cout<< "Entrada de Veículo - Caminhao" << std::endl 
+    << "Por favor, inserir as informções na seguinte ordem:" << std::endl 
+    << "Cor, Modelo, Placa, Num Rodas, Ano, Máx Passageiros, Quantidade de Eixo, Peso da carga." << std::endl;
   cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_quant_eixos >> this->m_peso_carga;
 }
 

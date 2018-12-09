@@ -93,7 +93,7 @@ void Moto::print(ostream &cout){
         << "Número de rodas: " << this->m_rodas << std::endl
         << "Ano: " << this->m_ano << std::endl
         << "Máx Passageiros: " << this->m_maxPassageiros << std::endl
-        << "Cilindradas: " << this->m_cilindradas;
+        << "Cilindradas: " << this->m_cilindradas << endl;
 }
 
 /**
@@ -102,6 +102,11 @@ void Moto::print(ostream &cout){
  * @param cin Fluxo de entrada.
  */
 void Moto::put(istream &cin){
+
+    cout<< "Entrada de Veículo - Moto" << std::endl 
+        << "Por favor, inserir as informções na seguinte ordem:" << std::endl 
+        << "Cor, Modelo, Placa, Num Rodas, Ano, Máx Passageiros, Cilindradas." << std::endl;
+
     cin >> this->m_cor
         >> this->m_modelo
         >> this->m_placa 
