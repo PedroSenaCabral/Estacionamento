@@ -190,8 +190,8 @@ void Estacionamento::selecionarTipoVeiculo () {
 				Veiculo * moto = new Moto();
 				cin >> moto;
 
-				m_veiculos.insert(std::pair<string, Veiculo*>(moto->getPlaca(), moto));
-				salvarVeiculoEmArquivo(moto);
+				Ocorrencia * ocorrencia = new Ocorrencia(moto);
+				entradaVeiculo((*moto), (*ocorrencia));
 				system("clear");
 
 				cout << "Entrada liberada." << endl;
@@ -204,10 +204,10 @@ void Estacionamento::selecionarTipoVeiculo () {
 				Veiculo * carro = new Carro();
 				cin >> carro;
 				
-				system("clear");
+				Ocorrencia * ocorrencia = new Ocorrencia(carro);
+				entradaVeiculo((*carro), (*ocorrencia));
 
-				m_veiculos.insert(std::pair<string, Veiculo*>(carro->getPlaca(), carro));
-				
+				system("clear");
 				cout << "Entrada liberada." << endl;
 
 
@@ -220,6 +220,9 @@ void Estacionamento::selecionarTipoVeiculo () {
 			{
 				Veiculo * caminhao = new Caminhao();
 				cin >> caminhao;
+				
+				Ocorrencia * ocorrencia = new Ocorrencia(caminhao);
+				entradaVeiculo((*caminhao), (*ocorrencia));
 				
 				system("clear");
 
