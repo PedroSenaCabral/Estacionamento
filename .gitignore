@@ -6,5 +6,6 @@ build/caminhao.o
 build/ocorrencia.o
 build/estacionamento.o
 build/main.o
+build/diahora.o
 bin/estacionamento
 bin/estacionamento.exe

@@ -42,13 +42,16 @@ bool Estacionamento::isEmpty()
 
 bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
 {
-    // adicionar veículo no map e salvar no arquivo
-    // adcionar ocorencia no map e salvar
-    return false;
+    this->m_veiculos.insert(pair<string, Veiculo*>(novoVeiculo.getPlaca(),&novoVeiculo));
+    this->salvarVeiculoEmArquivo(novoVeiculo);
+    this->m_ocorrencias.insert(pair<string, Ocorrencia*>(novoVeiculo.getPlaca(), &log));
+    this->salvarOcorrenciaEmArquivo(log);
+    return true;
 }
 
 bool Estacionamento::saidaVeiculo(string placa)
 {
+
     // o veiculo vai continuar no map para fins de histórico
     // a ocorrencia vai sair do map e ser salva como saída com a hora de saída
     return false;
@@ -77,7 +80,16 @@ void Estacionamento::listarOcorrenciasTotais()
 
 bool Estacionamento::salvarOcorrenciaEmArquivo(Ocorrencia &log)
 {
-    // abrir arquivo, salvar ocorrencias, fechar arquivo
+    if(log.getVeiculo() != nullptr){
+		ofstream arq(this->m_arquivoOcorrencias,ios_base::app);
+		if(arq.is_open() == 0){
+			cerr << "Nao foi possivel exportar o arquivo de ocorrencias!" << endl;
+        	return false;
+		};
+		arq << log.getLinhaCsv() << endl;
+	}else{
+		cout << "A orcorrencia passa é invalida!" << endl;
+	};
     return false;
 }
 
