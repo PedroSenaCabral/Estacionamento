@@ -11,7 +11,7 @@ INC = ./include
 
 CPPFLAGS = -Wall -pedantic -std=c++11 -I$(INC)
 
-OBJS = $(OBJ)/veiculo.o $(OBJ)/carro.o $(OBJ)/caminhao.o $(OBJ)/moto.o $(OBJ)/tabela.o $(OBJ)/ocorrencia.o $(OBJ)/main.o
+OBJS = $(OBJ)/veiculo.o $(OBJ)/carro.o $(OBJ)/caminhao.o $(OBJ)/moto.o $(OBJ)/tabela.o $(OBJ)/ocorrencia.o $(OBJ)/estacionamento.o $(OBJ)/main.o
 
 all: $(PROG)
 	$(PROG)
@@ -36,6 +36,9 @@ $(OBJ)/tabela.o: $(INC)/tabela.h
 
 $(OBJ)/ocorrencia.o: $(INC)/ocorrencia.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/ocorrencia.cpp -o $(OBJ)/ocorrencia.o
+
+$(OBJ)/estacionamento.o: $(SRC)/estacionamento.cpp 
+	$(CC) $(CPPFLAGS) -c $(SRC)/estacionamento.cpp -o $(OBJ)/estacionamento.o
 
 $(OBJ)/main.o: $(SRC)/main.cpp 
 	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o

@@ -3,6 +3,8 @@ build/tabela.o
 build/moto.o
 build/carro.o
 build/caminhao.o
+build/ocorrencia.o
+build/estacionamento.o
 build/main.o
 bin/estacionamento
 bin/estacionamento.exe
