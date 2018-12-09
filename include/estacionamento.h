@@ -46,6 +46,7 @@ class Estacionamento{
     bool lerArquivoOcorencias();
 
     void iniciarOperacao();
+    void selecionarTipoVeiculo();
 
 };
 

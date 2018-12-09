@@ -109,7 +109,60 @@ void Estacionamento::iniciarOperacao()
 		cout << "Opções: " << endl << 
 			"(1) Entrada de Veiculo" << endl <<
 			"(2) Saida de Veiculo" << endl <<
-			"(3) - Sair" << endl;
+			"(3) Exibir ocorrências" << endl <<
+			"(4) Sair" << endl;
+
+		cin >>  opt;
+
+		system("clear");
+		switch(opt) {
+
+			case '1':
+				selecionarTipoVeiculo();
+				break;
+
+			case '2':
+				{
+
+					string placa;
+					cout << "Digite a placa do veiculo (XXX-NNNN): ";
+					cin >> placa;
+					saidaVeiculo(placa);
+					break;
+				}
+
+			case '3':
+				{
+					listarOcorrenciasTotais();
+					break;
+				}
+
+			case '4':
+				sair = true;
+				break;
+
+			default:
+				cout<< "Opção invalida.\n\n";
+		}
+	}
+
+}
+
+
+void Estacionamento::selecionarTipoVeiculo () {
+
+	 bool sair = false;
+	char opt;
+
+	system("clear");
+
+	while(!sair) {
+
+		cout << "Qual o tipo de veículo? " << endl << 
+			"(1) Moto" << endl <<
+			"(2) Carro" << endl <<
+			"(3) Caminhão" << endl <<
+			"(4) Voltar" << endl;
 
 		cin >>  opt;
 
@@ -118,17 +171,18 @@ void Estacionamento::iniciarOperacao()
 
 			case '1':
 
-				
-
-				cout << "ADD Veiculo";
 				break;
 
 			case '2':
 
-				cout << "Remover Veiculo";
+				
 				break;
 
 			case '3':
+				
+				break;
+
+			case '4':
 				sair = true;
 				break;
 
@@ -136,5 +190,6 @@ void Estacionamento::iniciarOperacao()
 				cout<< "Opção invalida.\n\n";
 		}
 	}
+
 
 }
