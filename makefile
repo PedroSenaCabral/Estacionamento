@@ -43,3 +43,18 @@ $(OBJ)/main.o: $(SRC)/main.cpp
 clean: 
 	rm -f $(BIN)/*
 	rm -f $(OBJ)/*
+
+# propriedades para serem usadas ao compilar no windows com o MinGW com gcc e gdb
+# não usar o comando Make e sim o executável: mingw32-make.exe
+
+mkdirswin:
+	if not exist $(BIN) mkdir "$(BIN)
+	if not exist $(OBJ) mkdir "$(OBJ)
+
+runwin: mkdirswin $(PROG)
+	chcp 65001
+	$(PROG)
+
+cleanwin: 
+	del /q "$(BIN)\*
+	del /q "$(OBJ)\*

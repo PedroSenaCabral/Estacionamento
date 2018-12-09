@@ -1,0 +1,8 @@
+build/veiculo.o
+build/tabela.o
+build/moto.o
+build/carro.o
+build/caminhao.o
+build/main.o
+bin/estacionamento
+bin/estacionamento.exe
