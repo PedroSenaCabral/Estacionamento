@@ -14,13 +14,13 @@ double Tabela::getPmoto(){ return m_pMoto; }
 double Tabela::getPcaminhao(){ return m_pCaminhao; }
 
 double Tabela::getValor(std::string tipo_){
-	if (tipo_ = "carro"){
+	if (tipo_.compare("carro") == 0) {
 		return m_pCarro;
 	}
-	if (tipo_ = "caminhao"){
+	if (tipo_.compare("caminhao") == 0) {
 		return m_pCaminhao;
 	}
-	if (tipo_ = "moto"){
+	if (tipo_.compare("moto") == 0) {
 		return m_pMoto;
 	}
 }
@@ -29,12 +29,4 @@ void Tabela::setPcarro(double _pCarro){ m_pCarro = _pCarro; }
 
 void Tabela::setPmoto(double _pMoto){ m_pMoto = _pMoto; }
 
-<<<<<<< HEAD
-void Tabela::setPcaminhao(double _pCaminhao){ pCaminhao = _pCaminhao; }
-=======
 void Tabela::setPcaminhao(double _pCaminhao){ m_pCaminhao = _pCaminhao; }
-
-double Tabela::getValor(std::string tipoVeiculo) {
-	return 0;
-}
->>>>>>> 27ce42034cfaf111a25a790cc2105e271b98ab1d
