@@ -115,7 +115,7 @@ void Moto::put(istream &cin){
 }
 
 string Moto::toLinhaCsv(){
-    return this->m_placa + ";" + this->m_cor + ";" + this->m_modelo + ";" + to_string(this->m_rodas)  + ";" + to_string(this->m_ano) + ";" + to_string(this->m_maxPassageiros) + ";" + to_string(this->m_cilindradas);
+    return this->m_placa + ";" + this->getTipo() + ";" + this->m_cor + ";" + this->m_modelo + ";" + to_string(this->m_rodas)  + ";" + to_string(this->m_ano) + ";" + to_string(this->m_maxPassageiros) + ";" + to_string(this->m_cilindradas);
 }
 
 /**

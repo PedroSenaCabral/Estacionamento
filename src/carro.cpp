@@ -43,6 +43,10 @@ double Carro::getConsumoPorKM()
 	return 5.0;
 }
 
+string Carro::getTipo(){
+    return "Carro";
+}
+
 void Carro::setCombustivel(double quantidade)
 {
 	this->m_combustivel = quantidade;
@@ -73,7 +77,7 @@ void Carro::put(std::istream& cin){
 }
 
 string Carro::toLinhaCsv(){
-  return this->m_placa + ";" + this->m_cor + ";" + this->m_modelo + ";" + to_string(this->m_rodas)  + ";" + to_string(this->m_ano) + ";" + to_string(this->m_maxPassageiros) + ";" + to_string(this->m_combustivel)  + ";" + to_string(this->m_volumePortaMalas);
+  return this->m_placa + ";" + this->getTipo() + ";" + this->m_cor + ";" + this->m_modelo + ";" + to_string(this->m_rodas)  + ";" + to_string(this->m_ano) + ";" + to_string(this->m_maxPassageiros) + ";" + to_string(this->m_combustivel)  + ";" + to_string(this->m_volumePortaMalas);
 }
 
 ostream& operator<< (ostream& ostr, Carro& c)

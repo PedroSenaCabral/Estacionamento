@@ -12,6 +12,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -26,6 +27,9 @@ protected:
     int         m_ano;             /* Ano do modelo do veículo */
     int         m_maxPassageiros; /* Capacidade máxima de passageiros no veículo */
 
+    /** metodo privado auxiliar auxiliar para separar as informações da ocorrencia para o arquivo csv */
+	vector<string> splitString(string& linha, char delimitador);
+
 public:
 /* Construtores */
     Veiculo();
@@ -38,7 +42,6 @@ public:
     std::string getCor();
     std::string getModelo();
     std::string getPlaca();
-    std::string getTipo();
     int         getRodas();
     int         getAno();
     int         getMaxPassageiros();
@@ -58,8 +61,9 @@ public:
     virtual void print(std::ostream& cout) = 0;
     virtual void put(std::istream& cin) = 0;
     virtual std::string toLinhaCsv() = 0;
+    virtual std::string getTipo() = 0;
 
-    friend std::ostream& operator<<(std::ostream & os, Veiculo& v);
+    friend std::ostream& operator<<(std::ostream& os, Veiculo& v);
     friend std::istream& operator>>(std::istream& istr, Veiculo& v);
 
 };

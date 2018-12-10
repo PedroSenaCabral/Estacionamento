@@ -17,14 +17,14 @@ double Tabela::getPmoto(){ return m_pMoto; }
 double Tabela::getPcaminhao(){ return m_pCaminhao; }
 
 double Tabela::getValor(std::string tipo_) {
-	if (tipo_.compare("carro") == 0) {
+	if (tipo_ == "Carro") {
 		return m_pCarro;
-	} else if (tipo_.compare("caminhao") == 0) {
+	} else if (tipo_ == "Caminhao") {
 		return m_pCaminhao;
-	} else 	if (tipo_.compare("moto") == 0) {
+	} else 	if (tipo_ == "Moto") {
 		return m_pMoto;
 	} else {
-		return -1;
+		return -100;
 	}
 }
 
