@@ -1,17 +1,18 @@
-/**
- * @file carro.cpp
- * @author Mateus e Franklin
- * @brief Implementação da classe 'carro' para o Projeto Final de LP I
- * @version 0.1
- * @date 12-10-2018
- * 
- * @copyright Copyright (c) 2018
- * 
- */
 #include "carro.h"
 #include <string>
 #include <iostream>
 
+/**
+ * @file    carro.cpp
+ * @author  Mateus e Franklin
+ * @brief   Implementação da classe 'carro' para o Projeto Final de LP I
+ * @since   12-06-2018
+ * @date    12-10-2018
+ * @version 1.0
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 /*
 Se inicializa um Carro sem passar as informações, supomos que seja apenas uma carcaça de um carro
 e inicializamos os valores padrões. :)

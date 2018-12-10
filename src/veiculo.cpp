@@ -1,13 +1,16 @@
-/**
- * @file    veiculo.cpp
- * @brief   Implementação da classe abstrata Veículo em C++
- * @author  Dennis Ferreira, Mateus Brito e Lucas Lucena
- * @since   06/12/2018
- * @date    07/12/2018
- * @sa      SIGAA
- */
 
 #include "veiculo.h"
+/**
+ * @file    veiculo.cpp
+ * @author  Dennis Ferreira, Mateus Brito e Lucas Lucena
+ * @brief   Implementação da classe 'tabela' para o Projeto Final de LP I
+ * @since   12-06-2018
+ * @date    12-10-2018
+ * @version 1.0
+ *
+ * @copyright Copyright (c) 2018
+ *
+ */
 
 /* Construtores */
 Veiculo::Veiculo(){}

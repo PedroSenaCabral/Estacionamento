@@ -1,10 +1,11 @@
 #include "caminhao.h"
 /**
- * @file carro.cpp
- * @author Grupo LP 1
- * @brief Implementação da classe 'caminhão' para o Projeto Final de LP I
- * @version 0.1
- * @date 12-10-2018
+ * @file    caminhao.cpp
+ * @author  Grupo LP 1
+ * @brief   Implementação da classe 'caminhão' para o Projeto Final de LP I
+ * @since   12-06-2018
+ * @date    12-10-2018
+ * @version 1.0
  * 
  * @copyright Copyright (c) 2018
  * 

@@ -1,6 +1,13 @@
 /**
- * @file tabela.cpp
- * @brief Implementação da classe Tabela
+ * @file    tabela.cpp
+ * @author  Grupo LP 1
+ * @brief   Implementação da classe 'tabela' para o Projeto Final de LP I
+ * @since   12-06-2018
+ * @date    12-10-2018
+ * @version 1.0
+ * 
+ * @copyright Copyright (c) 2018
+ * 
  */
 #include "tabela.h"
 

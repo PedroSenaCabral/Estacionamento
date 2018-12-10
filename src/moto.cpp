@@ -1,10 +1,11 @@
 /**
- * @file moto.cpp
- * @author Igor Bruno Damasceno (igoor.bruuno@gmail.com)
- * @brief Implementação da classe Moto para o Projeto de LP I
- * @version 0.1
- * @date 12-07-2018
- * 
+ * @file    moto.cpp
+ * @author  Igor Bruno Damasceno (igoor.bruuno@gmail.com)
+ * @brief   Implementação da classe 'Moto' para o Projeto de LP I
+ * @since   12-0602918
+ * @date    12-07-2018
+ * @version 1.0
+ *
  * @copyright Copyright (c) 2018
  * 
  */

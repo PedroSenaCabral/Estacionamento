@@ -3,7 +3,7 @@
  * @brief   Definição da classe abstrata Veículo em C++
  * @author  Dennis Ferreira, Mateus Brito e Lucas Lucena
  * @since   06/12/2018
- * @date    07/12/2018
+ * @date    10/12/2018
  * @sa      SIGAA
  */
 
