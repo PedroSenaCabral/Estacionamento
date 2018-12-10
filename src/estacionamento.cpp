@@ -55,8 +55,18 @@ bool Estacionamento::saidaVeiculo(string placa)
     // o veiculo vai continuar no map para fins de histórico
     // a ocorrencia vai sair do map e ser salva como saída com a hora de saída
 
+	auto it = find_if(m_veiculos.begin(), m_veiculos.end(), BuscarVeiculo(placa));
+	
+	if(it != m_veiculos.end()) {
 
+		cout << "O valor é: ";
+		cout << (*it).first << endl;
 
+	} else {
+
+		cout << "Carro não existe no estacionamento. " << endl;
+
+	}
 
     return false;
 }
@@ -143,6 +153,9 @@ void Estacionamento::iniciarOperacao()
 					string placa;
 					cout << "Digite a placa do veiculo: ";
 					cin >> placa;
+
+					auto it = find_if(m_veiculos.begin(), m_veiculos.end(), BuscarVeiculo(placa));
+
 					saidaVeiculo(placa);
 					break;
 				}
@@ -223,7 +236,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 				
 				Ocorrencia * ocorrencia = new Ocorrencia(caminhao);
 				entradaVeiculo((*caminhao), (*ocorrencia));
-				
+
 				system("clear");
 
 				cout << "Entrada liberada." << endl;

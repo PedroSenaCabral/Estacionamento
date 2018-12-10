@@ -12,6 +12,8 @@
 #include "caminhao.h"
 #include "ocorrencia.h"
 #include "tabela.h"
+#include "buscarVeiculo.h"
+#include <algorithm>
 
 class Estacionamento{
   private:
