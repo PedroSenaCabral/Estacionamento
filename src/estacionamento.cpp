@@ -1,4 +1,6 @@
 #include "estacionamento.h"
+#include "buscarVeiculo.h"
+#include <algorithm>
 
 using std::cin;
 using std::cout;
