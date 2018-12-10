@@ -2,6 +2,16 @@
 #include <cmath>
 #include "ocorrencia.h"
 
+/**
+ * @file carro.cpp
+ * @author Grupo LP 1
+ * @brief Implementação da classe 'ocorrencia' para o Projeto Final de LP I
+ * @version 0.1
+ * @date 12-10-2018
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 Ocorrencia::Ocorrencia(Veiculo* veiculo_, string tipo_){
 	DiaHora* agora = new DiaHora();
 	this->m_tempo = *agora;

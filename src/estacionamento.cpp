@@ -6,6 +6,16 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
+/**
+ * @file carro.cpp
+ * @author Grupo LP 1
+ * @brief Implementação da classe 'estacionamento' para o Projeto Final de LP I
+ * @version 0.1
+ * @date 12-10-2018
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 
 Estacionamento::Estacionamento(int numeroDeVagas, std::string arquivoVeiculos, std::string arquivoOcorrencias) : m_numeroDeVagas(numeroDeVagas), m_arquivoVeiculos(arquivoVeiculos), m_arquivoOcorrencias(arquivoOcorrencias)
 {

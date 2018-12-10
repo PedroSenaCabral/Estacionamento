@@ -1,5 +1,14 @@
 #include "diahora.h"
-
+/**
+ * @file carro.cpp
+ * @author Grupo LP 1
+ * @brief Implementação da classe 'dia' hora para o Projeto Final de LP I
+ * @version 0.1
+ * @date 12-10-2018
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 int DiaHora::m_duracaoMes(int mes){
     mes = (mes == 0) ? this->m_mes : mes;
     if(mes == 2){

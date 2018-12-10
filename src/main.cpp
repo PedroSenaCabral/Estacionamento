@@ -2,6 +2,16 @@
 
 using namespace std;
 
+/**
+ * @file carro.cpp
+ * @author Grupo LP 1
+ * @brief Implementação da 'MAIN' para o Projeto Final de LP I
+ * @version 0.1
+ * @date 12-10-2018
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 int main(int argc, char const *argv[])
 {
 
