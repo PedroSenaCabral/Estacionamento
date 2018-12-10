@@ -67,7 +67,7 @@ bool Estacionamento::saidaVeiculo(string placa)
 		cout << "A placa é: ";
 		cout << (*it).first << endl;
 
-
+		return true;
 
 	} else {
 
