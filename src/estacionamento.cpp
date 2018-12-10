@@ -62,16 +62,16 @@ bool Estacionamento::saidaVeiculo(string placa)
 	
 	if(it != m_veiculos.end()) {
 
-		cout << "O valor é: ";
+		cout << "A placa é: ";
 		cout << (*it).first << endl;
 
 	} else {
 
-		cout << "Carro não existe no estacionamento. " << endl;
-
+		cout << "veículo não existe no estacionamento. " << endl;
+		return false;
 	}
 
-    return false;
+    
 }
 
 void Estacionamento::listarVeiculos()
