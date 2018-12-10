@@ -5,19 +5,23 @@
 #include <string>
 
 
+/**
+ * @file tabela.h
+ * @brief Definição da classe Tabela
+ */
 class Tabela
 {
 private:
-	double m_pCarro;
-	double m_pMoto;
-	double m_pCaminhao;
-	double m_pHora;
-	double m_pDiaria;
+	double m_pCarro; /** Preço do Carro. */
+	double m_pMoto; /** Preço da moto. */
+	double m_pCaminhao; /** Preço do caminhão */
+	double m_pHora; /** Preço por cada hora estacionada */
+	double m_pDiaria; /** Preço da diária. */
 
 public:
-	Tabela();
-	Tabela(double, double, double, double, double);
-	~Tabela();
+	Tabela(); /** Construtor padrão. */
+	Tabela(double, double, double, double, double); /** Construtor parametrizado. */
+	~Tabela(); /** Destrutor */
 
 	/** Getters */
 	double getPcarro();
