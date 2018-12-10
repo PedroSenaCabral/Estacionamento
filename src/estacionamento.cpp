@@ -65,6 +65,8 @@ bool Estacionamento::saidaVeiculo(string placa)
 		cout << "A placa é: ";
 		cout << (*it).first << endl;
 
+
+
 	} else {
 
 		cout << "veículo não existe no estacionamento. " << endl;
@@ -156,9 +158,6 @@ void Estacionamento::iniciarOperacao()
 					string placa;
 					cout << "Digite a placa do veiculo: ";
 					cin >> placa;
-
-					auto it = find_if(m_veiculos.begin(), m_veiculos.end(), BuscarVeiculo(placa));
-
 					saidaVeiculo(placa);
 					break;
 				}
