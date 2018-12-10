@@ -85,17 +85,28 @@ bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
 		cout << "O estacionamento esta lotado, aguarde um pouco" << endl;
 		return false;
 	}
-    if(this->m_veiculos.count(novoVeiculo.getPlaca()) == 0){
-        this->salvarVeiculoEmArquivo(novoVeiculo);
-		this->m_veiculos.insert(pair<string, Veiculo*>(novoVeiculo.getPlaca(),&novoVeiculo));
+
+	if(this->m_ocorrencias.count(novoVeiculo.getPlaca()) == 0)
+	{
+		if(this->m_veiculos.count(novoVeiculo.getPlaca()) == 0){
+	        this->salvarVeiculoEmArquivo(novoVeiculo);
+			this->m_veiculos.insert(pair<string, Veiculo*>(novoVeiculo.getPlaca(),&novoVeiculo));
+		}else{
+			// se já tivermos um veículo com esta placa, não adicionamos novamente ao map
+			// pegamos o ponteiro da primeira entrada
+			cout << "Seja bem vindo de volta!" << endl;
+			log.setVeiculo(this->m_veiculos[novoVeiculo.getPlaca()]);
+	    }
+
+	    this->m_ocorrencias.insert(pair<string, Ocorrencia*>(novoVeiculo.getPlaca(), &log));
+    	this->salvarOcorrenciaEmArquivo(log);
+
 	}else{
-		// se já tivermos um veículo com esta placa, não adicionamos novamente ao map
-		// pegamos o ponteiro da primeira entrada
-		cout << "Seja bem vindo de volta!" << endl;
-		log.setVeiculo(this->m_veiculos[novoVeiculo.getPlaca()]);
+
+    	cout<<"Ja existe um veiculo com essa placa no estacionamento"<<endl;
+    	return false;
     }
-    this->m_ocorrencias.insert(pair<string, Ocorrencia*>(novoVeiculo.getPlaca(), &log));
-    this->salvarOcorrenciaEmArquivo(log);
+
     return true;
 }
 
@@ -343,10 +354,15 @@ void Estacionamento::selecionarTipoVeiculo () {
 				cin >> *moto;
 
 				Ocorrencia * ocorrencia = new Ocorrencia(moto);
-				entradaVeiculo((*moto), (*ocorrencia));
+		
 				system("clear");
 
-				cout << "Entrada liberada." << endl;
+				if(entradaVeiculo((*moto), (*ocorrencia)))
+				{	
+					cout << "Entrada liberada." << endl;
+				}else{
+					cout << "Verifique se os dados estao corretos" << endl;
+				}
 
 				break;
 			}
@@ -357,10 +373,15 @@ void Estacionamento::selecionarTipoVeiculo () {
 				cin >> *carro;
 				
 				Ocorrencia * ocorrencia = new Ocorrencia(carro);
-				entradaVeiculo((*carro), (*ocorrencia));
 
 				system("clear");
-				cout << "Entrada liberada." << endl;
+				
+				if(entradaVeiculo((*carro), (*ocorrencia)))
+				{	
+					cout << "Entrada liberada." << endl;
+				}else{
+					cout << "Verifique se os dados estao corretos" << endl;
+				}
 
 				break;
 			}
@@ -371,11 +392,16 @@ void Estacionamento::selecionarTipoVeiculo () {
 				cin >> *caminhao;
 				
 				Ocorrencia * ocorrencia = new Ocorrencia(caminhao);
-				entradaVeiculo((*caminhao), (*ocorrencia));
 
 				system("clear");
 
-				cout << "Entrada liberada." << endl;
+				if(entradaVeiculo((*caminhao), (*ocorrencia)))
+				{	
+					cout << "Entrada liberada." << endl;
+				}else{
+					cout << "Verifique se os dados estao corretos" << endl;
+				}
+
 
 				break;
 			}
