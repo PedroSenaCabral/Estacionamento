@@ -19,31 +19,31 @@ all: $(PROG)
 $(PROG): $(OBJS)
 	$(CC) $(CPPFLAGS) -o $(PROG) $(OBJS)
 
-$(OBJ)/veiculo.o: $(INC)/veiculo.h
+$(OBJ)/veiculo.o: $(SRC)/veiculo.cpp $(INC)/veiculo.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/veiculo.cpp -o $(OBJ)/veiculo.o
 
-$(OBJ)/diahora.o: $(INC)/diahora.h
+$(OBJ)/diahora.o: $(SRC)/diahora.cpp $(INC)/diahora.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/diahora.cpp -o $(OBJ)/diahora.o
 
-$(OBJ)/carro.o: $(INC)/carro.h
+$(OBJ)/carro.o: $(SRC)/carro.cpp $(INC)/carro.h $(INC)/veiculo.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/carro.cpp -o $(OBJ)/carro.o
 
-$(OBJ)/caminhao.o: $(INC)/caminhao.h
+$(OBJ)/caminhao.o: $(SRC)/caminhao.cpp $(INC)/caminhao.h $(INC)/veiculo.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/caminhao.cpp -o $(OBJ)/caminhao.o
 
-$(OBJ)/moto.o: $(INC)/moto.h
+$(OBJ)/moto.o: $(SRC)/moto.cpp $(INC)/moto.h $(INC)/veiculo.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/moto.cpp -o $(OBJ)/moto.o
 
-$(OBJ)/tabela.o: $(INC)/tabela.h
+$(OBJ)/tabela.o: $(SRC)/tabela.cpp $(INC)/tabela.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/tabela.cpp -o $(OBJ)/tabela.o
 
-$(OBJ)/ocorrencia.o: $(INC)/ocorrencia.h
+$(OBJ)/ocorrencia.o: $(SRC)/ocorrencia.cpp $(INC)/ocorrencia.h $(INC)/diahora.h $(INC)/tabela.h $(INC)/veiculo.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/ocorrencia.cpp -o $(OBJ)/ocorrencia.o
 
-$(OBJ)/estacionamento.o: $(SRC)/estacionamento.cpp 
+$(OBJ)/estacionamento.o: $(SRC)/estacionamento.cpp $(INC)/estacionamento.h $(INC)/veiculo.h $(INC)/moto.h $(INC)/carro.h $(INC)/caminhao.h $(INC)/ocorrencia.h $(INC)/tabela.h $(INC)/buscarVeiculo.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/estacionamento.cpp -o $(OBJ)/estacionamento.o
 
-$(OBJ)/main.o: $(SRC)/main.cpp 
+$(OBJ)/main.o: $(SRC)/main.cpp $(INC)/estacionamento.h
 	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o
 
 clean: 
