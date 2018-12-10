@@ -1,0 +1,36 @@
+\hypertarget{caminhao_8h}{}\section{include/caminhao.h File Reference}
+\label{caminhao_8h}\index{include/caminhao.\+h@{include/caminhao.\+h}}
+
+
+Definição da classe \hyperlink{classCaminhao}{Caminhao} em C++.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}veiculo.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for caminhao.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classCaminhao}{Caminhao}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definição da classe \hyperlink{classCaminhao}{Caminhao} em C++. 
+
+\begin{DoxyAuthor}{Author}
+Victor Bittencourt Mafra Veríssimo (\href{mailto:victor.bmv15@gmail.com}{\tt victor.\+bmv15@gmail.\+com}) 
+\end{DoxyAuthor}
+\begin{DoxySince}{Since}
+06/12/2018 
+\end{DoxySince}
+\begin{DoxyDate}{Date}
+07/12/2018 
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{veiculo_8h}{veiculo.\+h} 
+\end{DoxySeeAlso}

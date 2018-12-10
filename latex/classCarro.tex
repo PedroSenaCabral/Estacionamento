@@ -1,0 +1,70 @@
+\hypertarget{classCarro}{}\section{Carro Class Reference}
+\label{classCarro}\index{Carro@{Carro}}
+
+
+Inheritance diagram for Carro\+:
+% FIG 0
+
+
+Collaboration diagram for Carro\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCarro_aaf29ee243f81f502edf2fd7d6111d305}\label{classCarro_aaf29ee243f81f502edf2fd7d6111d305}} 
+{\bfseries Carro} (string cor, string modelo, string placa, int rodas, int ano, int max\+Passageiros, double combustivel\+\_\+, double volume\+Porla\+Malas\+\_\+)
+\item 
+\mbox{\Hypertarget{classCarro_ac0fa548c440f6db12b86b4b3d347e5bb}\label{classCarro_ac0fa548c440f6db12b86b4b3d347e5bb}} 
+double {\bfseries get\+Consumo\+Por\+KM} ()
+\item 
+\mbox{\Hypertarget{classCarro_a941a00304b070388d58a77a1c47ad7c4}\label{classCarro_a941a00304b070388d58a77a1c47ad7c4}} 
+double {\bfseries get\+Combustivel} ()
+\item 
+\mbox{\Hypertarget{classCarro_a9c1b5709a69b34a406f10301ab98b1c8}\label{classCarro_a9c1b5709a69b34a406f10301ab98b1c8}} 
+double {\bfseries get\+Volume\+Porta\+Malas} ()
+\item 
+\mbox{\Hypertarget{classCarro_a98987e2932fe7ee4051b426b74c7d9cc}\label{classCarro_a98987e2932fe7ee4051b426b74c7d9cc}} 
+string {\bfseries get\+Tipo} ()
+\item 
+\mbox{\Hypertarget{classCarro_a826a4c03c3bf115d0b71bd5504c32a24}\label{classCarro_a826a4c03c3bf115d0b71bd5504c32a24}} 
+void {\bfseries set\+Combustivel} (double quantidade)
+\item 
+\mbox{\Hypertarget{classCarro_ae4624938c5f8f48fc313b3a0a3b6fa48}\label{classCarro_ae4624938c5f8f48fc313b3a0a3b6fa48}} 
+void {\bfseries set\+Volume\+Porta\+Malas} (double volume)
+\item 
+\mbox{\Hypertarget{classCarro_ae358f01446ebc1cf966e233cc26ae5e2}\label{classCarro_ae358f01446ebc1cf966e233cc26ae5e2}} 
+void {\bfseries print} (std\+::ostream \&cout)
+\item 
+\mbox{\Hypertarget{classCarro_a78d2b6f206ba9e33b5df2f4722434bc3}\label{classCarro_a78d2b6f206ba9e33b5df2f4722434bc3}} 
+void {\bfseries put} (std\+::istream \&cin)
+\item 
+\mbox{\Hypertarget{classCarro_ab41a71fde77e7c2c7a1d6f7fa9899970}\label{classCarro_ab41a71fde77e7c2c7a1d6f7fa9899970}} 
+std\+::string {\bfseries to\+Linha\+Csv} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCarro_a7a3158300c210309a0e2019ba0b67ec8}\label{classCarro_a7a3158300c210309a0e2019ba0b67ec8}} 
+std\+::istream \& {\bfseries operator$<$$<$} (std\+::istream \&os, \hyperlink{classCarro}{Carro} \&c)
+\item 
+istream \& \hyperlink{classCarro_a1fb1c0527d5cc52193fc304bc1646864}{operator$>$$>$} (std\+::istream \&istr, \hyperlink{classCarro}{Carro} \&c)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classCarro_a1fb1c0527d5cc52193fc304bc1646864}\label{classCarro_a1fb1c0527d5cc52193fc304bc1646864}} 
+\index{Carro@{Carro}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Carro@{Carro}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{istr,  }\item[{\hyperlink{classCarro}{Carro} \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Sobrecarga do operador de inserção $<$$<$. \begin{DoxyReturn}{Returns}
+istream Retorna uma referência para um objeto ostream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/carro.\+h\item 
+src/\hyperlink{carro_8cpp}{carro.\+cpp}\end{DoxyCompactItemize}

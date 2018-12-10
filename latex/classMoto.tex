@@ -1,0 +1,220 @@
+\hypertarget{classMoto}{}\section{Moto Class Reference}
+\label{classMoto}\index{Moto@{Moto}}
+
+
+Inheritance diagram for Moto\+:
+% FIG 0
+
+
+Collaboration diagram for Moto\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMoto_a2eacbcb3cbcf7015f4229e4f69b04f56}\label{classMoto_a2eacbcb3cbcf7015f4229e4f69b04f56}} 
+\hyperlink{classMoto_a2eacbcb3cbcf7015f4229e4f69b04f56}{Moto} ()
+\begin{DoxyCompactList}\small\item\em Construtor sem parâmetros da classe \hyperlink{classMoto}{Moto}. Inicia os atributos como Padrão, \char`\"{}\+Nao definido\char`\"{} e -\/1. \end{DoxyCompactList}\item 
+\hyperlink{classMoto_a33aaebd3c96762dc92794c69994a27db}{Moto} (string cor\+\_\+, string modelo\+\_\+, string placa\+\_\+, int rodas\+\_\+, int ano\+\_\+, int max\+Passageiros\+\_\+, int cilindradas\+\_\+)
+\begin{DoxyCompactList}\small\item\em Construtor parametrizado da classe \hyperlink{classMoto}{Moto}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMoto_a1f4624ebdd55bdc4a7ec32f70ab9f4ca}\label{classMoto_a1f4624ebdd55bdc4a7ec32f70ab9f4ca}} 
+\hyperlink{classMoto_a1f4624ebdd55bdc4a7ec32f70ab9f4ca}{$\sim$\+Moto} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da Classe \hyperlink{classMoto}{Moto}. Imprime uma zoeria. \end{DoxyCompactList}\item 
+string \hyperlink{classMoto_a5d51c4a754d495c84ec9b7abf5a243e0}{get\+Tipo} ()
+\begin{DoxyCompactList}\small\item\em Sobrecarga do método get\+Tipo da classe \hyperlink{classVeiculo}{Veiculo}. Retorna o tipo do veículo (\hyperlink{classMoto}{Moto}). \end{DoxyCompactList}\item 
+double \hyperlink{classMoto_ab352f37ae3e8f056f177ea64723dabf9}{get\+Consumo\+Por\+KM} () override
+\begin{DoxyCompactList}\small\item\em Sobrecarga do método get\+Consumo\+Por\+Km da classe \hyperlink{classVeiculo}{Veiculo}. Retorna o consumo de combustível por Km. \end{DoxyCompactList}\item 
+int \hyperlink{classMoto_a2161224a091483389bbd25323b7f25e1}{get\+Cilindradas} ()
+\begin{DoxyCompactList}\small\item\em Retorna as cilindradas. \end{DoxyCompactList}\item 
+void \hyperlink{classMoto_a41e3197a2e7ce5e3485b9cd817cb5b41}{set\+Cilindradas} (int cilindradas\+\_\+)
+\begin{DoxyCompactList}\small\item\em Método de ajuste para as cilindradas da \hyperlink{classMoto}{Moto}. \end{DoxyCompactList}\item 
+void \hyperlink{classMoto_a5e1247fc0aa0b19054e2a059d4d413ec}{print} (ostream \&cout)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do método print da classe \hyperlink{classVeiculo}{Veiculo}. \end{DoxyCompactList}\item 
+void \hyperlink{classMoto_a95bb5d4dd623c9c4ad7fa1f219086ca8}{put} (istream \&cin)
+\begin{DoxyCompactList}\small\item\em Sobrecarta do método put da classe \hyperlink{classVeiculo}{Veiculo}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMoto_a0d3390fee0b073d66c3cfbd91fbc867a}\label{classMoto_a0d3390fee0b073d66c3cfbd91fbc867a}} 
+string {\bfseries to\+Linha\+Csv} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classMoto_a892a6e71f09bb2e6b752bf12a72bbdc2}{operator$<$$<$} (ostream \&os, \hyperlink{classMoto}{Moto} \&m)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador de inserção ($<$$<$) da classe \hyperlink{classMoto}{Moto}. \end{DoxyCompactList}\item 
+istream \& \hyperlink{classMoto_ad3715e85f4df49a0e667ba8688afd7cd}{operator$>$$>$} (istream \&is, \hyperlink{classMoto}{Moto} \&m)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador de extração ($>$$>$) da classe \hyperlink{classMoto}{Moto}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMoto_a33aaebd3c96762dc92794c69994a27db}\label{classMoto_a33aaebd3c96762dc92794c69994a27db}} 
+\index{Moto@{Moto}!Moto@{Moto}}
+\index{Moto@{Moto}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{Moto()}{Moto()}}
+{\footnotesize\ttfamily Moto\+::\+Moto (\begin{DoxyParamCaption}\item[{string}]{cor\+\_\+,  }\item[{string}]{modelo\+\_\+,  }\item[{string}]{placa\+\_\+,  }\item[{int}]{rodas\+\_\+,  }\item[{int}]{ano\+\_\+,  }\item[{int}]{max\+Passageiros\+\_\+,  }\item[{int}]{cilindradas\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Construtor parametrizado da classe \hyperlink{classMoto}{Moto}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cor\+\_\+} & Cor do veículo; \\
+\hline
+{\em modelo\+\_\+} & Modelo do veículo; \\
+\hline
+{\em placa\+\_\+} & Placa do veículo; \\
+\hline
+{\em tipo\+\_\+} & Tipo do veículo (\hyperlink{classCarro}{Carro}, \hyperlink{classMoto}{Moto}, Caminhão); \\
+\hline
+{\em rodas\+\_\+} & Quantidade de rodas do veículo; \\
+\hline
+{\em ano\+\_\+} & Ano do veículo; \\
+\hline
+{\em max\+Passageiros\+\_\+} & Quantidade máxima de passageiros suportada pelo veículo; \\
+\hline
+{\em cilindradas\+\_\+} & Cilindradas da \hyperlink{classMoto}{Moto}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMoto_a2161224a091483389bbd25323b7f25e1}\label{classMoto_a2161224a091483389bbd25323b7f25e1}} 
+\index{Moto@{Moto}!get\+Cilindradas@{get\+Cilindradas}}
+\index{get\+Cilindradas@{get\+Cilindradas}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{get\+Cilindradas()}{getCilindradas()}}
+{\footnotesize\ttfamily int Moto\+::get\+Cilindradas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retorna as cilindradas. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMoto_ab352f37ae3e8f056f177ea64723dabf9}\label{classMoto_ab352f37ae3e8f056f177ea64723dabf9}} 
+\index{Moto@{Moto}!get\+Consumo\+Por\+KM@{get\+Consumo\+Por\+KM}}
+\index{get\+Consumo\+Por\+KM@{get\+Consumo\+Por\+KM}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{get\+Consumo\+Por\+K\+M()}{getConsumoPorKM()}}
+{\footnotesize\ttfamily double Moto\+::get\+Consumo\+Por\+KM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sobrecarga do método get\+Consumo\+Por\+Km da classe \hyperlink{classVeiculo}{Veiculo}. Retorna o consumo de combustível por Km. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classVeiculo}{Veiculo}.
+
+\mbox{\Hypertarget{classMoto_a5d51c4a754d495c84ec9b7abf5a243e0}\label{classMoto_a5d51c4a754d495c84ec9b7abf5a243e0}} 
+\index{Moto@{Moto}!get\+Tipo@{get\+Tipo}}
+\index{get\+Tipo@{get\+Tipo}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{get\+Tipo()}{getTipo()}}
+{\footnotesize\ttfamily string Moto\+::get\+Tipo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sobrecarga do método get\+Tipo da classe \hyperlink{classVeiculo}{Veiculo}. Retorna o tipo do veículo (\hyperlink{classMoto}{Moto}). 
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classVeiculo}{Veiculo}.
+
+\mbox{\Hypertarget{classMoto_a5e1247fc0aa0b19054e2a059d4d413ec}\label{classMoto_a5e1247fc0aa0b19054e2a059d4d413ec}} 
+\index{Moto@{Moto}!print@{print}}
+\index{print@{print}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Moto\+::print (\begin{DoxyParamCaption}\item[{ostream \&}]{cout }\end{DoxyParamCaption})}
+
+
+
+Sobrecarga do método print da classe \hyperlink{classVeiculo}{Veiculo}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Fluxo de saída. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMoto_a95bb5d4dd623c9c4ad7fa1f219086ca8}\label{classMoto_a95bb5d4dd623c9c4ad7fa1f219086ca8}} 
+\index{Moto@{Moto}!put@{put}}
+\index{put@{put}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily void Moto\+::put (\begin{DoxyParamCaption}\item[{istream \&}]{cin }\end{DoxyParamCaption})}
+
+
+
+Sobrecarta do método put da classe \hyperlink{classVeiculo}{Veiculo}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cin} & Fluxo de entrada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMoto_a41e3197a2e7ce5e3485b9cd817cb5b41}\label{classMoto_a41e3197a2e7ce5e3485b9cd817cb5b41}} 
+\index{Moto@{Moto}!set\+Cilindradas@{set\+Cilindradas}}
+\index{set\+Cilindradas@{set\+Cilindradas}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{set\+Cilindradas()}{setCilindradas()}}
+{\footnotesize\ttfamily void Moto\+::set\+Cilindradas (\begin{DoxyParamCaption}\item[{int}]{cilindradas\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Método de ajuste para as cilindradas da \hyperlink{classMoto}{Moto}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cilindradas\+\_\+} & Novo valor para cilindrada da \hyperlink{classMoto}{Moto}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classMoto_a892a6e71f09bb2e6b752bf12a72bbdc2}\label{classMoto_a892a6e71f09bb2e6b752bf12a72bbdc2}} 
+\index{Moto@{Moto}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{\hyperlink{classMoto}{Moto} \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Sobrecarga do operador de inserção ($<$$<$) da classe \hyperlink{classMoto}{Moto}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Fluxo de saída; \\
+\hline
+{\em m} & Objeto \hyperlink{classMoto}{Moto} que será inserido no fluxo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ostream\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMoto_ad3715e85f4df49a0e667ba8688afd7cd}\label{classMoto_ad3715e85f4df49a0e667ba8688afd7cd}} 
+\index{Moto@{Moto}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Moto@{Moto}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{is,  }\item[{\hyperlink{classMoto}{Moto} \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Sobrecarga do operador de extração ($>$$>$) da classe \hyperlink{classMoto}{Moto}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & Fluxo de entrada; \\
+\hline
+{\em m} & Objeto \hyperlink{classMoto}{Moto} do qual será extraído do fluxo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+istream\& 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/moto.\+h\item 
+src/\hyperlink{moto_8cpp}{moto.\+cpp}\end{DoxyCompactItemize}
