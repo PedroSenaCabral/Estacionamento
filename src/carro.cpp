@@ -1,7 +1,3 @@
-#include "carro.h"
-#include <string>
-#include <iostream>
-
 /**
  * @file    carro.cpp
  * @author  Mateus e Franklin
@@ -13,6 +9,11 @@
  * @copyright Copyright (c) 2018
  * 
  */
+#include "carro.h"
+#include <string>
+#include <iostream>
+
+
 /*
 Se inicializa um Carro sem passar as informações, supomos que seja apenas uma carcaça de um carro
 e inicializamos os valores padrões. :)
@@ -21,23 +22,13 @@ e inicializamos os valores padrões. :)
 */
 
 
+/** Consturtor padrão */
 Carro::Carro(): Veiculo("Nao definido", "Nao definido", "OOO-0000", -1, -1, -1) { 
   this->m_combustivel = -1;
   this->m_volumePortaMalas = -1;
 }
 
-/**
- * @brief      Construtor parametrizado
- *
- * @param  cor                Cor do carro
- * @param  modelo             Modelo do carro
- * @param  placa              Placa do carro
- * @param  rodas              Quantidade de rodas
- * @param  ano                Ano de Fabricação
- * @param  maxPassageiros     Capacidade máxima de passageiros
- * @param  combustivel_       Capacidade do tanque de combustivel
- * @param  volumePorlaMalas_  Volume do porta malas
- */
+/** Construtor parametrizado. */
 Carro::Carro(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros, double combustivel_, double volumePortaMalas_):
 	Veiculo(cor, modelo, placa, rodas, ano, maxPassageiros), m_combustivel(combustivel_), m_volumePortaMalas(volumePortaMalas_){}
 

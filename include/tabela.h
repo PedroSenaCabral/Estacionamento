@@ -21,7 +21,16 @@ private:
 
 public:
 	Tabela(); /** Construtor padrão. */
-	Tabela(double, double, double, double, double); /** Construtor parametrizado. */
+	/**
+ 	* @brief Construtor parametrizado
+ 	*
+ 	* @param  _pCarro     Preço do Carro
+ 	* @param  _pMoto      Preço da Moto
+ 	* @param  _pCaminhao  Preço do Caminhão
+ 	* @param  _pHora      Preço por hora
+ 	* @param  _pDiaria    Preço por dia
+ 	*/
+	Tabela(double, double, double, double, double);
 	~Tabela(); /** Destrutor */
 
 	/** Getters */

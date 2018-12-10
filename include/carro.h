@@ -23,7 +23,18 @@ public:
 	/** Construtor padrão. */
 	Carro();
 
-	/** Construtor parametrizado. */
+	/**
+	 * @brief      Construtor parametrizado
+	 *
+	 * @param  cor                Cor do carro
+	 * @param  modelo             Modelo do carro
+	 * @param  placa              Placa do carro
+	 * @param  rodas              Quantidade de rodas
+	 * @param  ano                Ano de Fabricação
+	 * @param  maxPassageiros     Capacidade máxima de passageiros
+	 * @param  combustivel_       Capacidade do tanque de combustivel
+	 * @param  volumePorlaMalas_  Volume do porta malas
+	 */
 	Carro(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros, double combustivel_, double volumePorlaMalas_);
 
 	/** Destrutor */

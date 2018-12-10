@@ -17,15 +17,7 @@ Tabela::Tabela():
 	m_pCarro(6.0), m_pMoto(4.0), m_pCaminhao(10.0), m_pHora(1.0), m_pDiaria(20.0)
 {}
 
-/**
- * @brief Construtor parametrizado
- *
- * @param  _pCarro     Preço do Carro
- * @param  _pMoto      Preço da Moto
- * @param  _pCaminhao  Preço do Caminhão
- * @param  _pHora      Preço por hora
- * @param  _pDiaria    Preço por dia
- */
+ /** Construtor parametrizado. */
 Tabela::Tabela(double _pCarro, double _pMoto, double _pCaminhao, double _pHora, double _pDiaria):
 	m_pCarro(_pCarro), m_pMoto(_pMoto), m_pCaminhao(_pCaminhao), m_pHora(_pHora), m_pDiaria(_pDiaria){}
 
