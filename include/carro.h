@@ -26,6 +26,7 @@ public:
 	double getConsumoPorKM();
 	double getCombustivel();
 	double getVolumePortaMalas();
+	string getTipo();
 
 	void setCombustivel(double quantidade);
 	void setVolumePortaMalas(double volume);

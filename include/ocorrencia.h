@@ -32,6 +32,7 @@ public:
 	DiaHora& getTempo();
 	double getTotalPago();
 	string getTipo();
+	void setVeiculo(Veiculo* veic);
 	double calcularCusto(DiaHora &entrada, Tabela &tab);
 	Veiculo* getVeiculo();
 	

@@ -44,11 +44,19 @@ bool Estacionamento::isEmpty()
 
 bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
 {
+	if(this->isFull()){
+		cout << "O estacionamento esta lotado, aguarde um pouco" << endl;
+		return false;
+	}
     if(this->m_veiculos.count(novoVeiculo.getPlaca()) == 0){
-        this->salvarVeiculoEmArquivo(novoVeiculo);    
+        this->salvarVeiculoEmArquivo(novoVeiculo);
+		this->m_veiculos.insert(pair<string, Veiculo*>(novoVeiculo.getPlaca(),&novoVeiculo));
+	}else{
+		// se já tivermos um veículo com esta placa, não adicionamos novamente ao map
+		// pegamos o ponteiro da primeira entrada
+		cout << "Seja bem vindo de volta!" << endl;
+		log.setVeiculo(this->m_veiculos[novoVeiculo.getPlaca()]);
     }
-    this->m_veiculos.insert(pair<string, Veiculo*>(novoVeiculo.getPlaca(),&novoVeiculo));
-    this->salvarVeiculoEmArquivo(novoVeiculo);
     this->m_ocorrencias.insert(pair<string, Ocorrencia*>(novoVeiculo.getPlaca(), &log));
     this->salvarOcorrenciaEmArquivo(log);
     return true;
@@ -56,26 +64,35 @@ bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
 
 bool Estacionamento::saidaVeiculo(string placa)
 {
-
-    // o veiculo vai continuar no map para fins de histórico
-    // a ocorrencia vai sair do map e ser salva como saída com a hora de saída
-
 	auto it = find_if(m_veiculos.begin(), m_veiculos.end(), BuscarVeiculo(placa));
 	
 	if(it != m_veiculos.end()) {
 
-		cout << "A placa é: ";
-		cout << (*it).first << endl;
+		Veiculo* veic = it->second;
 
-		return true;
+		Ocorrencia saida(veic, "Saida");
 
+		if(this->m_ocorrencias.count(placa) == 1){
+
+			Ocorrencia* entrada = this->m_ocorrencias[placa];
+
+			saida.calcularCusto(entrada->getTempo(), this->m_tabelaDePrecos);
+
+			this->m_ocorrencias.erase(placa);
+
+			this->salvarOcorrenciaEmArquivo(saida);
+
+			cout << "Saida de veiculo: " << endl;
+			cout << *veic << endl;
+			cout << "O total pago foi de R$ " << saida.getTotalPago() << endl;
+			return true;
+		}else{
+			cout << "veiculo ja deixou o estacionamento. " << endl;
+		}
 	} else {
-
 		cout << "veículo não existe no estacionamento. " << endl;
-		return false;
 	}
-
-    
+	return false;
 }
 
 void Estacionamento::listarVeiculos()
@@ -104,10 +121,11 @@ bool Estacionamento::salvarOcorrenciaEmArquivo(Ocorrencia &log)
     if(log.getVeiculo() != nullptr){
 		ofstream arq(this->m_arquivoOcorrencias,ios_base::app);
 		if(arq.is_open() == 0){
-			cerr << "Nao foi possivel exportar o arquivo de ocorrencias!" << endl;
+			cerr << "Nao foi possivel exportar para o arquivo de ocorrencias!" << endl;
         	return false;
 		};
 		arq << log.getLinhaCsv() << endl;
+		return true;
 	}else{
 		cout << "A orcorrencia passa é invalida!" << endl;
 	};
@@ -116,7 +134,17 @@ bool Estacionamento::salvarOcorrenciaEmArquivo(Ocorrencia &log)
 
 bool Estacionamento::salvarVeiculoEmArquivo(Veiculo &veic)
 {
-    // abrir arquivo, salvar veículo, fechar arquivo
+        if(veic.getAno() != -1){
+		ofstream arq(this->m_arquivoVeiculos,ios_base::app);
+		if(arq.is_open() == 0){
+			cerr << "Nao foi possivel exportar para o arquivo de veiculos!" << endl;
+        	return false;
+		};
+		arq << veic.toLinhaCsv() << endl;
+		return true;
+	}else{
+		cout << "A orcorrencia passa é invalida!" << endl;
+	};
     return false;
 }
 bool Estacionamento::lerArquivoVeiculos()
@@ -226,9 +254,6 @@ void Estacionamento::selecionarTipoVeiculo () {
 
 				system("clear");
 				cout << "Entrada liberada." << endl;
-
-
-
 
 				break;
 			}

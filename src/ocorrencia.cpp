@@ -76,18 +76,13 @@ string Ocorrencia::getTipo(){
 	return this->m_tipo;
 }
 
-/*Função de calcular o custo, Funcionamento:
-   
-A função assume que cada tipo de veiculo tem um valor fixo para entrar no estacionamento, 
-   a partir dai, é cobrado o valor de 1 real por hora no estacionamento.  
-     		
-Exemplo
-   entrada -> 16:30, saida -> 15:00, e dias = 1, isso quer dizer que:
-     -entrou as 16:30 do primeiro dia,
-     -passou o segundo dia inteiro,	
-     -saiu as 15:00 do terceiro dia.
-*/
+void Ocorrencia::setVeiculo(Veiculo* veic){
+	this->m_veiculo = veic;
+}
 
+/*Função de calcular o custo, Funcionamento:
+ *
+*/
 double Ocorrencia::calcularCusto(DiaHora &entrada, Tabela &tab)
 {
 	double valorPorHora = tab.getPhora(); 
