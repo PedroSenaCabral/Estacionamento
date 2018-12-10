@@ -16,27 +16,27 @@ Collaboration diagram for Caminhao\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classCaminhao_ae2621d6abfa0d9be4c3e3d6ae44a8b88}{Caminhao} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor padrão. \end{DoxyCompactList}\item 
 \hyperlink{classCaminhao_af3cdf63c2b7ff42d61649b1fdb4b540b}{Caminhao} (std\+::string cor\+\_\+, std\+::string modelo\+\_\+, std\+::string placa\+\_\+, int rodas\+\_\+, int ano\+\_\+, int max\+Passageiros\+\_\+, int eixos\+\_\+, double peso\+\_\+)
 \item 
 \hyperlink{classCaminhao_acb8ab61e39d44e1a0e83d2810582ddee}{$\sim$\+Caminhao} ()
 \item 
 string \hyperlink{classCaminhao_aa1d2138301b0c5c8c2e022309ab55bc0}{get\+Tipo} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Método get que retorna o tipo do Veículo que será util na tabela de preços. \end{DoxyCompactList}\item 
 int \hyperlink{classCaminhao_a2f23320651bb9eacb11ac5b260241456}{get\+Eixo} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Método get que retorna a quantidade de eixos. \end{DoxyCompactList}\item 
 double \hyperlink{classCaminhao_a309d69ad26e53f1d704a2878b2c7b17a}{get\+Peso} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Método get que retorna o peso do caminhão. \end{DoxyCompactList}\item 
 double \hyperlink{classCaminhao_a11f7d61727617ffe237ad62ce1ac18ed}{get\+Consumo\+Por\+KM} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Implementacao do metodo virtual da classe base \textquotesingle{}get\+Consumo\+Por\+KM\textquotesingle{}. \end{DoxyCompactList}\item 
 void \hyperlink{classCaminhao_a744ca750962ca3fbabe6caeb2ccd7e02}{set\+Peso} (double peso\+\_\+)
-\item 
+\begin{DoxyCompactList}\small\item\em Método que modifica o valor do peso do caminhão. \end{DoxyCompactList}\item 
 void \hyperlink{classCaminhao_a5ba8b7a769a300b10595a4aa55ccbf8c}{print} (ostream \&cout)
-\item 
+\begin{DoxyCompactList}\small\item\em Implementação do metodo virtual da classe base \textquotesingle{}print\textquotesingle{}. \end{DoxyCompactList}\item 
 void \hyperlink{classCaminhao_a80131907cd5b7ef1d138e70dba4b0c0d}{put} (istream \&cin)
-\item 
+\begin{DoxyCompactList}\small\item\em Implementação do metodo virtual da classe base \textquotesingle{}put\textquotesingle{}. \end{DoxyCompactList}\item 
 string \hyperlink{classCaminhao_aabcf701d339872da35d7a2948b474ec3}{to\+Linha\+Csv} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prepara a linha para o arquivo C\+SV. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -57,6 +57,10 @@ A classe \hyperlink{classCaminhao}{Caminhao} armazena um conjunto de valores, pe
 \index{Caminhao@{Caminhao}!Caminhao@{Caminhao}}
 \subsubsection{\texorpdfstring{Caminhao()}{Caminhao()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Caminhao\+::\+Caminhao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construtor padrão. 
 
 Contrutor padrão. Constrói um objeto com valores default. \mbox{\Hypertarget{classCaminhao_af3cdf63c2b7ff42d61649b1fdb4b540b}\label{classCaminhao_af3cdf63c2b7ff42d61649b1fdb4b540b}} 
 \index{Caminhao@{Caminhao}!Caminhao@{Caminhao}}
@@ -89,7 +93,9 @@ Contrutor parametrizado. Constrói um objeto apartir dos valores passados no con
 \subsubsection{\texorpdfstring{$\sim$\+Caminhao()}{~Caminhao()}}
 {\footnotesize\ttfamily Caminhao\+::$\sim$\+Caminhao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Destrutor. 
+Destrutor.
+
+Destrutor 
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{classCaminhao_a11f7d61727617ffe237ad62ce1ac18ed}\label{classCaminhao_a11f7d61727617ffe237ad62ce1ac18ed}} 
@@ -98,10 +104,16 @@ Destrutor.
 \subsubsection{\texorpdfstring{get\+Consumo\+Por\+K\+M()}{getConsumoPorKM()}}
 {\footnotesize\ttfamily double Caminhao\+::get\+Consumo\+Por\+KM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Implementacao do metodo virtual da classe base \textquotesingle{}get\+Consumo\+Por\+KM\textquotesingle{}. 
+
 Sobrecarga do método get\+Consumo\+Por\+Km da classe \hyperlink{classVeiculo}{Veiculo}. Retorna o consumo de combustível por Km.
 
 \begin{DoxyReturn}{Returns}
-double 
+double
+
+Consumo de combustivel do caminhao. 
 \end{DoxyReturn}
 
 
@@ -113,8 +125,15 @@ Implements \hyperlink{classVeiculo}{Veiculo}.
 \subsubsection{\texorpdfstring{get\+Eixo()}{getEixo()}}
 {\footnotesize\ttfamily int Caminhao\+::get\+Eixo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Método get que retorna a quantidade de eixos. 
+
 Método que retorna a quantidade de eixos. \begin{DoxyReturn}{Returns}
-int 
+int
+\end{DoxyReturn}
+Getters \begin{DoxyReturn}{Returns}
+Variavél do tipo int com a quantidade de eixos. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCaminhao_a309d69ad26e53f1d704a2878b2c7b17a}\label{classCaminhao_a309d69ad26e53f1d704a2878b2c7b17a}} 
 \index{Caminhao@{Caminhao}!get\+Peso@{get\+Peso}}
@@ -122,8 +141,14 @@ int
 \subsubsection{\texorpdfstring{get\+Peso()}{getPeso()}}
 {\footnotesize\ttfamily double Caminhao\+::get\+Peso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Método get que retorna o peso do caminhão. 
+
 Método que retorna o peso do caminhao. \begin{DoxyReturn}{Returns}
-float 
+float
+
+Variavél do tipo double com o peso. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCaminhao_aa1d2138301b0c5c8c2e022309ab55bc0}\label{classCaminhao_aa1d2138301b0c5c8c2e022309ab55bc0}} 
 \index{Caminhao@{Caminhao}!get\+Tipo@{get\+Tipo}}
@@ -131,8 +156,14 @@ float
 \subsubsection{\texorpdfstring{get\+Tipo()}{getTipo()}}
 {\footnotesize\ttfamily string Caminhao\+::get\+Tipo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Método get que retorna o tipo do Veículo que será util na tabela de preços. 
+
 Método que retorna o tipo do objeto. \begin{DoxyReturn}{Returns}
-string 
+string
+
+Variavél do tipo string com a tipo definido para \char`\"{}\+Caminhao\char`\"{}. 
 \end{DoxyReturn}
 
 
@@ -142,28 +173,67 @@ Implements \hyperlink{classVeiculo}{Veiculo}.
 \index{Caminhao@{Caminhao}!print@{print}}
 \index{print@{print}!Caminhao@{Caminhao}}
 \subsubsection{\texorpdfstring{print()}{print()}}
-{\footnotesize\ttfamily void Caminhao\+::print (\begin{DoxyParamCaption}\item[{ostream \&}]{cout }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Caminhao\+::print (\begin{DoxyParamCaption}\item[{ostream \&}]{ct }\end{DoxyParamCaption})}
 
-Método que sobrecarrega o método print da classe \hyperlink{classVeiculo}{Veiculo}. Imprime os dados do caminhao. \mbox{\Hypertarget{classCaminhao_a80131907cd5b7ef1d138e70dba4b0c0d}\label{classCaminhao_a80131907cd5b7ef1d138e70dba4b0c0d}} 
+
+
+Implementação do metodo virtual da classe base \textquotesingle{}print\textquotesingle{}. 
+
+Método que sobrecarrega o método print da classe \hyperlink{classVeiculo}{Veiculo}. Imprime os dados do caminhao.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ct} & Stream de saída com os dados do Caminhão formatados. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCaminhao_a80131907cd5b7ef1d138e70dba4b0c0d}\label{classCaminhao_a80131907cd5b7ef1d138e70dba4b0c0d}} 
 \index{Caminhao@{Caminhao}!put@{put}}
 \index{put@{put}!Caminhao@{Caminhao}}
 \subsubsection{\texorpdfstring{put()}{put()}}
 {\footnotesize\ttfamily void Caminhao\+::put (\begin{DoxyParamCaption}\item[{istream \&}]{cin }\end{DoxyParamCaption})}
 
-Método que sobrecarrega o método put da classe \hyperlink{classVeiculo}{Veiculo}. Recebe os dados do caminhao. \mbox{\Hypertarget{classCaminhao_a744ca750962ca3fbabe6caeb2ccd7e02}\label{classCaminhao_a744ca750962ca3fbabe6caeb2ccd7e02}} 
+
+
+Implementação do metodo virtual da classe base \textquotesingle{}put\textquotesingle{}. 
+
+Método que sobrecarrega o método put da classe \hyperlink{classVeiculo}{Veiculo}. Recebe os dados do caminhao.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cin} & Stream de entrada para guardar os dados do Caminhão. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCaminhao_a744ca750962ca3fbabe6caeb2ccd7e02}\label{classCaminhao_a744ca750962ca3fbabe6caeb2ccd7e02}} 
 \index{Caminhao@{Caminhao}!set\+Peso@{set\+Peso}}
 \index{set\+Peso@{set\+Peso}!Caminhao@{Caminhao}}
 \subsubsection{\texorpdfstring{set\+Peso()}{setPeso()}}
 {\footnotesize\ttfamily void Caminhao\+::set\+Peso (\begin{DoxyParamCaption}\item[{double}]{peso\+\_\+ }\end{DoxyParamCaption})}
 
-Método que atualiza o peso da carga do caminhao. \mbox{\Hypertarget{classCaminhao_aabcf701d339872da35d7a2948b474ec3}\label{classCaminhao_aabcf701d339872da35d7a2948b474ec3}} 
+
+
+Método que modifica o valor do peso do caminhão. 
+
+Método que atualiza o peso da carga do caminhao.
+
+Setters 
+\begin{DoxyParams}{Parameters}
+{\em peso\+\_\+} & Variável do tipo double que terá o novo valor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCaminhao_aabcf701d339872da35d7a2948b474ec3}\label{classCaminhao_aabcf701d339872da35d7a2948b474ec3}} 
 \index{Caminhao@{Caminhao}!to\+Linha\+Csv@{to\+Linha\+Csv}}
 \index{to\+Linha\+Csv@{to\+Linha\+Csv}!Caminhao@{Caminhao}}
 \subsubsection{\texorpdfstring{to\+Linha\+Csv()}{toLinhaCsv()}}
 {\footnotesize\ttfamily string Caminhao\+::to\+Linha\+Csv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Prepara a linha para o arquivo C\+SV. 
+
 Sobrecarga do operador de extração $<$$<$. \begin{DoxyReturn}{Returns}
-ostream Retorna uma referência para um objeto ostream 
+ostream Retorna uma referência para um objeto ostream
+
+Os dados do \hyperlink{classCarro}{Carro} formatados e separados por ponto e virgula. 
 \end{DoxyReturn}
 
 
@@ -186,4 +256,4 @@ istream Retorna uma referência para um objeto ostream
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 include/\hyperlink{caminhao_8h}{caminhao.\+h}\item 
-src/caminhao.\+cpp\end{DoxyCompactItemize}
+src/\hyperlink{caminhao_8cpp}{caminhao.\+cpp}\end{DoxyCompactItemize}
