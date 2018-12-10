@@ -1,3 +1,13 @@
+/**
+ * @file carro.cpp
+ * @author Mateus e Franklin
+ * @brief Implementação da classe 'carro' para o Projeto Final de LP I
+ * @version 0.1
+ * @date 12-10-2018
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 #include "carro.h"
 #include <string>
 #include <iostream>
@@ -9,53 +19,82 @@ e inicializamos os valores padrões. :)
 -1 significa NÃO DEFINIDO
 */
 
-/**
- * @file carro.cpp
- * @author Mateus e Franklin
- * @brief Implementação da classe 'carro' para o Projeto Final de LP I
- * @version 0.1
- * @date 12-10-2018
- * 
- * @copyright Copyright (c) 2018
- * 
- */
+
 Carro::Carro(): Veiculo("Nao definido", "Nao definido", "OOO-0000", -1, -1, -1) { 
   this->m_combustivel = -1;
   this->m_volumePortaMalas = -1;
 }
 
-Carro::Carro(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros, double combustivel_, double volumePorlaMalas_):
-	Veiculo(cor, modelo, placa, rodas, ano, maxPassageiros), m_combustivel(combustivel_), m_volumePortaMalas(volumePorlaMalas_){}
+/**
+ * @brief      Construtor parametrizado
+ *
+ * @param  cor                Cor do carro
+ * @param  modelo             Modelo do carro
+ * @param  placa              Placa do carro
+ * @param  rodas              Quantidade de rodas
+ * @param  ano                Ano de Fabricação
+ * @param  maxPassageiros     Capacidade máxima de passageiros
+ * @param  combustivel_       Capacidade do tanque de combustivel
+ * @param  volumePorlaMalas_  Volume do porta malas
+ */
+Carro::Carro(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros, double combustivel_, double volumePortaMalas_):
+	Veiculo(cor, modelo, placa, rodas, ano, maxPassageiros), m_combustivel(combustivel_), m_volumePortaMalas(volumePortaMalas_){}
 
+/** Destrutor */ 
 Carro::~Carro(){}
 
-double Carro::getCombustivel()
-{
-	return this->m_combustivel;
-}
+/** Getters */
 
-double Carro::getVolumePortaMalas(){
-	return this->m_volumePortaMalas;
-}
+/**
+ * @brief      Método get que retorna a capacidade do tanque de combustivel.
+ *
+ * @return     Variavél do tipo double com a capacidade do tanque.
+ */
+double Carro::getCombustivel(){ return this->m_combustivel; }
 
-double Carro::getConsumoPorKM()
-{
-	return 5.0;
-}
+/**
+ * @brief      Método get que retorna o volume do porta malas.
+ *
+ * @return     Variavél do tipo double com o volume do porta malas.
+ */
+double Carro::getVolumePortaMalas(){ return this->m_volumePortaMalas; }
 
-string Carro::getTipo(){
-    return "Carro";
-}
+/**
+ * @brief      Implementacao do metodo virtual da classe base 'getConsumoPorKM'.
+ *
+ * @return     Consumo de combustivel do carro.
+ */
+double Carro::getConsumoPorKM(){ return 5.0; }
 
-void Carro::setCombustivel(double quantidade)
-{
-	this->m_combustivel = quantidade;
-}
+/**
+ * @brief      Método get que retorna o tipo do Veículo que será util na tabela de preços.
+ *
+ * @return     Variavél do tipo string com a tipo definido para "Carro".
+ */
+string Carro::getTipo(){ return "Carro"; }
 
-void Carro::setVolumePortaMalas(double volume){
-	this->m_volumePortaMalas = volume;
-}
+/** Setters */
 
+
+/**
+ * @brief      Método que modifica a capacidade do tanque de combustivel.
+ *
+ * @param  quantidade  Variável do tipo double que terá o novo valor do tanque.
+ */
+void Carro::setCombustivel(double quantidade){ this->m_combustivel = quantidade; }
+
+/**
+ * @brief      Método que modifica a capacidade do porta malas.
+ *
+ * @param  volume  Variável do tipo double que terá o novo volume do porta malas.
+ */
+void Carro::setVolumePortaMalas(double volume){ this->m_volumePortaMalas = volume; }
+
+/**
+ * @brief      Implementação do metodo virtual da classe base 'print'.
+ *
+ * @param      ct    Stream de saída com os dados do Carro formatados.
+ */
 void Carro::print(ostream& ct)
 {
     ct  << "Cor: " << this->m_cor << std::endl
@@ -69,6 +108,11 @@ void Carro::print(ostream& ct)
         << "Consumo Km/l : " << this->getConsumoPorKM()<< std::endl;
 }
 
+/**
+ * @brief      Método para ler os dados do Carro.
+ *
+ * @param      cin   Stream de entrada para guardar os dados do Carro.
+ */
 void Carro::put(std::istream& cin){
 	std::cout<< "Entrada de Veículo - Carro" << std::endl 
 		<< "Por favor, inserir as informções na seguinte ordem:" << std::endl 
@@ -76,6 +120,11 @@ void Carro::put(std::istream& cin){
     cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_combustivel >> this->m_volumePortaMalas;
 }
 
+/**
+ * @brief      Prepara a linha para o arquivo CSV
+ *
+ * @return     Os dados do Carro formatados e separados por ponto e virgula.
+ */
 string Carro::toLinhaCsv(){
   return this->m_placa + ";" + this->getTipo() + ";" + this->m_cor + ";" + this->m_modelo + ";" + to_string(this->m_rodas)  + ";" + to_string(this->m_ano) + ";" + to_string(this->m_maxPassageiros) + ";" + to_string(this->m_combustivel)  + ";" + to_string(this->m_volumePortaMalas);
 }

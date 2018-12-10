@@ -1,3 +1,8 @@
+/**
+ * @file carro.h
+ * @brief Definição da classe Carro
+ */
+
 #ifndef CARRO_h
 #define CARRO_h
 
@@ -15,10 +20,17 @@ private:
 	double m_volumePortaMalas;
 
 public:
+	/** Construtor padrão. */
 	Carro();
+
+	/** Construtor parametrizado. */
 	Carro(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros, double combustivel_, double volumePorlaMalas_);
 
+	/** Destrutor */
 	~Carro();
+	
+	/** Getters */
+
 	/*
 		Como o atributo é pouco comum, para ganho de eficiência no cadastro ele não estará presente.
 		para adicionar deve usar o método 'set';
@@ -28,20 +40,22 @@ public:
 	double getVolumePortaMalas();
 	string getTipo();
 
+	/** Setters */
+
 	void setCombustivel(double quantidade);
 	void setVolumePortaMalas(double volume);
 
+	/** Operadores de inserção e extração. */
 	void print(std::ostream& cout);
 	void put(std::istream& cin);
-	std::string toLinhaCsv();
-
 	friend std::istream& operator<<(std::istream & os, Carro &c);
-  	/**
-	* Sobrecarga do operador de inserção <<.
-	* @return istream Retorna uma referência para um objeto ostream
-	*/
   	friend istream& operator>>(std::istream& istr, Carro &c);
 
+
+	/** Metódo para formatar a linha pro CSV. */
+	std::string toLinhaCsv();
+
+	
 };
 
 #endif

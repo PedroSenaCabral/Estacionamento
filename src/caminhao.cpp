@@ -12,51 +12,78 @@
 
 
 /**
-*@brief construtor Parametrizado.
-*/
+ * @brief      Construtor Parametrizado.
+ *
+ * @param  cor                Cor do caminhão
+ * @param  modelo             Modelo do caminhão
+ * @param  placa              Placa do caminhão
+ * @param  rodas              Quantidade de rodas
+ * @param  ano                Ano de Fabricação
+ * @param  maxPassageiros     Capacidade máxima de passageiros
+ * @param  eixos              Quantidade de eixos
+ * @param  peso               Peso do caminhão
+ */
 Caminhao::Caminhao(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros,int eixos, double peso):
   Veiculo(cor, modelo, placa, rodas, ano, maxPassageiros),
   m_quant_eixos(eixos),m_peso_carga(peso){}
 
 
+/**
+ * @brief      Construtor padrão
+ */
 Caminhao::Caminhao():Veiculo("Nao definido", "Nao definido", "OOO-0000", -1, -1, -1) { 
   this->m_peso_carga = -1;
   this->m_quant_eixos = -1;
 }
 
+/** Destrutor */
 Caminhao::~Caminhao(){}
 
-int Caminhao::getEixo()
-{
-  return this->m_quant_eixos;
-}
+/** Getters */ 
 
-double Caminhao::getPeso()
-{
-  return this->m_peso_carga;
-}
 /**
-*@brief Implementacao do metodo virtual da classe base 'getConsumoPorKM'.
-*@return Consumo de combustivel do caminhao.
-*/
-double Caminhao::getConsumoPorKM()
-{
-  return 8.5;
-}
+ * @brief      Método get que retorna a quantidade de eixos.
+ *
+ * @return     Variavél do tipo int com a quantidade de eixos.
+ */
+int Caminhao::getEixo(){ return this->m_quant_eixos; }
 
-string Caminhao::getTipo()
-{
-  return "Caminhao";
-}
-
-void Caminhao::setPeso(double peso_)
-{
-  this->m_peso_carga = peso_;
-}
 /**
-*@brief Implementação do metodo virtual da classe base 'print'. 
-*@return Imprime os dados do veículo.
-*/
+ * @brief      Método get que retorna o peso do caminhão.
+ *
+ * @return     Variavél do tipo double com o peso.
+ */
+double Caminhao::getPeso(){ return this->m_peso_carga; }
+
+/**
+ * @brief      Implementacao do metodo virtual da classe base 'getConsumoPorKM'.
+ *
+ * @return     Consumo de combustivel do caminhao.
+ */
+double Caminhao::getConsumoPorKM(){ return 8.5; }
+
+/**
+ * @brief      Método get que retorna o tipo do Veículo que será util na tabela de preços.
+ *
+ * @return     Variavél do tipo string com a tipo definido para "Caminhao".
+ */
+string Caminhao::getTipo(){ return "Caminhao"; }
+
+/** Setters */
+
+
+/**
+ * @brief      Método que modifica o valor do peso do caminhão.
+ *
+ * @param  peso_  Variável do tipo double que terá o novo valor.
+ */
+void Caminhao::setPeso(double peso_){ this->m_peso_carga = peso_; }
+
+/**
+ * @brief      Implementação do metodo virtual da classe base 'print'.
+ *
+ * @param      ct   Stream de saída com os dados do Caminhão formatados.
+ */
 void Caminhao::print(ostream& ct)
 {
     ct  << "Cor: " << this->m_cor << std::endl
@@ -69,10 +96,12 @@ void Caminhao::print(ostream& ct)
         << "Peso da carga : " << this->m_quant_eixos << std::endl
         << "Consumo Km/l : " << this->getConsumoPorKM()<< std::endl;
 }
+
 /**
-*@brief Implementação do metodo virtual da classe base 'put'.
-*@brief Preencher informações do veículo. 
-*/
+ * @brief      Implementação do metodo virtual da classe base 'put'.
+ *
+ * @param      cin   Stream de entrada para guardar os dados do Caminhão.
+ */
 void Caminhao::put(istream& cin)
 {
   std::cout<< "Entrada de Veículo - Caminhao" << std::endl 
@@ -81,18 +110,23 @@ void Caminhao::put(istream& cin)
   cin >> this->m_cor >> this->m_modelo >> this->m_placa >> this->m_rodas >> this->m_ano >> this->m_maxPassageiros >> this->m_quant_eixos >> this->m_peso_carga;
 }
 
+/**
+ * @brief      Prepara a linha para o arquivo CSV
+ *
+ * @return     Os dados do Carro formatados e separados por ponto e virgula.
+ */
 string Caminhao::toLinhaCsv(){
   return this->m_placa + ";" + this->getTipo() + ";" + this->m_cor + ";" + this->m_modelo + ";" + to_string(this->m_rodas)  + ";" + to_string(this->m_ano) + ";" + to_string(this->m_maxPassageiros) + ";" + to_string(this->m_quant_eixos)  + ";" + to_string(this->m_peso_carga);
 }
+
+/** Sobrecarga de operadores */
 
 ostream& operator<< (ostream& ostr, Caminhao& v)
 {
     v.print(ostr);
     return ostr;
 }
-/**
-*@brief Sobrecarga do Operador de incerção '>>'.
-*/
+
 istream& operator>> (istream& istr, Caminhao& v)
 {
 	v.put(istr);

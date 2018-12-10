@@ -1,3 +1,8 @@
+/**
+ * @file tabela.h
+ * @brief Definição da classe Tabela
+ */
+
 #ifndef TABELA_H
 #define TABELA_H
 
@@ -5,10 +10,6 @@
 #include <string>
 
 
-/**
- * @file tabela.h
- * @brief Definição da classe Tabela
- */
 class Tabela
 {
 private:
@@ -27,9 +28,9 @@ public:
 	double getPcarro();
 	double getPmoto();
 	double getPcaminhao();
-	double getValor(std::string tipo_);
 	double getPhora();
 	double getPdiaria();
+	double getValor(std::string tipo_);
 
 	/** Setters */
 	void setPcarro(double);
