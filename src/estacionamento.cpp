@@ -42,6 +42,9 @@ bool Estacionamento::isEmpty()
 
 bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
 {
+    if(this->m_veiculos.count(novoVeiculo.getPlaca()) == 0){
+        this->salvarVeiculoEmArquivo(novoVeiculo);    
+    }
     this->m_veiculos.insert(pair<string, Veiculo*>(novoVeiculo.getPlaca(),&novoVeiculo));
     this->salvarVeiculoEmArquivo(novoVeiculo);
     this->m_ocorrencias.insert(pair<string, Ocorrencia*>(novoVeiculo.getPlaca(), &log));
@@ -201,7 +204,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 			case '1':
 			{
 				Veiculo * moto = new Moto();
-				cin >> moto;
+				cin >> *moto;
 
 				Ocorrencia * ocorrencia = new Ocorrencia(moto);
 				entradaVeiculo((*moto), (*ocorrencia));
@@ -215,7 +218,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 			case '2':
 			{
 				Veiculo * carro = new Carro();
-				cin >> carro;
+				cin >> *carro;
 				
 				Ocorrencia * ocorrencia = new Ocorrencia(carro);
 				entradaVeiculo((*carro), (*ocorrencia));
@@ -232,7 +235,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 			case '3':
 			{
 				Veiculo * caminhao = new Caminhao();
-				cin >> caminhao;
+				cin >> *caminhao;
 				
 				Ocorrencia * ocorrencia = new Ocorrencia(caminhao);
 				entradaVeiculo((*caminhao), (*ocorrencia));

@@ -90,8 +90,8 @@ Exemplo
 
 double Ocorrencia::calcularCusto(DiaHora &entrada, Tabela &tab)
 {
-	double valorPorHora = 1.0; // deveriamos definir isso na tabela
-	double valorPorDia = 30.0; // idem
+	double valorPorHora = tab.getPhora(); 
+	double valorPorDia = tab.getPdiaria(); 
 	this->m_totalPago = tab.getValor(this->m_veiculo->getTipo());
 	
 	double horasDecimal = this->getTempo().horasDecorridas(entrada);

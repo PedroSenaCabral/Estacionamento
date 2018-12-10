@@ -10,14 +10,12 @@
  */
 #include "moto.h"
 
-using namespace std;
-
 /**
  * @brief Construtor sem parâmetros da classe Moto. Inicia os atributos como Padrão, "Nao definido" e -1.
  * 
  */
 Moto::Moto():
-    Veiculo("Nao definido", "Nao definido", "OOOO-0000", "Nao definido", -1, -1, -1), 
+    Veiculo("Nao definido", "Nao definido", "OOO-0000", -1, -1, -1), 
     m_cilindradas(-1){}
 
 /**
@@ -32,8 +30,8 @@ Moto::Moto():
  * @param maxPassageiros_ Quantidade máxima de passageiros suportada pelo veículo;
  * @param cilindradas_ Cilindradas da Moto.
  */
-Moto::Moto(string cor_, string modelo_, string placa_, string tipo_, int rodas_, int ano_, int maxPassageiros_, int cilindradas_):
-    Veiculo(cor_, modelo_, placa_, tipo_, rodas_, ano_, maxPassageiros_), 
+Moto::Moto(string cor_, string modelo_, string placa_, int rodas_, int ano_, int maxPassageiros_, int cilindradas_):
+    Veiculo(cor_, modelo_, placa_, rodas_, ano_, maxPassageiros_), 
     m_cilindradas(cilindradas_){}
 
 /**
@@ -114,6 +112,10 @@ void Moto::put(istream &cin){
         >> this->m_ano 
         >> this->m_maxPassageiros
         >> this->m_cilindradas;
+}
+
+string Moto::toLinhaCsv(){
+    return this->m_placa + ";" + this->m_cor + ";" + this->m_modelo + ";" + to_string(this->m_rodas)  + ";" + to_string(this->m_ano) + ";" + to_string(this->m_maxPassageiros) + ";" + to_string(this->m_cilindradas);
 }
 
 /**

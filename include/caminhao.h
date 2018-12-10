@@ -34,14 +34,13 @@ public:
 	* @param cor_ O atributo cor que será armazenado.
 	* @param modelo_ O atributo modelo que será armazenado.
   * @param placa_ O atributo placa que será armazenado.
-  * @param tipo_ O atributo tipo que será armazenado.
   * @param rodas_ O atributo rodas que será armazenado.
   * @param ano_ O atributo ano que erá armazenado.
   * @param maxPassageiros_ O atributo Max Passageiros que será armazenado.
   * @param eixos_ O atributo eixos que será armazenado.
   * @param peso_ O atributo peso que será armazenado.
   */
-  Caminhao(std::string cor_, std::string modelo_, std::string placa_, std::string tipo_, int rodas_, int ano_, int maxPassageiros_, int eixos_, float peso_);
+  Caminhao(std::string cor_, std::string modelo_, std::string placa_, int rodas_, int ano_, int maxPassageiros_, int eixos_, float peso_);
   /**
   * Destrutor.
   */
@@ -86,12 +85,15 @@ public:
 	* Sobrecarga do operador de extração <<.
 	* @return ostream Retorna uma referência para um objeto ostream
 	*/
-  friend std::istream& operator<<(std::istream & os, Caminhao *v);
+
+  string toLinhaCsv();
+
+  friend std::istream& operator<<(std::istream& os, Caminhao& v);
   /**
 	* Sobrecarga do operador de inserção <<.
 	* @return istream Retorna uma referência para um objeto ostream
 	*/
-  friend istream& operator>>(std::istream& istr, Caminhao *v);
+  friend istream& operator>>(std::istream& istr, Caminhao& v);
 
 };
 

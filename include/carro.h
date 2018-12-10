@@ -12,10 +12,11 @@ private:
 	esta informação pode ser útil para análises.
 	*/
 	double m_combustivel;
+	double m_volumePortaMalas;
 
 public:
 	Carro();
-	Carro(std::string cor, std::string modelo, int rodas, int ano, int maxPassageiros);
+	Carro(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros, double combustivel_, double volumePorlaMalas_);
 
 	~Carro();
 	/*
@@ -24,10 +25,21 @@ public:
 	*/
 	double getConsumoPorKM();
 	double getCombustivel();
+	double getVolumePortaMalas();
+
+	void setCombustivel(double quantidade);
+	void setVolumePortaMalas(double volume);
 
 	void print(std::ostream& cout);
 	void put(std::istream& cin);
-	void setCombustivel(double quantidade);
+	std::string toLinhaCsv();
+
+	friend std::istream& operator<<(std::istream & os, Carro &c);
+  	/**
+	* Sobrecarga do operador de inserção <<.
+	* @return istream Retorna uma referência para um objeto ostream
+	*/
+  	friend istream& operator>>(std::istream& istr, Carro &c);
 
 };
 
