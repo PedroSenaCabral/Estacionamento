@@ -12,9 +12,9 @@ e inicializamos os valores padrões. :)
 /**
  * @file carro.cpp
  * @author Mateus e Franklin
- * @brief Implementação da classe Carro para o Projeto de LP I
+ * @brief Implementação da classe Carro para o Projeto Final de LP I
  * @version 0.1
- * @date 12-07-2018
+ * @date 12-10-2018
  * 
  * @copyright Copyright (c) 2018
  * 

@@ -1,5 +1,19 @@
 #include "caminhao.h"
+/**
+ * @file carro.cpp
+ * @author 
+ * @brief Implementação da classe caminhão para o Projeto Final de LP I
+ * @version 0.1
+ * @date 12-10-2018
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 
+
+/**
+*@brief construtor Parametrizado.
+*/
 Caminhao::Caminhao(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros,int eixos, double peso):
   Veiculo(cor, modelo, placa, rodas, ano, maxPassageiros),
   m_quant_eixos(eixos),m_peso_carga(peso){}
@@ -21,7 +35,10 @@ double Caminhao::getPeso()
 {
   return this->m_peso_carga;
 }
-
+/**
+*@brief Implementacao do metodo virtual da classe base 'getConsumoPorKM'.
+*@return Consumo de combustivel do caminhao.
+*/
 double Caminhao::getConsumoPorKM()
 {
   return 8.5;
@@ -36,6 +53,10 @@ void Caminhao::setPeso(double peso_)
 {
   this->m_peso_carga = peso_;
 }
+/**
+*@brief Implementação do metodo virtual da classe base 'print'. 
+*@return Imprime os dados do veículo.
+*/
 void Caminhao::print(ostream& ct)
 {
     ct  << "Cor: " << this->m_cor << std::endl
@@ -48,7 +69,10 @@ void Caminhao::print(ostream& ct)
         << "Peso da carga : " << this->m_quant_eixos << std::endl
         << "Consumo Km/l : " << this->getConsumoPorKM()<< std::endl;
 }
-
+/**
+*@brief Implementação do metodo virtual da classe base 'put'.
+*@brief Preencher informações do veículo. 
+*/
 void Caminhao::put(istream& cin)
 {
   std::cout<< "Entrada de Veículo - Caminhao" << std::endl 
@@ -66,7 +90,9 @@ ostream& operator<< (ostream& ostr, Caminhao& v)
     v.print(ostr);
     return ostr;
 }
-
+/**
+*@brief Sobrecarga do Operador de incerção '>>'.
+*/
 istream& operator>> (istream& istr, Caminhao& v)
 {
 	v.put(istr);
