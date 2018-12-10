@@ -21,7 +21,7 @@ using namespace std;
 class Caminhao: public Veiculo{
 private:
   int m_quant_eixos; /**< Define a quantidade de eixos do caminhao. */
-  float m_peso_carga; /**< Define o peso da carga do caminhao. */
+  double m_peso_carga; /**< Define o peso da carga do caminhao. */
 
 public:
   /**
@@ -40,7 +40,7 @@ public:
   * @param eixos_ O atributo eixos que será armazenado.
   * @param peso_ O atributo peso que será armazenado.
   */
-  Caminhao(std::string cor_, std::string modelo_, std::string placa_, int rodas_, int ano_, int maxPassageiros_, int eixos_, float peso_);
+  Caminhao(std::string cor_, std::string modelo_, std::string placa_, int rodas_, int ano_, int maxPassageiros_, int eixos_, double peso_);
   /**
   * Destrutor.
   */
@@ -59,7 +59,7 @@ public:
   * Método que retorna o peso do caminhao.
   * @return float
   */
-  float getPeso();
+  double getPeso();
   /**
   * Sobrecarga do método getConsumoPorKm da classe Veiculo. Retorna o consumo de combustível por Km.
   *
@@ -70,7 +70,7 @@ public:
   * Método que atualiza o peso da carga do caminhao.
   *
   */
-  void setPeso(float peso_);
+  void setPeso(double peso_);
   /**
   * Método que sobrecarrega o método print da classe Veiculo. Imprime os dados do caminhao.
   *

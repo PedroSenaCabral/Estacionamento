@@ -9,12 +9,38 @@ using std::string;
 
 Estacionamento::Estacionamento(int numeroDeVagas, std::string arquivoVeiculos, std::string arquivoOcorrencias) : m_numeroDeVagas(numeroDeVagas), m_arquivoVeiculos(arquivoVeiculos), m_arquivoOcorrencias(arquivoOcorrencias)
 {
-    // verificar se o arquivo existe e ler
+    this->lerArquivoVeiculos();
+	this->lerArquivoOcorencias();
 }
 
 Estacionamento::~Estacionamento()
 {
     // deletar os ponteiros para as ocorrencias e veiculos?
+}
+
+/**
+ * @brief	Método auxiliar privado para quebra da string em um vetor de string de acordo com um delimitador
+ *
+ * @param	linha        string a ser quebrada
+ * @param	delimitador  caractere que determina a quebra
+ *
+ * @return 
+ */
+vector<string> Estacionamento::splitString(string& linha, char delimitador){
+	vector<string> colunas;
+	string buffer = "";
+	for(unsigned i = 0; i < linha.size(); i++){
+		char c = linha[i];
+		if(c == delimitador){
+			colunas.push_back(buffer);
+			buffer = "";
+		}else{
+			string letra(1, c);
+			buffer += letra;
+		};
+	};
+	if(buffer != "") colunas.push_back(buffer);
+	return colunas;
 }
 
 int Estacionamento::getNumeroDeVagas()
@@ -97,23 +123,35 @@ bool Estacionamento::saidaVeiculo(string placa)
 
 void Estacionamento::listarVeiculos()
 {
-    // adicionar algum texto indicando que estamos imprimindo a lista de veículos
     for(auto it = this->m_veiculos.begin(); it != this->m_veiculos.end(); it++){
-        cout << it->second << endl;
+		Veiculo* veic = it->second;
+        cout << (*veic) << endl;
     }
 }
 
 void Estacionamento::listarOcorrenciasAbertas()
 {
-    // adicionar algum texto indicando que estamos imprimindo a lista de ocorrencias
-    for(auto it = this->m_veiculos.begin(); it != this->m_veiculos.end(); it++){
-        cout << it->second << endl;
+    for(auto it = this->m_ocorrencias.begin(); it != this->m_ocorrencias.end(); it++){
+		Ocorrencia* oc = it->second;
+        cout << (*oc) << endl;
     }
 }
 
 void Estacionamento::listarOcorrenciasTotais()
 {
-    // interar sobre o arquivo imprimindo todas as ocorrencias
+	ifstream arq(this->m_arquivoOcorrencias);
+    string linha;
+    if(arq.is_open() == 0){
+		cout << "Nao foi possivel acessar o arquivo de ocorrencias!" << endl;
+		cout << "Verifique se ele existe e está acessível." << endl;
+        return;
+    };
+	while(getline(arq, linha)){
+        Ocorrencia* log = new Ocorrencia(linha, this->m_veiculos);
+		if(log->getVeiculo() != nullptr){
+			cout << (*log) << endl;
+		};
+    };
 }
 
 bool Estacionamento::salvarOcorrenciaEmArquivo(Ocorrencia &log)
@@ -149,13 +187,56 @@ bool Estacionamento::salvarVeiculoEmArquivo(Veiculo &veic)
 }
 bool Estacionamento::lerArquivoVeiculos()
 {
-    // reconstruir o map usando o arquivo de veículos
-    return false;
+	ifstream arq(this->m_arquivoVeiculos);
+    string linha;
+    if(arq.is_open() == 0){
+		cout << "Nao foi possivel importar o arquivo de veiculos!" << endl;
+		cout << "Verifique se ele existe e está acessível." << endl;
+        return false;
+    };
+	while(getline(arq, linha)){
+        vector<string> colunas = this->splitString(linha, ';');
+		if(colunas.size() < 8){
+			continue;
+		}else{
+			Veiculo* veic = nullptr;
+			string tipo = colunas[1];
+			if(tipo == "Moto"){
+				veic = new Moto(colunas[2], colunas[3], colunas[0], stoi(colunas[4]), stoi(colunas[5]), stoi(colunas[6]), stoi(colunas[7]));
+			}else if(tipo == "Carro"){
+				veic = new Carro(colunas[2], colunas[3], colunas[0], stoi(colunas[4]), stoi(colunas[5]), stoi(colunas[6]), stod(colunas[7]), stod(colunas[8]));
+			}else if(tipo == "Caminhao"){
+				veic = new Caminhao(colunas[2], colunas[3], colunas[0], stoi(colunas[4]), stoi(colunas[5]), stoi(colunas[6]), stoi(colunas[7]), stod(colunas[8]));
+			};
+			if(veic != nullptr){
+				this->m_veiculos.insert(pair<string, Veiculo*>(veic->getPlaca(), veic));
+			}
+		};
+    };
+	return true;
 }
 bool Estacionamento::lerArquivoOcorencias()
 {
-    // reconstruir o map usando o arquivo de ocorrencias
-    return false;
+	ifstream arq(this->m_arquivoOcorrencias);
+    string linha;
+    if(arq.is_open() == 0){
+		cout << "Nao foi possivel importar o arquivo de ocorrencias!" << endl;
+		cout << "Verifique se ele existe e está acessível." << endl;
+        return false;
+    };
+	while(getline(arq, linha)){
+        Ocorrencia* log = new Ocorrencia(linha, this->m_veiculos);
+		if(log->getVeiculo() != nullptr){
+			if(this->m_ocorrencias.count(log->getVeiculo()->getPlaca()) == 1){
+				// se já tem uma ocorrencia igual, está ocorrencia é de saída, então removemos a ocorrencia de entrada
+				this->m_ocorrencias.erase(log->getVeiculo()->getPlaca());
+			}else{
+				// se não, é uma ocorrencia de entrada, então inseriomos
+				this->m_ocorrencias.insert(pair<string, Ocorrencia*>(log->getVeiculo()->getPlaca(), log));
+			};
+		};
+    };
+	return true;
 }
 
 void Estacionamento::iniciarOperacao()
@@ -170,8 +251,10 @@ void Estacionamento::iniciarOperacao()
 		cout << "Opções: " << endl << 
 			"(1) Entrada de Veiculo" << endl <<
 			"(2) Saida de Veiculo" << endl <<
-			"(3) Exibir ocorrências" << endl <<
-			"(4) Sair" << endl;
+			"(3) Exibir Ocorrências Abertas" << endl <<
+			"(4) Listar Veiculos Cadastros" << endl <<
+			"(5) Historico de Ocorrências" << endl <<
+			"(6) Sair" << endl;
 
 		cin >>  opt;
 
@@ -179,7 +262,7 @@ void Estacionamento::iniciarOperacao()
 		switch(opt) {
 
 			case '1':
-				selecionarTipoVeiculo();
+				this->selecionarTipoVeiculo();
 				break;
 
 			case '2':
@@ -188,19 +271,32 @@ void Estacionamento::iniciarOperacao()
 					string placa;
 					cout << "Digite a placa do veiculo: ";
 					cin >> placa;
-					saidaVeiculo(placa);
+					this->saidaVeiculo(placa);
 					break;
 				}
 
 			case '3':
 				{
-					listarOcorrenciasTotais();
+					this->listarOcorrenciasAbertas();
 					break;
 				}
 
 			case '4':
+				{
+					this->listarVeiculos();
+					break;
+				}
+
+			case '5':
+				{
+					this->listarOcorrenciasTotais();
+					break;
+				}
+				
+			case '6':
 				sair = true;
 				break;
+
 
 			default:
 				cout<< "Opção invalida.\n\n";

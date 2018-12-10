@@ -27,6 +27,9 @@ class Estacionamento{
     std::string m_arquivoVeiculos;
     std::string m_arquivoOcorrencias;
     
+    /** metodo privado auxiliar auxiliar para separar as informações da ocorrencia para o arquivo csv */
+	  vector<string> splitString(string& linha, char delimitador);
+
   public:
     Estacionamento(int numeroDeVagas, std::string arquivoVeiculos, std::string arquivoOcorrencias);
     ~Estacionamento();

@@ -18,31 +18,6 @@ Veiculo::Veiculo(std::string cor, std::string modelo, std::string placa, int rod
 /* Destrutor */
 Veiculo::~Veiculo(){}
 
-/**
- * @brief	Método auxiliar privado para quebra da string em um vetor de string de acordo com um delimitador
- *
- * @param	linha        string a ser quebrada
- * @param	delimitador  caractere que determina a quebra
- *
- * @return 
- */
-vector<string> Veiculo::splitString(string& linha, char delimitador){
-	vector<string> colunas;
-	string buffer = "";
-	for(unsigned i = 0; i < linha.size(); i++){
-		char c = linha[i];
-		if(c == delimitador){
-			colunas.push_back(buffer);
-			buffer = "";
-		}else{
-			string letra(1, c);
-			buffer += letra;
-		};
-	};
-	if(buffer != "") colunas.push_back(buffer);
-	return colunas;
-}
-
 /* Getters */ 
 
 string Veiculo::getCor()            { return this->m_cor; }

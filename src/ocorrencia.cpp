@@ -105,7 +105,7 @@ Veiculo* Ocorrencia::getVeiculo(){
 
 ostream &operator<<(ostream &os, Ocorrencia &oc){
     os << oc.getTipo() << " de [" << oc.getVeiculo()->getPlaca() << "] as " << oc.getTempo();
-	os << (oc.getTipo() == "Saida" ? to_string(oc.getTotalPago()) : "");
+	os << (oc.getTipo() == "Saida" ? " | Valor pago: R$ " + to_string(oc.getTotalPago()) : "");
     return os;
 }
 

@@ -27,9 +27,6 @@ protected:
     int         m_ano;             /* Ano do modelo do veículo */
     int         m_maxPassageiros; /* Capacidade máxima de passageiros no veículo */
 
-    /** metodo privado auxiliar auxiliar para separar as informações da ocorrencia para o arquivo csv */
-	vector<string> splitString(string& linha, char delimitador);
-
 public:
 /* Construtores */
     Veiculo();

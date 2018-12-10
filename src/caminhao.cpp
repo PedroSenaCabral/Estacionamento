@@ -1,6 +1,6 @@
 #include "caminhao.h"
 
-Caminhao::Caminhao(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros,int eixos, float peso):
+Caminhao::Caminhao(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros,int eixos, double peso):
   Veiculo(cor, modelo, placa, rodas, ano, maxPassageiros),
   m_quant_eixos(eixos),m_peso_carga(peso){}
 
@@ -17,7 +17,7 @@ int Caminhao::getEixo()
   return this->m_quant_eixos;
 }
 
-float Caminhao::getPeso()
+double Caminhao::getPeso()
 {
   return this->m_peso_carga;
 }
@@ -32,7 +32,7 @@ string Caminhao::getTipo()
   return "Caminhao";
 }
 
-void Caminhao::setPeso(float peso_)
+void Caminhao::setPeso(double peso_)
 {
   this->m_peso_carga = peso_;
 }
