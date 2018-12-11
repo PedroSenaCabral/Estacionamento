@@ -12,18 +12,7 @@
 #include "caminhao.h"
 
 
-/**
- * @brief      Construtor Parametrizado.
- *
- * @param  cor                Cor do caminhão
- * @param  modelo             Modelo do caminhão
- * @param  placa              Placa do caminhão
- * @param  rodas              Quantidade de rodas
- * @param  ano                Ano de Fabricação
- * @param  maxPassageiros     Capacidade máxima de passageiros
- * @param  eixos              Quantidade de eixos
- * @param  peso               Peso do caminhão
- */
+/** Construtor parametrizado */
 Caminhao::Caminhao(string cor, string modelo, string placa, int rodas, int ano, int maxPassageiros,int eixos, double peso):
   Veiculo(cor, modelo, placa, rodas, ano, maxPassageiros),
   m_quant_eixos(eixos),m_peso_carga(peso){}
@@ -50,7 +39,7 @@ Caminhao::~Caminhao(){}
 int Caminhao::getEixo()           { return this->m_quant_eixos; }
 
 /**
- * @brief      Método get que retorna o peso do caminhão.
+ * @brief      Método get que retorna o peso do caminhao.
  *
  * @return     Variavél do tipo double com o peso.
  */

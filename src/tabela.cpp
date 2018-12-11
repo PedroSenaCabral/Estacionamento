@@ -17,7 +17,11 @@ Tabela::Tabela():
 	m_pCarro(6.0), m_pMoto(4.0), m_pCaminhao(10.0), m_pHora(1.0), m_pDiaria(20.0)
 {}
 
+<<<<<<< HEAD
 /** Construtor parametrizado. */
+=======
+ /** Construtor parametrizado. */
+>>>>>>> ebb3c75df813a328a449d740b71c06cbaf7e470d
 Tabela::Tabela(double _pCarro, double _pMoto, double _pCaminhao, double _pHora, double _pDiaria):
 	m_pCarro(_pCarro), m_pMoto(_pMoto), m_pCaminhao(_pCaminhao), m_pHora(_pHora), m_pDiaria(_pDiaria){}
 

@@ -32,6 +32,7 @@ public:
 	*
   */
   Caminhao();
+
   /**
   * Contrutor parametrizado. Constrói um objeto apartir dos valores passados no construtor.
 	* @param cor_ O atributo cor que será armazenado.
@@ -44,58 +45,72 @@ public:
   * @param peso_ O atributo peso que será armazenado.
   */
   Caminhao(std::string cor_, std::string modelo_, std::string placa_, int rodas_, int ano_, int maxPassageiros_, int eixos_, double peso_);
+  
   /**
   * Destrutor.
   */
   ~Caminhao ();
+ 
   /**
   * Método que retorna o tipo do objeto.
   * @return string
   */
   string getTipo();
+
   /**
   * Método que retorna a quantidade de eixos.
   * @return int
   */
   int getEixo();
+
   /**
   * Método que retorna o peso do caminhao.
   * @return float
   */
   double getPeso();
+
   /**
   * Sobrecarga do método getConsumoPorKm da classe Veiculo. Retorna o consumo de combustível por Km.
   *
   * @return double
   */
   double getConsumoPorKM();
+
   /**
   * Método que atualiza o peso da carga do caminhao.
   *
   */
   void setPeso(double peso_);
+
   /**
   * Método que sobrecarrega o método print da classe Veiculo. Imprime os dados do caminhao.
   *
   */
   void print(ostream& cout);
+
   /**
   * Método que sobrecarrega o método put da classe Veiculo. Recebe os dados do caminhao.
   *
   */
   void put(istream& cin);
-  /**
-	* Sobrecarga do operador de extração <<.
-	* @return ostream Retorna uma referência para um objeto ostream
-	*/
+  
 
+  /**
+  * @brief      Prepara a linha para o arquivo CSV
+  *
+  */
   string toLinhaCsv();
 
-  friend std::istream& operator<<(std::istream& os, Caminhao& v);
   /**
-	* Sobrecarga do operador de inserção <<.
-	* @return istream Retorna uma referência para um objeto ostream
-	*/
+  * Sobrecarga do operador de extração <<.
+  * @return ostream Retorna uma referência para um objeto ostream
+  */
+  friend std::ostream& operator<<(std::ostream& os, Caminhao& v);
+  
+  /**
+  * Sobrecarga do operador de inserção <<.
+  * @return istream Retorna uma referência para um objeto ostream
+  */
   friend istream& operator>>(std::istream& istr, Caminhao& v);
 
 };
