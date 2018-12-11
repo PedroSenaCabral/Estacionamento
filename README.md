@@ -48,11 +48,11 @@ $ git push origin "Nome da sua branch"
    * Allan Rego
    * Dennis Ferreira
    * Franklin Luiz
-   * Gdiael 
+   * Gdiael Souto
    * Igor Bruno
-   * Jefferson
+   * Jefferson Gomes
    * Lucas Lucena
    * Mateus Brito
    * Pedro Cabral
-   * Renato 
-   * Saulo 
+   * Renato Barros
+   * Saulo Gabriel
