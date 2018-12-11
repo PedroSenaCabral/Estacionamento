@@ -212,7 +212,7 @@ double DiaHora::horasDecorridas(DiaHora &antes){
             horas += 24.0;
         }
     }
-    return 0.0;
+    return horas;
 }
 
 /** Método que converte a data de int para string. */
