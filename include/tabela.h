@@ -27,13 +27,9 @@ private:
 	double m_pDiaria; /** Preço da diária. */
 
 public:
-<<<<<<< HEAD
 	/** Construtor padrão. */
 	Tabela(); 
 	
-=======
-	Tabela(); /** Construtor padrão. */
->>>>>>> ebb3c75df813a328a449d740b71c06cbaf7e470d
 	/**
  	* @brief Construtor parametrizado
  	*
@@ -42,13 +38,9 @@ public:
  	* @param  _pCaminhao  Preço do Caminhão
  	* @param  _pHora      Preço por hora
  	* @param  _pDiaria    Preço por dia
-<<<<<<< HEAD
-	 */
-	Tabela(double, double, double, double, double); 
-=======
  	*/
 	Tabela(double, double, double, double, double);
->>>>>>> ebb3c75df813a328a449d740b71c06cbaf7e470d
+
 	~Tabela(); /** Destrutor */
 
 	/** Getters */

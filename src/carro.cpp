@@ -13,10 +13,6 @@
 #include <string>
 #include <iostream>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ebb3c75df813a328a449d740b71c06cbaf7e470d
 /*
 Se inicializa um Carro sem passar as informações, supomos que seja apenas uma carcaça de um carro
 e inicializamos os valores padrões. :)
