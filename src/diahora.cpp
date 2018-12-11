@@ -200,14 +200,14 @@ double DiaHora::horasDecorridas(DiaHora &antes){
     }
     else if(this->m_ano == antes.getAno() && this->m_mes > antes.getMes()){
         DiaHora aux(antes.getSegundo(), antes.getMinuto(), antes.getHora(), antes.getDia(), antes.getMes(), antes.getAno());
-        while(aux.getMes() < this->m_mes && aux.getDia() << this->m_dia){
+        while(aux.getMes() < this->m_mes && aux.getDia() < this->m_dia){
             aux.somarDias(1);
             horas += 24.0;
         }
     }
     else if(this->m_ano > antes.getAno()){
         DiaHora aux(antes.getSegundo(), antes.getMinuto(), antes.getHora(), antes.getDia(), antes.getMes(), antes.getAno());
-        while(aux.getMes() < this->m_mes && aux.getDia() << this->m_dia){
+        while(aux.getMes() < this->m_mes && aux.getDia() < this->m_dia){
             aux.somarDias(1);
             horas += 24.0;
         }
