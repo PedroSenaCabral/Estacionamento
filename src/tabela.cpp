@@ -3,7 +3,7 @@
  * @author  Grupo LP 1
  * @brief   Implementação da classe 'tabela' para o Projeto Final de LP I
  * @since   12-06-2018
- * @date    12-10-2018
+ * @date    12-12-2018
  * @version 1.0
  * 
  * @copyright Copyright (c) 2018
@@ -17,15 +17,7 @@ Tabela::Tabela():
 	m_pCarro(6.0), m_pMoto(4.0), m_pCaminhao(10.0), m_pHora(1.0), m_pDiaria(20.0)
 {}
 
-/**
- * @brief Construtor parametrizado
- *
- * @param  _pCarro     Preço do Carro
- * @param  _pMoto      Preço da Moto
- * @param  _pCaminhao  Preço do Caminhão
- * @param  _pHora      Preço por hora
- * @param  _pDiaria    Preço por dia
- */
+/** Construtor parametrizado. */
 Tabela::Tabela(double _pCarro, double _pMoto, double _pCaminhao, double _pHora, double _pDiaria):
 	m_pCarro(_pCarro), m_pMoto(_pMoto), m_pCaminhao(_pCaminhao), m_pHora(_pHora), m_pDiaria(_pDiaria){}
 
@@ -39,14 +31,14 @@ Tabela::~Tabela(){}
  *
  * @return     Variavél do tipo double com o preço do carro
  */
-double Tabela::getPcarro(){ return this->m_pCarro; }
+double Tabela::getPcarro()	{ return this->m_pCarro; }
 
 /**
  * @brief      Método get que retorna o preço da moto.
  *
  * @return     Variavél do tipo double com o preço da moto
  */
-double Tabela::getPmoto(){ return this->m_pMoto; }
+double Tabela::getPmoto()	{ return this->m_pMoto; }
 
 /**
  * @brief      Método get que retorna o preço do caminhão.
@@ -61,18 +53,14 @@ double Tabela::getPcaminhao(){ return this->m_pCaminhao; }
  *
  * @return     Variavél do tipo double com o preço por hora.
  */
-double Tabela::getPhora(){
-	return this->m_pHora;
-}
+double Tabela::getPhora()	{ return this->m_pHora; }
 
 /**
  * @brief      Método get que retorna o preço por hora.
  *
  * @return     Variavél do tipo double com o preço por hora.
  */
-double Tabela::getPdiaria(){
-	return this->m_pDiaria;
-}
+double Tabela::getPdiaria()	{ return this->m_pDiaria; }
 
 /**
  * @brief      Método que retorna o preço do veiculo de acordo com seu tipo.
@@ -116,7 +104,7 @@ void Tabela::setPmoto(double _pMoto)		{ this->m_pMoto = _pMoto; }
  *
  * @param  _pCaminhao  Variável do tipo double que terá o novo valor.
  */
-void Tabela::setPcaminhao(double _pCaminhao){ m_pCaminhao = _pCaminhao; }
+void Tabela::setPcaminhao(double _pCaminhao){ this->m_pCaminhao = _pCaminhao; }
 
 /**
  * @brief      Método que modifica o valor do preço por hora.

@@ -1,10 +1,13 @@
 /**
  * @file    caminhao.h
- * @brief   Definição da classe Caminhao em C++
- * @author  Victor Bittencourt Mafra Veríssimo (victor.bmv15@gmail.com)
- * @since   06/12/2018
- * @date    07/12/2018
- * @sa      veiculo.h
+ * @author  Grupo LP 1
+ * @brief   Definição da classe 'caminhao' para o Projeto Final de LP I
+ * @since   12-06-2018
+ * @date    12-12-2018
+ * @version 1.0
+ * 
+ * @copyright Copyright (c) 2018
+ * 
  */
 #ifndef _CAMINHAO_H
 #define _CAMINHAO_H

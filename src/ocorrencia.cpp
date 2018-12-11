@@ -1,18 +1,19 @@
-#include <iostream>
-#include <cmath>
-#include "ocorrencia.h"
-
 /**
  * @file    ocorrencia.cpp
  * @author  Grupo LP 1
  * @brief   Implementação da classe 'ocorrencia' para o Projeto Final de LP I
  * @since   12-06-2018
- * @date    12-10-2018
+ * @date    12-12-2018
  * @version 1.0
  * 
  * @copyright Copyright (c) 2018
  * 
  */
+#include <iostream>
+#include <cmath>
+#include "ocorrencia.h"
+
+/** Construtor parametrizado */
 Ocorrencia::Ocorrencia(Veiculo* veiculo_, string tipo_){
 	DiaHora* agora = new DiaHora();
 	this->m_tempo = *agora;
@@ -21,6 +22,12 @@ Ocorrencia::Ocorrencia(Veiculo* veiculo_, string tipo_){
 	this->m_totalPago = 0;
 }
 
+/**
+ * @brief      			Reconstroi a ocorrencia através da linha do arquivo .CSV
+ *
+ * @param  linhaCsv   	Linha do .CSV
+ * @param  veiculos_  	Estrutura Map com os veículos
+ */
 Ocorrencia::Ocorrencia(string linhaCsv, map<string, Veiculo*> veiculos_){
 	// recontriur a ocorrencia através da linha csv
 
@@ -46,6 +53,7 @@ Ocorrencia::Ocorrencia(string linhaCsv, map<string, Veiculo*> veiculos_){
 	}
 }
 
+/** Destrutor */
 Ocorrencia::~Ocorrencia(){
 
 }
@@ -56,7 +64,7 @@ Ocorrencia::~Ocorrencia(){
  * @param	linha        string a ser quebrada
  * @param	delimitador  caractere que determina a quebra
  *
- * @return 
+ * @return 	String formatada
  */
 vector<string> Ocorrencia::splitString(string& linha, char delimitador){
 	vector<string> colunas;
@@ -75,25 +83,56 @@ vector<string> Ocorrencia::splitString(string& linha, char delimitador){
 	return colunas;
 }
 
-DiaHora& Ocorrencia::getTempo(){
-	return this->m_tempo;
-}
-
-double Ocorrencia::getTotalPago(){
-	return this->m_totalPago;
-}
-
-string Ocorrencia::getTipo(){
-	return this->m_tipo;
-}
-
-void Ocorrencia::setVeiculo(Veiculo* veic){
-	this->m_veiculo = veic;
-}
-
-/*Função de calcular o custo, Funcionamento:
+/**
+ * @brief      Retorna o tempo que o veículo passou no estacionamento.
  *
-*/
+ * @return     Variável do tipo DiaHora.
+ */
+DiaHora& Ocorrencia::getTempo()		{ return this->m_tempo; }
+
+/**
+ * @brief      Retorna o total pago pelo cliente
+ *
+ * @return     Variável double com o total.
+ */
+double Ocorrencia::getTotalPago()	{ return this->m_totalPago; }
+
+/**
+ * @brief      Retorna o tipo da saida no estacionamento
+ *
+ * @return     String com os valores "Entrada" ou "Saída".
+ */
+string Ocorrencia::getTipo()		{ return this->m_tipo; }
+
+/**
+ * @brief      Retorna um Veiculo.
+ *
+ * @return     Variavel do tipo Veiculo.
+ */
+Veiculo* Ocorrencia::getVeiculo()	{ return this->m_veiculo; }
+
+/**
+ * @brief      Retorna uma linha do arquivo .CSV.
+ *
+ * @return     Retorna a linha já separada por ponto e virgula.
+ */
+string Ocorrencia::getLinhaCsv()	{ return this->m_tipo + ";" + this->m_veiculo->getPlaca() + ";" + to_string(this->m_totalPago) + ";" + this->m_tempo.toString() ; }
+
+/**
+ * @brief      		Salva o veículo.
+ *
+ * @param   veic  	Variável do tipo Veículo.
+ */	
+void Ocorrencia::setVeiculo(Veiculo* veic){ this->m_veiculo = veic; }
+
+/**
+ *@brief Função de calcular o custo.
+ *
+ * @param      entrada  Variável do tipo DiaHora com as informações da entrada do carro
+ * @param      tab      Tabela de prelços
+ *
+ * @return     Retorna o total pago no estacionamento
+ */
 double Ocorrencia::calcularCusto(DiaHora &entrada, Tabela &tab)
 {
 	double valorPorHora = tab.getPhora(); 
@@ -110,19 +149,16 @@ double Ocorrencia::calcularCusto(DiaHora &entrada, Tabela &tab)
 	return this->getTotalPago();
 }
 
-Veiculo* Ocorrencia::getVeiculo(){
-	return this->m_veiculo;
-}
-
+/**
+ * @brief      Sobrecarga do operador de inserção
+ *
+ * @param      os    Stream de saida
+ * @param      oc    Variavel do tipo Ocorrencia
+ *
+ * @return     Retorna o objeto formatado
+ */
 ostream &operator<<(ostream &os, Ocorrencia &oc){
     os << oc.getTipo() << " de [" << oc.getVeiculo()->getPlaca() << "] as " << oc.getTempo();
 	os << (oc.getTipo() == "Saida" ? " | Valor pago: R$ " + to_string(oc.getTotalPago()) : "");
     return os;
 }
-
-string Ocorrencia::getLinhaCsv(){
-	return this->m_tipo + ";" + this->m_veiculo->getPlaca() + ";" + to_string(this->m_totalPago) + ";" + this->m_tempo.toString() ;
-}
-
-
-

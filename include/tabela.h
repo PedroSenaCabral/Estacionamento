@@ -1,6 +1,13 @@
 /**
- * @file tabela.h
- * @brief Definição da classe Tabela
+ * @file    tabela.h
+ * @author  Grupo LP 1
+ * @brief   Definição da classe 'tabela' para o Projeto Final de LP I
+ * @since   12-06-2018
+ * @date    12-12-2018
+ * @version 1.0
+ * 
+ * @copyright Copyright (c) 2018
+ * 
  */
 
 #ifndef TABELA_H
@@ -20,8 +27,19 @@ private:
 	double m_pDiaria; /** Preço da diária. */
 
 public:
-	Tabela(); /** Construtor padrão. */
-	Tabela(double, double, double, double, double); /** Construtor parametrizado. */
+	/** Construtor padrão. */
+	Tabela(); 
+	
+	/**
+ 	* @brief Construtor parametrizado
+ 	*
+ 	* @param  _pCarro     Preço do Carro
+ 	* @param  _pMoto      Preço da Moto
+ 	* @param  _pCaminhao  Preço do Caminhão
+ 	* @param  _pHora      Preço por hora
+ 	* @param  _pDiaria    Preço por dia
+	 */
+	Tabela(double, double, double, double, double); 
 	~Tabela(); /** Destrutor */
 
 	/** Getters */

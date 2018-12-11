@@ -1,15 +1,15 @@
-#include "caminhao.h"
 /**
  * @file    caminhao.cpp
  * @author  Grupo LP 1
  * @brief   Implementação da classe 'caminhão' para o Projeto Final de LP I
  * @since   12-06-2018
- * @date    12-10-2018
+ * @date    12-12-2018
  * @version 1.0
  * 
  * @copyright Copyright (c) 2018
  * 
  */
+#include "caminhao.h"
 
 
 /**
@@ -47,14 +47,14 @@ Caminhao::~Caminhao(){}
  *
  * @return     Variavél do tipo int com a quantidade de eixos.
  */
-int Caminhao::getEixo(){ return this->m_quant_eixos; }
+int Caminhao::getEixo()           { return this->m_quant_eixos; }
 
 /**
  * @brief      Método get que retorna o peso do caminhão.
  *
  * @return     Variavél do tipo double com o peso.
  */
-double Caminhao::getPeso(){ return this->m_peso_carga; }
+double Caminhao::getPeso()        { return this->m_peso_carga; }
 
 /**
  * @brief      Implementacao do metodo virtual da classe base 'getConsumoPorKM'.
@@ -68,7 +68,7 @@ double Caminhao::getConsumoPorKM(){ return 8.5; }
  *
  * @return     Variavél do tipo string com a tipo definido para "Caminhao".
  */
-string Caminhao::getTipo(){ return "Caminhao"; }
+string Caminhao::getTipo()        { return "Caminhao"; }
 
 /** Setters */
 

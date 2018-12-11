@@ -1,3 +1,14 @@
+/**
+ * @file    estacionamento.cpp
+ * @author  Grupo LP 1
+ * @brief   Implementação da classe 'estacionamento' para o Projeto Final de LP I
+ * @since   12-06-2018
+ * @date    12-12-2018
+ * @version 1.0
+ * 
+ * @copyright Copyright (c) 2018
+ * 
+ */
 #include "estacionamento.h"
 #include "buscarVeiculo.h"
 #include <algorithm>
@@ -6,17 +17,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
-/**
- * @file    estacionamento.cpp
- * @author  Grupo LP 1
- * @brief   Implementação da classe 'estacionamento' para o Projeto Final de LP I
- * @since   12-06-2018
- * @date    12-10-2018
- * @version 1.0
- * 
- * @copyright Copyright (c) 2018
- * 
- */
+
 
 Estacionamento::Estacionamento(int numeroDeVagas, std::string arquivoVeiculos, std::string arquivoOcorrencias) : m_numeroDeVagas(numeroDeVagas), m_arquivoVeiculos(arquivoVeiculos), m_arquivoOcorrencias(arquivoOcorrencias)
 {
@@ -26,7 +27,7 @@ Estacionamento::Estacionamento(int numeroDeVagas, std::string arquivoVeiculos, s
 
 Estacionamento::~Estacionamento()
 {
-    // deletar os ponteiros para as ocorrencias e veiculos?
+
 }
 
 /**
@@ -54,6 +55,9 @@ vector<string> Estacionamento::splitString(string& linha, char delimitador){
 	return colunas;
 }
 
+
+/** Getters */
+
 int Estacionamento::getNumeroDeVagas()
 {
     return this->m_numeroDeVagas;
@@ -69,16 +73,29 @@ int Estacionamento::getVagasOcupadas()
     return this->m_ocorrencias.size();
 }
 
+
+/** Verifica se o estacionamento está cheio. */ 
 bool Estacionamento::isFull()
 {
     return this->getVagasOcupadas() == this->getNumeroDeVagas();
 }
 
+/** Verifica se o estacionamento está vazio. */ 
 bool Estacionamento::isEmpty()
 {
     return this->m_ocorrencias.size() == 0;
 }
 
+/** Métodos úteis. */
+
+/**
+ * @brief      Metódo para controlar a entrada de veiculos.
+ *
+ * @param      novoVeiculo  Veículo que irá entrar no estacionamento
+ * @param      log          Arquivo para salvar as ocorrencias,
+ *
+ * @return     True, caso o veiculo não esteja no estacionamento. False caso contrario.
+ */
 bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
 {
 	if(this->isFull()){
@@ -110,6 +127,14 @@ bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
     return true;
 }
 
+/**
+ * @brief      		Metódo para controlar a saida de veiculos.
+ *
+ * @param  placa  	Placa do carro que está saindo.
+ *
+ * @return     		True, caso a saida do veiculo tenha sido sucedida. False caso
+ *             contrario.
+ */
 bool Estacionamento::saidaVeiculo(string placa)
 {
 	auto it = find_if(m_veiculos.begin(), m_veiculos.end(), BuscarVeiculo(placa));
@@ -143,6 +168,7 @@ bool Estacionamento::saidaVeiculo(string placa)
 	return false;
 }
 
+/** Lista os veículos no estaciomaneto. */
 void Estacionamento::listarVeiculos()
 {
     for(auto it = this->m_veiculos.begin(); it != this->m_veiculos.end(); it++){
@@ -151,6 +177,7 @@ void Estacionamento::listarVeiculos()
     }
 }
 
+/** Lista as ocorrencias em aberto. */
 void Estacionamento::listarOcorrenciasAbertas()
 {
     for(auto it = this->m_ocorrencias.begin(); it != this->m_ocorrencias.end(); it++){
@@ -159,6 +186,7 @@ void Estacionamento::listarOcorrenciasAbertas()
     }
 }
 
+/** Lista todas as ocorrencias */
 void Estacionamento::listarOcorrenciasTotais()
 {
 	ifstream arq(this->m_arquivoOcorrencias);
@@ -176,6 +204,13 @@ void Estacionamento::listarOcorrenciasTotais()
     };
 }
 
+/**
+ * @brief      Salva as ocorrencias no arquivo de log
+ *
+ * @param      log   Arquivo que receberá as ocorrencias
+ *
+ * @return     True, caso salve corretamente. False caso contrario.
+ */
 bool Estacionamento::salvarOcorrenciaEmArquivo(Ocorrencia &log)
 {
     if(log.getVeiculo() != nullptr){
@@ -192,6 +227,13 @@ bool Estacionamento::salvarOcorrenciaEmArquivo(Ocorrencia &log)
     return false;
 }
 
+/**
+ * @brief      Salva os veiculos no arquivo de log
+ *
+ * @param      veicu   Arquivo que receberá os veiculos
+ *
+ * @return     True, caso salve corretamente. False caso contrario.
+ */
 bool Estacionamento::salvarVeiculoEmArquivo(Veiculo &veic)
 {
         if(veic.getAno() != -1){
@@ -207,6 +249,13 @@ bool Estacionamento::salvarVeiculoEmArquivo(Veiculo &veic)
 	};
     return false;
 }
+
+
+/**
+ * @brief      Método para ler o arquivo de log dos Veiculos
+ *
+ * @return     True, caso leia corretamente. False caso contrario.
+ */
 bool Estacionamento::lerArquivoVeiculos()
 {
 	ifstream arq(this->m_arquivoVeiculos);
@@ -237,6 +286,12 @@ bool Estacionamento::lerArquivoVeiculos()
     };
 	return true;
 }
+
+/**
+ * @brief      Método para ler o arquivo de log das Ocorrencias
+ *
+ * @return     True, caso leia corretamente. False caso contrario.
+ */
 bool Estacionamento::lerArquivoOcorencias()
 {
 	ifstream arq(this->m_arquivoOcorrencias);
@@ -261,6 +316,10 @@ bool Estacionamento::lerArquivoOcorencias()
 	return true;
 }
 
+
+/**
+ * @brief      Método que inicia todo o sistema Estacionamento.
+ */
 void Estacionamento::iniciarOperacao()
 {
     bool sair = false;
@@ -328,9 +387,12 @@ void Estacionamento::iniciarOperacao()
 }
 
 
+/**
+ * @brief      Método para selecionar o tipo do veiculo no Menu.
+ */
 void Estacionamento::selecionarTipoVeiculo () {
 
-	 bool sair = false;
+	bool sair = false;
 	char opt;
 
 	system("clear");

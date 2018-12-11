@@ -1,10 +1,13 @@
 /**
  * @file    veiculo.h
- * @brief   Definição da classe abstrata Veículo em C++
- * @author  Dennis Ferreira, Mateus Brito e Lucas Lucena
- * @since   06/12/2018
- * @date    10/12/2018
- * @sa      SIGAA
+ * @author  Grupo LP 1
+ * @brief   Definição da classe abstrata 'veiculo' para o Projeto Final de LP I
+ * @since   12-06-2018
+ * @date    12-12-2018
+ * @version 1.0
+ * 
+ * @copyright Copyright (c) 2018
+ * 
  */
 
 #ifndef VEICULO_h
@@ -28,14 +31,25 @@ protected:
     int         m_maxPassageiros; /* Capacidade máxima de passageiros no veículo */
 
 public:
-/* Construtores */
+    /** Construtor padrão */
     Veiculo();
+    
+    /**
+     * @brief      Construtor parametrizado
+     *
+     * @param  cor_             Cor do veículo
+     * @param  modelo_          Modelo do veiculo
+     * @param  placa_           Placa do veículo
+     * @param  rodas_           Quantidade de Rodas
+     * @param  ano_             Ano de fabricação
+     * @param  maxPassageiros_  Quantidade máxima de passageiros
+     */
     Veiculo(std::string cor_, std::string modelo_, std::string placa_, int rodas_, int ano_, int maxPassageiros_);
 
-/* Destrutor */
+    /* Destrutor */
     ~Veiculo();
 
-/* Getters */   
+    /* Getters */   
     std::string getCor();
     std::string getModelo();
     std::string getPlaca();
@@ -43,23 +57,22 @@ public:
     int         getAno();
     int         getMaxPassageiros();
 
-/* Metódo Virtual Puro */
+    /* Metódo Virtual Puro */
     virtual double getConsumoPorKM() = 0;
+    virtual void print(std::ostream& cout) = 0;
+    virtual void put(std::istream& cin) = 0;
+    virtual std::string toLinhaCsv() = 0;
+    virtual std::string getTipo() = 0;
 
-/* Setters */
+    /* Setters */
     void setCor(std::string cor_);
     void setModelo(std::string modelo_);
     void setAno(int ano_);
     void setPlaca(std::string placa_);
     void setRodas(int quantidade_);
     void setMaxPassageiros(int maxPassageiros_);
-
-/* Operadores de inserção e de extração */
-    virtual void print(std::ostream& cout) = 0;
-    virtual void put(std::istream& cin) = 0;
-    virtual std::string toLinhaCsv() = 0;
-    virtual std::string getTipo() = 0;
-
+    
+    /** Operadores de inserção e de extração */
     friend std::ostream& operator<<(std::ostream& os, Veiculo& v);
     friend std::istream& operator>>(std::istream& istr, Veiculo& v);
 

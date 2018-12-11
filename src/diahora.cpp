@@ -1,14 +1,22 @@
-#include "diahora.h"
 /**
  * @file    diahora.cpp
  * @author  Grupo LP 1
  * @brief   Implementação da classe 'diahora' para o Projeto Final de LP I
  * @since   12-06-2018
- * @date    12-10-2018
+ * @date    12-12-2018
  * @version 1.0
  * 
  * @copyright Copyright (c) 2018
  * 
+ */
+#include "diahora.h"
+
+/**
+ * @brief           Verifica a duração de dias do mês
+ *
+ * @param  mes      Mês a ser verificado
+ *
+ * @return          Retorna a quantidade de dias dependendo do mês passado.
  */
 int DiaHora::m_duracaoMes(int mes){
     mes = (mes == 0) ? this->m_mes : mes;
@@ -21,6 +29,9 @@ int DiaHora::m_duracaoMes(int mes){
     };
 }
 
+/**
+ * @brief      Construtor padrão
+ */
 DiaHora::DiaHora(){
     chrono::system_clock::time_point now = std::chrono::system_clock::now();
     time_t tt = chrono::system_clock::to_time_t(now);
@@ -33,6 +44,7 @@ DiaHora::DiaHora(){
     this->m_segundo = local_tm.tm_sec;
 }
 
+/** Construtor parametrizado */
 DiaHora::DiaHora(int segundo, int minuto, int hora, int dia, int mes, int ano){
     this->m_ano = ano;
     this->m_mes = (mes > 12) ? 12 : (mes < 1) ? 1 : mes;
@@ -43,35 +55,59 @@ DiaHora::DiaHora(int segundo, int minuto, int hora, int dia, int mes, int ano){
     this->m_segundo = segundo;
 }
 
+/** Destrutor */
 DiaHora::~DiaHora(){}
 
-int DiaHora::getSegundo(){
-    return this->m_segundo;
-}
+/** Getters */
 
-int DiaHora::getMinuto(){
-    return this->m_minuto;
-}
+/**
+ * @brief      Retorna os segundos
+ *
+ * @return     Int com os segundos do dia
+ */
+int DiaHora::getSegundo()   { return this->m_segundo; }
 
-int DiaHora::getHora(){
-    return this->m_hora;
-}
+/**
+ * @brief      Retorna os minutos
+ *
+ * @return     Int com os minutos do dia
+ */
+int DiaHora::getMinuto()    { return this->m_minuto; }
 
-int DiaHora::getDia(){
-    return this->m_dia;
-}
+/**
+ * @brief      Retorna a hora.
+ *
+ * @return     Int com as horas do dia.
+ */
+int DiaHora::getHora()      { return this->m_hora; }
 
-int DiaHora::getMes(){
-    return this->m_mes;
-}
+/**
+ * @brief      Retorna o dia do mes.
+ *
+ * @return     Int com o dia do mes.
+ */
+int DiaHora::getDia()       { return this->m_dia; }
 
-int DiaHora::getAno(){
-    return this->m_ano;
-}
+/**
+ * @brief      Retorna o mês do ano.
+ *
+ * @return     Int com o mês.
+ */
+int DiaHora::getMes()       { return this->m_mes; }
 
+/**
+ * @brief      Retorna o ano
+ *
+ * @return     Int com o ano
+ */
+int DiaHora::getAno()       { return this->m_ano; }
+
+/** Verifica se é bissexto. */
 bool DiaHora::isBissexto(){
     return (( this->m_ano % 4 == 0 && this->m_ano % 100 != 0 ) || this->m_ano % 400 == 0 );
 }
+
+/** Métodos para calcular a data. */
 
 void DiaHora::somarSegundos(int segundos){
     if(segundos < 0){
@@ -179,6 +215,8 @@ double DiaHora::horasDecorridas(DiaHora &antes){
     return 0.0;
 }
 
+/** Método que converte a data de int para string. */
+
 string DiaHora::toString(){
     string dia = to_string(this->m_dia);
     dia = (this->m_dia < 10) ? "0" + dia : dia;
@@ -194,6 +232,7 @@ string DiaHora::toString(){
     return hora + ":" + min + ":" + seg + " " + dia + "/" + mes + "/" + ano;
 }
 
+/** Sobrecarga do operador de inserção. */
 ostream &operator<<(ostream &os, DiaHora &dt){
     os << dt.toString();
     return os;
