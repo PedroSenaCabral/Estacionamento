@@ -44,3 +44,15 @@ $ git push origin "Nome da sua branch"
 
 #Apos isso, vá na area de Issues e veja a lista de problemas a serem resolvidos e entre em uma e de "Assign" em uma delas, caso nao consiga entre em contato. Tarefas podem ser divididas desde que trabalhem em conjunto.
 ```
+# Authors:
+   * Allan Rego
+   * Dennis Ferreira
+   * Franklin Luiz
+   * Gdiael 
+   * Igor Bruno
+   * Jefferson
+   * Lucas Lucena
+   * Mateus Brito
+   * Pedro Cabral
+   * Renato 
+   * Saulo 
