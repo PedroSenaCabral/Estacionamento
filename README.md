@@ -57,3 +57,5 @@ $ git push origin "Nome da sua branch"
    * Renato Barros
    * Saulo Gabriel
    * Victor Bittencourt
+   * Carlos Vinícius dos Santos
+   * Carla Joice dos Santos
