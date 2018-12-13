@@ -71,6 +71,7 @@ int Moto::getCilindradas(){
     return m_cilindradas;
 }
 
+
 /**
  * @brief Método de ajuste para as cilindradas da Moto.
  * 
@@ -98,21 +99,34 @@ void Moto::print(ostream &cout){
 /**
  * @brief Sobrecarta do método put da classe Veiculo.
  * 
- * @param cin Fluxo de entrada.
+ * @param is Fluxo de entrada.
  */
-void Moto::put(istream &cin){
+void Moto::put(istream &is){
 
     cout<< "Entrada de Veículo - Moto" << std::endl 
         << "Por favor, inserir as informções na seguinte ordem:" << std::endl 
         << "Cor, Modelo, Placa, Num Rodas, Ano, Máx Passageiros, Cilindradas." << std::endl;
-
-    cin >> this->m_cor
-        >> this->m_modelo
-        >> this->m_placa 
-        >> this->m_rodas 
-        >> this->m_ano 
-        >> this->m_maxPassageiros
-        >> this->m_cilindradas;
+        
+        string cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,cilindradas_;
+        
+        is >> cor_
+            >> modelo_
+            >> placa_ 
+            >> rodas_ 
+            >> ano_ 
+            >> maxPassageiros_
+            >> cilindradas_;  
+        if(formatoCorreto(cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,cilindradas_)){
+            this->m_cor = cor_;
+            this->m_modelo  = modelo_;
+            this->m_placa = placa_;
+            this->m_rodas = stoi(rodas_);
+            this->m_ano = stoi(ano_);
+            this->m_maxPassageiros  = stoi(maxPassageiros_);
+            this->m_cilindradas = stoi(cilindradas_);                
+        }else{
+            m_valido = false;
+        }
 }
 
 string Moto::toLinhaCsv(){
@@ -141,4 +155,101 @@ ostream &operator<<(ostream &os, Moto &m){
 istream &operator>>(istream &is, Moto &m){
     m.put(is);
     return is;
+}
+
+bool Moto::formatoCorreto(string cor_, string modelo_, string placa_, string rodas_, string ano_, string passageiros_, string cilindradas_){
+    string vetor[7];
+    vetor[0]=cor_;
+    vetor[1]=modelo_;
+    vetor[2]=placa_;
+    vetor[3]=rodas_;
+    vetor[4]=ano_;
+    vetor[5]=passageiros_;
+    vetor[6]=cilindradas_;
+    /**Testando o formato da placa*/    
+    bool erro = false;
+    string maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    string numeros = "0123456789";
+    int tamanho_placa = vetor[2].length();
+    string placa = vetor[2];
+
+    
+    if(tamanho_placa!=8){
+        cout<<"Tamanho da placa inválido"<<endl;
+        erro =true;
+    }
+
+    int ehmaiuscula =0;
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 26; j++){
+            if(placa[i]==maiusculas[j]){
+                ehmaiuscula++;
+            }            
+        }        
+    }
+
+    int ehnumero = 0;
+    for (int i = 4; i < 8; i++){
+        for (int j = 0; j < 26; j++){
+            if(placa[i]==numeros[j]){
+                ehnumero++;
+            }            
+        }        
+    }
+    if(ehnumero!=4||placa[3]!='-' || ehmaiuscula!=3){
+        cout<<"Formato da placa errado"<<endl;
+        erro=true;
+    }
+
+    /**testando entradas que deveriam ser do tipo int*/
+    string rodas = vetor[3];
+    int tamanho_rodas = vetor[3].length();
+    string ano = vetor[4];
+    int tamanho_ano = vetor[4].length();
+    string passageiros = vetor[5];
+    int tamanho_passageiros = vetor[5].length();
+    string cilindradas = vetor[6];
+    int tamanho_cilindradas = vetor[6].length();
+
+    if(ehNumero(rodas,tamanho_rodas)==false){
+        cout<<"Rodas tem que ser do tipo inteiro!"<<endl;
+        erro=true;
+    }
+    if(ehNumero(ano,tamanho_ano)==false){
+        cout<<"Ano tem que ser do tipo inteiro!"<<endl;
+        erro=true;
+    }
+    if(ehNumero(passageiros,tamanho_passageiros)==false){
+        cout<<"Max Passageiros tem que ser do tipo inteiro!"<<endl;
+        erro=true;
+    }
+    if(ehNumero(cilindradas,tamanho_cilindradas)==false){
+        cout<<"Cilindradas tem que ser do tipo inteiro!"<<endl;
+        erro=true;
+    }
+    if(erro==true){
+        return false;
+    }
+    return true;
+
+}
+
+bool Moto::ehNumero(string palavra, int tamanhoPalavra){ 
+    string numeros = "0123456789";
+    int cont_validos=0;
+
+    for (int i = 0; i < tamanhoPalavra; i++){
+        for (int j = 0; j < 10; j++){
+            if(palavra[i]==numeros[j]){
+                cont_validos++;
+
+            }
+        }
+    }
+   
+    if(tamanhoPalavra!=cont_validos){
+        return false;
+    }  
+
+    return true;  
 }

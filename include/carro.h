@@ -58,9 +58,12 @@ public:
 
 	/** Operadores de inserção e extração. */
 	void print(std::ostream& cout);
-	void put(std::istream& cin);
+	void put(std::istream &is);
 	friend std::istream& operator<<(std::istream & os, Carro &c);
   	friend istream& operator>>(std::istream& istr, Carro &c);
+
+  	 bool formatoCorreto(string cor_, string modelo_, string placa_, string rodas_, string ano_,string maxPassageiros_, string combustivel_, string volumePortaMalas_);
+     bool ehNumero(string palavra, int tamanhoPalavra);
 
 
 	/** Metódo para formatar a linha pro CSV. */

@@ -99,7 +99,7 @@ bool Estacionamento::isEmpty()
 bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
 {
 	if(this->isFull()){
-		cout << "O estacionamento esta lotado, aguarde um pouco" << endl;
+		cout << "Não há vagas. Estacionamento LOTADO. " << endl;
 		return false;
 	}
 
@@ -120,7 +120,7 @@ bool Estacionamento::entradaVeiculo(Veiculo &novoVeiculo, Ocorrencia &log)
 
 	}else{
 
-    	cout<<"Ja existe um veiculo com essa placa no estacionamento"<<endl;
+    	cout<<"Já existe um veiculo com essa placa no estacionamento."<<endl;
     	return false;
     }
 
@@ -155,15 +155,15 @@ bool Estacionamento::saidaVeiculo(string placa)
 
 			this->salvarOcorrenciaEmArquivo(saida);
 
-			cout << "Saida de veiculo: " << endl;
+			cout << "Saída de veiculo:" << endl;
 			cout << *veic << endl;
-			cout << "O total pago foi de R$ " << saida.getTotalPago() << endl;
+			cout << "Valor pago (R$): " << saida.getTotalPago() << endl;
 			return true;
 		}else{
-			cout << "veiculo ja deixou o estacionamento. " << endl;
+			cout << "O veículo já deixou o estacionamento. " << endl;
 		}
 	} else {
-		cout << "veículo não existe no estacionamento. " << endl;
+		cout << "O veículo não existe no estacionamento. " << endl;
 	}
 	return false;
 }
@@ -196,10 +196,12 @@ void Estacionamento::listarOcorrenciasTotais()
 		cout << "Verifique se ele existe e está acessível." << endl;
         return;
     };
+
+	cout << "OCORRÊNCIAS REGISTRADAS " << endl;    
 	while(getline(arq, linha)){
         Ocorrencia* log = new Ocorrencia(linha, this->m_veiculos);
 		if(log->getVeiculo() != nullptr){
-			cout << (*log) << endl;
+			cout << (*log) << endl << endl;
 		};
     };
 }
@@ -326,10 +328,13 @@ void Estacionamento::iniciarOperacao()
 	char opt;
 
 	system("clear");
+	cout<<
+	" SISTEMA DE GERENCIAMENTO DE ESTACIONAMENTO" << endl <<
+	"---------------------------------------------" << endl;
 
 	while(!sair) {
 
-		cout << "Opções: " << endl << 
+		cout << "MENU INICIAL:" << endl << 
 			"(1) Entrada de Veiculo" << endl <<
 			"(2) Saida de Veiculo" << endl <<
 			"(3) Exibir Ocorrências Abertas" << endl <<
@@ -344,6 +349,7 @@ void Estacionamento::iniciarOperacao()
 
 			case '1':
 				this->selecionarTipoVeiculo();
+				continuarOperacao();
 				break;
 
 			case '2':
@@ -353,24 +359,28 @@ void Estacionamento::iniciarOperacao()
 					cout << "Digite a placa do veiculo: ";
 					cin >> placa;
 					this->saidaVeiculo(placa);
+					continuarOperacao();
 					break;
 				}
 
 			case '3':
 				{
 					this->listarOcorrenciasAbertas();
+					continuarOperacao();
 					break;
 				}
 
 			case '4':
 				{
 					this->listarVeiculos();
+					continuarOperacao();
 					break;
 				}
 
 			case '5':
 				{
 					this->listarOcorrenciasTotais();
+					continuarOperacao();
 					break;
 				}
 				
@@ -386,6 +396,29 @@ void Estacionamento::iniciarOperacao()
 
 }
 
+void Estacionamento::continuarOperacao(){
+	char opt2;
+
+	cout << endl <<
+	"(0)Menu inicial" <<endl<<
+	"(6)Sair do programa " <<endl;
+	
+	cin >> opt2;
+	switch(opt2) {
+		case '0':
+			system("clear");
+			cout<<
+			" SISTEMA DE GERENCIAMENTO DE ESTACIONAMENTO" << endl <<
+			"---------------------------------------------" << endl;
+			break;
+
+		case '6':
+			exit(0);
+		default:
+			cout<< "Opção invalida.Tente novamente." << endl;
+			continuarOperacao();
+	}
+}
 
 /**
  * @brief      Método para selecionar o tipo do veiculo no Menu.
@@ -399,7 +432,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 
 	while(!sair) {
 
-		cout << "Qual o tipo de veículo? " << endl << 
+		cout << "Veículo a ser inserido? " << endl << 
 			"(1) Moto" << endl <<
 			"(2) Carro" << endl <<
 			"(3) Caminhão" << endl <<
@@ -415,9 +448,14 @@ void Estacionamento::selecionarTipoVeiculo () {
 				Veiculo * moto = new Moto();
 				cin >> *moto;
 
+				if((moto->getValido())==false){
+					break;
+				}
+
 				Ocorrencia * ocorrencia = new Ocorrencia(moto);
 		
 				system("clear");
+
 
 				if(entradaVeiculo((*moto), (*ocorrencia)))
 				{	
@@ -426,6 +464,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 					cout << "Verifique se os dados estao corretos" << endl;
 				}
 
+				
 				break;
 			}
 				
@@ -434,6 +473,10 @@ void Estacionamento::selecionarTipoVeiculo () {
 				Veiculo * carro = new Carro();
 				cin >> *carro;
 				
+				if((carro->getValido())==false){
+					break;
+				}
+
 				Ocorrencia * ocorrencia = new Ocorrencia(carro);
 
 				system("clear");
@@ -444,7 +487,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 				}else{
 					cout << "Verifique se os dados estao corretos" << endl;
 				}
-
+				
 				break;
 			}
 
@@ -453,6 +496,10 @@ void Estacionamento::selecionarTipoVeiculo () {
 				Veiculo * caminhao = new Caminhao();
 				cin >> *caminhao;
 				
+				if((caminhao->getValido())==false){
+					break;
+				}
+
 				Ocorrencia * ocorrencia = new Ocorrencia(caminhao);
 
 				system("clear");
@@ -464,7 +511,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 					cout << "Verifique se os dados estao corretos" << endl;
 				}
 
-
+				
 				break;
 			}
 

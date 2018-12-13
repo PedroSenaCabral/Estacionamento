@@ -158,7 +158,7 @@ double Ocorrencia::calcularCusto(DiaHora &entrada, Tabela &tab)
  * @return     Retorna o objeto formatado
  */
 ostream &operator<<(ostream &os, Ocorrencia &oc){
-    os << oc.getTipo() << " de [" << oc.getVeiculo()->getPlaca() << "] as " << oc.getTempo();
+    os << oc.getTipo() << " de veículo de placa [" << oc.getVeiculo()->getPlaca() << "] às " << oc.getTempo();
 	os << (oc.getTipo() == "Saida" ? " | Valor pago: R$ " + to_string(oc.getTotalPago()) : "");
     return os;
 }
