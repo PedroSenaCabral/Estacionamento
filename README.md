@@ -56,3 +56,4 @@ $ git push origin "Nome da sua branch"
    * Pedro Cabral
    * Renato Barros
    * Saulo Gabriel
+   * Victor Bittencourt
