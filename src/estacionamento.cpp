@@ -171,6 +171,8 @@ bool Estacionamento::saidaVeiculo(string placa)
 /** Lista os veículos no estaciomaneto. */
 void Estacionamento::listarVeiculos()
 {
+	cout << "VEÍCULOS CADASTRADOS" << endl; 
+	cout << "--------------------" << endl; 
     for(auto it = this->m_veiculos.begin(); it != this->m_veiculos.end(); it++){
 		Veiculo* veic = it->second;
         cout << (*veic) << endl;
@@ -180,6 +182,9 @@ void Estacionamento::listarVeiculos()
 /** Lista as ocorrencias em aberto. */
 void Estacionamento::listarOcorrenciasAbertas()
 {
+	cout << "OCORRÊNCIAS ABERTAS" << endl; 
+	cout << "-------------------" << endl; 
+
     for(auto it = this->m_ocorrencias.begin(); it != this->m_ocorrencias.end(); it++){
 		Ocorrencia* oc = it->second;
         cout << (*oc) << endl;
@@ -189,6 +194,7 @@ void Estacionamento::listarOcorrenciasAbertas()
 /** Lista todas as ocorrencias */
 void Estacionamento::listarOcorrenciasTotais()
 {
+	
 	ifstream arq(this->m_arquivoOcorrencias);
     string linha;
     if(arq.is_open() == 0){
@@ -197,7 +203,9 @@ void Estacionamento::listarOcorrenciasTotais()
         return;
     };
 
-	cout << "OCORRÊNCIAS REGISTRADAS " << endl;    
+	cout << "OCORRÊNCIAS REGISTRADAS " << endl; 
+	cout << "-----------------------" << endl; 
+
 	while(getline(arq, linha)){
         Ocorrencia* log = new Ocorrencia(linha, this->m_veiculos);
 		if(log->getVeiculo() != nullptr){
@@ -342,6 +350,7 @@ void Estacionamento::iniciarOperacao()
 			"(5) Historico de Ocorrências" << endl <<
 			"(6) Sair" << endl;
 
+		cout <<"Selecione uma opção: ";
 		cin >>  opt;
 
 		system("clear");
@@ -403,7 +412,9 @@ void Estacionamento::continuarOperacao(){
 	"(0)Menu inicial" <<endl<<
 	"(6)Sair do programa " <<endl;
 	
+	cout <<"Selecione uma opção: ";
 	cin >> opt2;
+	
 	switch(opt2) {
 		case '0':
 			system("clear");
@@ -438,6 +449,7 @@ void Estacionamento::selecionarTipoVeiculo () {
 			"(3) Caminhão" << endl <<
 			"(4) Voltar" << endl;
 
+		cout <<"Selecione uma opção: ";
 		cin >>  opt;
 
 		system("clear");

@@ -94,20 +94,27 @@ void Caminhao::print(ostream& ct)
  */
 void Caminhao::put(istream& is)
 {
-  std::cout<< "Entrada de Veículo - Caminhao" << std::endl 
-    << "Por favor, inserir as informções na seguinte ordem:" << std::endl 
-    << "Cor, Modelo, Placa, Num Rodas, Ano, Máx Passageiros, Quantidade de Eixo, Peso da carga." << std::endl;
-  
      string cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,quant_eixos_,peso_carga_;
         
-        is >> cor_
-            >> modelo_
-            >> placa_ 
-            >> rodas_ 
-            >> ano_ 
-            >>maxPassageiros_
-            >> quant_eixos_
-            >> peso_carga_;  
+     std::cout<< "<<INSIRA OS DADOS DO CAMINHÃO>>" << std::endl;
+                 
+        cout<<"Cor: ";
+        is >> cor_;
+        cout<<"Modelo: ";
+        is >> modelo_;
+        cout<<"Placa (XXX-0000): ";
+        is >> placa_;
+        cout<<"Qtde de Rodas: ";
+        is >> rodas_ ;
+        cout<<"Ano: ";
+        is >> ano_;
+        cout<<"Qntde de Passageiros: ";
+        is >>maxPassageiros_;
+        cout<<"Qtde de Eixos: ";
+        is >> quant_eixos_;
+        cout<<"Capacidade de carga: ";
+        is >> peso_carga_; 
+
         if(formatoCorreto(cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,quant_eixos_,peso_carga_)){
             this->m_cor = cor_;
             this->m_modelo  = modelo_;

@@ -102,20 +102,26 @@ void Moto::print(ostream &cout){
  * @param is Fluxo de entrada.
  */
 void Moto::put(istream &is){
+    
+       string cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,cilindradas_;
+        
+       std::cout<< "<<INSIRA OS DADOS DA MOTO>>" << std::endl;
+                 
+        cout<<"Cor: ";
+        is >> cor_;
+        cout<<"Modelo: ";
+        is >> modelo_;
+        cout<<"Placa (XXX-0000): ";
+        is >> placa_;
+        cout<<"Qtde de Rodas: ";
+        is >> rodas_ ;
+        cout<<"Ano: ";
+        is >> ano_;
+        cout<<"Qntde de Passageiros: ";
+        is >>maxPassageiros_;
+        cout<<"Cilindradas: ";
+        is >> cilindradas_;
 
-    cout<< "Entrada de Veículo - Moto" << std::endl 
-        << "Por favor, inserir as informções na seguinte ordem:" << std::endl 
-        << "Cor, Modelo, Placa, Num Rodas, Ano, Máx Passageiros, Cilindradas." << std::endl;
-        
-        string cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,cilindradas_;
-        
-        is >> cor_
-            >> modelo_
-            >> placa_ 
-            >> rodas_ 
-            >> ano_ 
-            >> maxPassageiros_
-            >> cilindradas_;  
         if(formatoCorreto(cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,cilindradas_)){
             this->m_cor = cor_;
             this->m_modelo  = modelo_;

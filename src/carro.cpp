@@ -105,21 +105,30 @@ void Carro::print(ostream& ct)
  * @param      is   Stream de entrada para guardar os dados do Carro.
  */
 void Carro::put(std::istream& is){
-	std::cout<< "Entrada de Veículo - Carro" << std::endl 
-		<< "Por favor, inserir as informções na seguinte ordem:" << std::endl 
-        << "Cor, Modelo, Placa, Num Rodas, Ano, Max Passageiros, Combustivel, Volume do Porta Malas." << std::endl;
-    
+	
 
     string cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,combustivel_,volumePortaMalas_;
         
-        is >> cor_
-            >> modelo_
-            >> placa_ 
-            >> rodas_ 
-            >> ano_ 
-            >>maxPassageiros_
-            >> combustivel_
-            >> volumePortaMalas_;  
+    std::cout<< "<<INSIRA OS DADOS DO CARRO>>" << std::endl;
+                 
+        cout<<"Cor: ";
+        is >> cor_;
+        cout<<"Modelo: ";
+        is >> modelo_;
+        cout<<"Placa (XXX-0000): ";
+        is >> placa_;
+        cout<<"Qtde de Rodas: ";
+        is >> rodas_ ;
+        cout<<"Ano: ";
+        is >> ano_;
+        cout<<"Qntde de Passageiros: ";
+        is >>maxPassageiros_;
+        cout<<"Volume de combustivel: ";
+        is >> combustivel_;
+        cout<<"Volume do porta-malas: ";
+        is >> volumePortaMalas_;   
+
+        
         if(formatoCorreto(cor_,modelo_,placa_,rodas_,ano_,maxPassageiros_,combustivel_,volumePortaMalas_)){
             this->m_cor = cor_;
             this->m_modelo  = modelo_;
