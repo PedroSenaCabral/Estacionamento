@@ -17,7 +17,7 @@ Veiculo::Veiculo(){}
 
 /** Construtor parametrizado */
 Veiculo::Veiculo(std::string cor, std::string modelo, std::string placa, int rodas, int ano, int maxPassageiros) : m_cor(cor),
-            m_modelo(modelo), m_placa(placa),m_rodas(rodas), m_ano(ano), m_maxPassageiros(maxPassageiros) {}
+            m_modelo(modelo), m_placa(placa),m_rodas(rodas), m_ano(ano), m_maxPassageiros(maxPassageiros),m_valido(true) {}
 
 /** Destrutor */
 Veiculo::~Veiculo(){}
@@ -68,6 +68,7 @@ int    Veiculo::getAno()            { return this->m_ano; }
 int    Veiculo::getMaxPassageiros() { return this->m_maxPassageiros; }
 
 
+bool Veiculo::getValido(){ return this->m_valido;}
 /* Setters */
 
 

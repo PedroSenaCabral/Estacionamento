@@ -29,6 +29,7 @@ protected:
     int         m_rodas;            /* Quantidade de rodas do veículo */
     int         m_ano;             /* Ano do modelo do veículo */
     int         m_maxPassageiros; /* Capacidade máxima de passageiros no veículo */
+    bool m_valido;
 
 public:
     /** Construtor padrão */
@@ -56,6 +57,7 @@ public:
     int         getRodas();
     int         getAno();
     int         getMaxPassageiros();
+    bool        getValido();
 
     /* Metódo Virtual Puro */
     virtual double getConsumoPorKM() = 0;

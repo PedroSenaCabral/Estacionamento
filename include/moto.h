@@ -18,7 +18,7 @@
 
 class Moto : public Veiculo{
     private:
-        int m_cilindradas;
+        int m_cilindradas;       
 
     public:
     /** Construtores */
@@ -50,8 +50,10 @@ class Moto : public Veiculo{
     
     /** Inserção e extração dos fluxos */
       void print(ostream &cout);
-      void put(istream &cin);
+      void put(istream &is);
       string toLinhaCsv();
+      bool formatoCorreto(string cor_, string modelo_, string placa_, string rodas_, string ano_, string passageiros_, string cilindradas_);
+      bool ehNumero(string palavra, int tamanhoPalavra);
 
     /** Sobrecarga de operadores */
       friend ostream &operator<<(ostream &os, Moto &m);

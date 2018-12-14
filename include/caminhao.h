@@ -92,7 +92,9 @@ public:
   * Método que sobrecarrega o método put da classe Veiculo. Recebe os dados do caminhao.
   *
   */
-  void put(istream& cin);
+  void put(istream& is);
+  bool formatoCorreto(string cor_, string modelo_, string placa_, string rodas_, string ano_, string maxPassageiros_, string eixos_, string peso_);
+  bool ehNumero(string palavra, int tamanhoPalavra);
   
 
   /**
